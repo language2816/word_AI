@@ -1,0 +1,602 @@
+{
+  "ch7_title": {
+    "id": "ch7_title",
+    "type": "chapter_title",
+    "chapter": "第七章",
+    "title": "選擇",
+    "bg": "dorm_night",
+    "next": "ch7_dawn_open"
+  },
+  "ch7_dawn_open": {
+    "id": "ch7_dawn_open",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你不知道自己睡了多久。",
+      "窗外的光是那種剛剛夠亮、但還沒決定要不要成為早晨的光。",
+      "布林克的床空著，被子疊得整齊，像每一個早晨一樣。",
+      "你坐起來，把那把鑰匙從枕頭底下拿出來，放在手心。"
+    ],
+    "next": "ch7_dawn_key"
+  },
+  "ch7_dawn_key": {
+    "id": "ch7_dawn_key",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "洛克斯說的話還在腦子裡轉——符文魔法的根源是情感。情感越深，魔力越強。但使用它，就是在燃燒它。",
+      "你想了很久，想到最後，你發現你在想的不是魔法。",
+      "你在想那個深夜。",
+      "兩杯水，一杯放到他手邊，然後你回去躺下。",
+      "你在想，那個時候，你心裡的溫度是什麼感覺。",
+      "然後你發現——你記得那個動作，但那個溫度，你要很努力才能想起來了。"
+    ],
+    "next": "ch7_brinke_returns"
+  },
+  "ch7_brinke_returns": {
+    "id": "ch7_brinke_returns",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "門開了。",
+      "布林克走進來，手裡端著兩個陶杯，是食堂早餐時段才會有的那種熱茶。",
+      "他把一杯放到你的書桌上，沒有說話，走到自己床邊坐下。"
+    ],
+    "next": "ch7_brinke_tea"
+  },
+  "ch7_brinke_tea": {
+    "id": "ch7_brinke_tea",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你看著那杯茶。",
+      "你想起第四章那個深夜，你倒了兩杯水，把一杯放到他手邊。",
+      "現在他也倒了兩杯，把一杯放到你手邊。",
+      "他沒有說這是什麼意思。你也沒有問。"
+    ],
+    "next": "ch7_brinke_question"
+  },
+  "ch7_brinke_question": {
+    "id": "ch7_brinke_question",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（他低著頭，手裡握著自己的茶杯，沒有在看你）",
+      "「你當初放那杯水的時候，有沒有後悔過？」"
+    ],
+    "subtext": "聲音很輕，比平時都輕。像是問了很久才開口的問題。",
+    "next": "ch7_choice_water"
+  },
+  "ch7_choice_water": {
+    "id": "ch7_choice_water",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "type": "choice",
+    "prompt": "你怎麼回答？",
+    "choices": [
+      {
+        "text": "「沒有。」",
+        "next": "ch7_answer_no",
+        "tag": "不後悔",
+        "affinity": 3
+      },
+      {
+        "text": "「……我不知道。」",
+        "next": "ch7_answer_unsure",
+        "tag": "不確定",
+        "affinity": 1
+      },
+      {
+        "text": "「後悔過。但只有一秒。」",
+        "next": "ch7_answer_almost",
+        "tag": "誠實",
+        "affinity": 2
+      }
+    ]
+  },
+  "ch7_answer_no": {
+    "id": "ch7_answer_no",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "布林克沉默了一會兒。",
+      "他抬起頭，看你，是那種他很少用的、真的在看你的眼神。",
+      "然後他點了點頭，沒有說話，低下頭繼續喝茶。",
+      "但你注意到他手上的力道放鬆了一點。"
+    ],
+    "next": "ch7_after_answer"
+  },
+  "ch7_answer_unsure": {
+    "id": "ch7_answer_unsure",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（停頓）",
+      "「誠實。」"
+    ],
+    "subtext": "他說這句話的方式，不像是在評價，更像是在陳述一件他認為重要的事。",
+    "next": "ch7_after_answer"
+  },
+  "ch7_answer_almost": {
+    "id": "ch7_answer_almost",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（他看著你，眼神有一點點變化，像是你說了一句他沒預期的話）",
+      "「哪一秒？」"
+    ],
+    "next": "ch7_answer_almost2"
+  },
+  "ch7_answer_almost2": {
+    "id": "ch7_answer_almost2",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "「放下去之後，」你說，「我想到你可能不想要。」",
+      "布林克低下頭。",
+      "「但你沒有走開。」",
+      "「沒有，」你說，「我沒有走開。」",
+      "房間裡安靜了一會兒，是那種兩個人都不需要再說什麼的安靜。"
+    ],
+    "next": "ch7_after_answer"
+  },
+  "ch7_after_answer": {
+    "id": "ch7_after_answer",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你們就坐在各自的床上，各自喝著茶，窗外的光越來越亮。",
+      "布林克沒有再說話。你也沒有。",
+      "但有件事你知道了：他問這個問題，不是在問那杯水。",
+      "他在問，在失去溫度之前，你有沒有後悔過擁有它。"
+    ],
+    "next": "ch7_loxas_summons"
+  },
+  "ch7_loxas_summons": {
+    "id": "ch7_loxas_summons",
+    "chapter": "第七章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "早課前，洛克斯的信使找到你。",
+      "一張紙條，只有四個字：今天，辦公室。",
+      "你知道是什麼事了。"
+    ],
+    "next": "ch7_loxas_office_enter"
+  },
+  "ch7_loxas_office_enter": {
+    "id": "ch7_loxas_office_enter",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "洛克斯的辦公室在主樓最頂層，窗戶朝著維爾德的森林方向，霧讓樹的輪廓都變得不確定。",
+      "他站在窗邊，沒有轉頭，但你進來的時候他說：「坐。」",
+      "你坐下，把手裡的鑰匙放到桌上。",
+      "他終於轉過來，看著那把鑰匙，表情是你從沒見過的——不是計算，是某種和計算一樣沉的東西。"
+    ],
+    "next": "ch7_loxas_truth"
+  },
+  "ch7_loxas_truth": {
+    "id": "ch7_loxas_truth",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "「我在等你來問我。」",
+      "（他在對面的椅子坐下，把鑰匙拿起來，轉了一下）",
+      "「你的入學試第七題，答案是符文魔法的根源是情感——你是唯一一個寫出來的人。」",
+      "「其他人都寫的是意志，或天賦，或血脈。」",
+      "「你寫的是：感受到的東西。」"
+    ],
+    "next": "ch7_loxas_truth2"
+  },
+  "ch7_loxas_truth2": {
+    "id": "ch7_loxas_truth2",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "「我需要一個知道代價是什麼、還願意選擇的人。」",
+      "（停頓，把鑰匙放回桌上）",
+      "「學院每隔幾代就會讓一個平民進來。你以為是因為他們大發慈悲？」",
+      "「是因為學院需要有人在知道真相之後，還做出一個選擇——繼續，或者停。」",
+      "「那個選擇的重量，是貴族的孩子承受不了的。他們的家族不允許。」"
+    ],
+    "next": "ch7_loxas_truth3"
+  },
+  "ch7_loxas_truth3": {
+    "id": "ch7_loxas_truth3",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "「諾南也是平民。他做了選擇，燃盡了所有情感，建立了結界。」",
+      "「那個結界現在還撐著這座城。撐了幾百年。」",
+      "（他看著你，聲音放輕）",
+      "「但結界在裂。它需要有人補上去。」",
+      "「或者，有人選擇不補，讓它自己走到盡頭。」"
+    ],
+    "next": "ch7_player_reacts"
+  },
+  "ch7_player_reacts": {
+    "id": "ch7_player_reacts",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你沉默了很長一段時間。",
+      "「你從一開始就知道要讓我做這個選擇。」",
+      "不是疑問。是陳述。"
+    ],
+    "next": "ch7_loxas_admit"
+  },
+  "ch7_loxas_admit": {
+    "id": "ch7_loxas_admit",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "「是。」",
+      "（他沒有迴避你的視線）",
+      "「但我沒辦法替你做。沒有人可以替你做。」",
+      "「諾南當年也是自己走出去的。」"
+    ],
+    "subtext": "他說這句話的時候，你第一次感覺到他的眼神裡有某種很舊的東西——不是愧疚，是某種比愧疚更沉的東西，像是一件他一直帶著走的重量。",
+    "next": "ch7_final_choice_setup"
+  },
+  "ch7_final_choice_setup": {
+    "id": "ch7_final_choice_setup",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你拿起那把鑰匙。",
+      "它是涼的，一如既往。",
+      "你想到布林克今早端來的那杯茶。",
+      "你想到喬在地下室說的話。",
+      "你想到那個深夜的溫度，和那個溫度現在變得有多遠。",
+      "然後你想到一件事——諾南消失了，但結界還在。有些東西燒完了，灰還在。",
+      "你站起來。"
+    ],
+    "next": "ch7_final_choice"
+  },
+  "ch7_final_choice": {
+    "id": "ch7_final_choice",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "type": "choice",
+    "prompt": "你把鑰匙握在手裡，看著洛克斯。",
+    "choices": [
+      {
+        "text": "「我繼續。」",
+        "next": "ch7_choice_stay",
+        "tag": "留下",
+        "affinity": 0
+      },
+      {
+        "text": "「我不補那個結界。」",
+        "next": "ch7_choice_leave",
+        "tag": "離開",
+        "affinity": 0
+      }
+    ]
+  },
+  "ch7_choice_stay": {
+    "id": "ch7_choice_stay",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "洛克斯沉默了三秒。",
+      "然後他點頭，站起來，走到書架前，拿下一本你沒見過的書，放到你手裡。",
+      "「從這裡開始。」",
+      "他沒有說謝謝，你也沒有要他說。"
+    ],
+    "next": "ch7_ending_a_walk"
+  },
+  "ch7_ending_a_walk": {
+    "id": "ch7_ending_a_walk",
+    "chapter": "第七章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你走出辦公室，走廊上的光是午後的光，厚重，帶著灰塵的微粒在裡面慢慢移動。",
+      "你不知道那個溫度還會剩多少。",
+      "你不知道走到最後，還剩下什麼。",
+      "但你記得那杯水，記得放下去的那個動作，記得它是真實的。",
+      "有些東西燃燒過，就算燒完了，也曾經真實存在過。"
+    ],
+    "next": "ch7_ending_a_brinke"
+  },
+  "ch7_ending_a_brinke": {
+    "id": "ch7_ending_a_brinke",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・窗邊",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "那天傍晚，你回到三一七號房。",
+      "布林克在院子裡練劍，你站在窗邊看著他。",
+      "你還記得所有事——第一天他說「你走錯了」，那個深夜，他第一次叫你名字，今早那杯茶。",
+      "你記得，只是那個溫度越來越難找到了。",
+      "但你知道它曾經在那裡。",
+      "你知道它是真的。"
+    ],
+    "next": "ch7_ending_a_final"
+  },
+  "ch7_ending_a_final": {
+    "id": "ch7_ending_a_final",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・窗邊",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "布林克抬起頭，看見你站在窗邊，停了一下。",
+      "你沒有揮手，他也沒有，你們就這樣隔著玻璃對視了一秒。",
+      "然後他低下頭，繼續練劍。",
+      "你轉身，把那本書放到書桌上，坐下，翻開第一頁。",
+      "維爾德的傍晚的光，從來沒有完全亮過，也從來沒有完全暗過。",
+      "你沒有後悔。"
+    ],
+    "next": "ch7_end_a"
+  },
+  "ch7_end_a": {
+    "id": "ch7_end_a",
+    "type": "chapter_end",
+    "chapter": "結局 A",
+    "title": "留下",
+    "bg": "dorm_room",
+    "next": null
+  },
+  "ch7_choice_leave": {
+    "id": "ch7_choice_leave",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "洛克斯沒有動，也沒有說話。",
+      "你以為他會試圖說服你。他沒有。",
+      "「那個結界，」你說，「會怎樣？」"
+    ],
+    "next": "ch7_leave_loxas_answer"
+  },
+  "ch7_leave_loxas_answer": {
+    "id": "ch7_leave_loxas_answer",
+    "chapter": "第七章",
+    "scene": "學院・洛克斯辦公室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "（他把鑰匙推回到你面前）",
+      "「還有時間。不是今天，不是明年。」",
+      "「也許有人會找到另一個辦法。也許不會。」",
+      "（停頓）",
+      "「但這是你的選擇，不是它的。」"
+    ],
+    "next": "ch7_leave_walk"
+  },
+  "ch7_leave_walk": {
+    "id": "ch7_leave_walk",
+    "chapter": "第七章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你走出去，把那把鑰匙放進口袋。",
+      "你去找了喬，告訴她你要走了。",
+      "她沉默了一下，然後說：「我知道你會這樣選。」",
+      "「為什麼？」",
+      "「因為你進學院的第一天，你就不是為了魔法來的。」"
+    ],
+    "next": "ch7_leave_joe"
+  },
+  "ch7_leave_joe": {
+    "id": "ch7_leave_joe",
+    "chapter": "第七章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你問她你是為了什麼來的。",
+      "喬想了一下，聳了聳肩。",
+      "「為了找到你放得下的東西，和放不下的東西。」",
+      "「現在找到了嗎？」",
+      "「我想是的。」"
+    ],
+    "next": "ch7_leave_pack"
+  },
+  "ch7_leave_pack": {
+    "id": "ch7_leave_pack",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你回三一七號房收拾東西。",
+      "布包比你來的時候輕一點——你在這裡放下了一些東西，也帶走了一些東西，不是都有重量的。",
+      "布林克回來的時候，你已經把布包放到床邊了。",
+      "他站在門口，看著那個包，沒有說話。"
+    ],
+    "next": "ch7_leave_brinke_sees"
+  },
+  "ch7_leave_brinke_sees": {
+    "id": "ch7_leave_brinke_sees",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（他走進來，在自己的床邊坐下，手肘撐著膝蓋，低著頭）",
+      "「什麼時候走？」"
+    ],
+    "next": "ch7_leave_brinke_convo"
+  },
+  "ch7_leave_brinke_convo": {
+    "id": "ch7_leave_brinke_convo",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "「明天早上。」",
+      "布林克點了頭，沒有說「別走」，也沒有說「好」。",
+      "你坐到自己的床上，你們面對面，中間是那個已經空了的書桌。",
+      "房間裡很安靜。不是尷尬的安靜，是那種兩個人都知道說了也沒辦法改變什麼、但還是想多待一會兒的安靜。"
+    ],
+    "next": "ch7_leave_last_night"
+  },
+  "ch7_leave_last_night": {
+    "id": "ch7_leave_last_night",
+    "chapter": "第七章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "那天晚上，布林克沒有像平時那麼早睡。",
+      "你們各自躺著，燈滅了，霧把窗外的光暈散掉。",
+      "快睡著之前，你聽見他說：",
+      "「今天早上那個問題。」",
+      "「你說沒後悔。」",
+      "停頓。",
+      "「我也沒有。」"
+    ],
+    "next": "ch7_leave_morning"
+  },
+  "ch7_leave_morning": {
+    "id": "ch7_leave_morning",
+    "chapter": "第七章",
+    "scene": "學院・學院正門",
+    "bg": "academy_gate",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "第二天清晨，維爾德的霧比平時更深。",
+      "你站在學院正門，背著那個布包。",
+      "比你來的時候輕一點，也重一點，說不清楚為什麼。",
+      "你沒有回頭，然後你聽到腳步聲。"
+    ],
+    "next": "ch7_leave_gate_brinke"
+  },
+  "ch7_leave_gate_brinke": {
+    "id": "ch7_leave_gate_brinke",
+    "chapter": "第七章",
+    "scene": "學院・學院正門",
+    "bg": "academy_gate",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "布林克追上來，沒有外套，頭髮有點亂，像是跑來的。",
+      "他在你面前站定，喘了一下，然後把手伸出來。",
+      "是那把鑰匙。"
+    ],
+    "next": "ch7_leave_key_handback"
+  },
+  "ch7_leave_key_handback": {
+    "id": "ch7_leave_key_handback",
+    "chapter": "第七章",
+    "scene": "學院・學院正門",
+    "bg": "academy_gate",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "「不知道為什麼，但我覺得你應該帶走它。」"
+    ],
+    "subtext": "他說這話的語氣，像是在陳述一個他自己也說不清楚的事實。不是挽留，不是告別，是某種更難說清楚的東西。",
+    "next": "ch7_leave_take_key"
+  },
+  "ch7_leave_take_key": {
+    "id": "ch7_leave_take_key",
+    "chapter": "第七章",
+    "scene": "學院・學院正門",
+    "bg": "academy_gate",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你接過鑰匙，把它放進口袋。",
+      "你們對視了一秒。",
+      "布林克沒有說再見，你也沒有。",
+      "你轉身，走進維爾德的霧裡。"
+    ],
+    "next": "ch7_leave_final"
+  },
+  "ch7_leave_final": {
+    "id": "ch7_leave_final",
+    "chapter": "第七章",
+    "scene": "維爾德・城內街道",
+    "bg": "night_fog",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "霧把學院的輪廓慢慢模糊掉。",
+      "你走在石板路上，魔力在慢慢消散，像一種你曾經以為很重要的東西，原來放下了也還是你。",
+      "但那個深夜的溫度——兩杯水，一個動作，那個你有沒有後悔過的瞬間——",
+      "還在。",
+      "不是記憶。是更深的地方。",
+      "有些東西燃燒過，灰還在。",
+      "灰裡面還有溫度。"
+    ],
+    "next": "ch7_end_b"
+  },
+  "ch7_end_b": {
+    "id": "ch7_end_b",
+    "type": "chapter_end",
+    "chapter": "結局 B",
+    "title": "離開",
+    "bg": "night_fog",
+    "next": null
+  }
+}

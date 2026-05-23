@@ -1,0 +1,651 @@
+{
+  "ch5_title": {
+    "id": "ch5_title",
+    "type": "chapter_title",
+    "chapter": "第五章",
+    "title": "圖書館地下室",
+    "bg": "academy_gate",
+    "next": "ch5_morning"
+  },
+  "ch5_morning": {
+    "id": "ch5_morning",
+    "chapter": "第五章",
+    "scene": "學院・五班教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "第五章開始的那天早上，沒有什麼預兆。",
+      "你坐在五班教室的第三排，把昨天的符文練習翻出來，試著找到自己哪裡寫錯了。",
+      "有人在你旁邊的椅子坐下來。",
+      "你沒有抬頭——那個位置通常沒有人坐，但你以為只是哪個遲到的同學。",
+      "然後有人把一張紙條推到你課本旁邊。"
+    ],
+    "next": "ch5_note"
+  },
+  "ch5_note": {
+    "id": "ch5_note",
+    "chapter": "第五章",
+    "scene": "學院・五班教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "紙條上只有一行字，筆跡很工整：",
+      "「圖書館閉館前半小時。最裡面那排書架，左邊第三個隔間。別讓人看到你去。」",
+      "你抬起頭。",
+      "坐在你旁邊的是一個女生，短髮，面前攤著一本明顯不屬於五班課程的厚書，正在用鉛筆在書頁邊緣畫什麼。",
+      "她沒有看你，像是那張紙條不是她放的。"
+    ],
+    "next": "ch5_jo_intro"
+  },
+  "ch5_jo_intro": {
+    "id": "ch5_jo_intro",
+    "chapter": "第五章",
+    "scene": "學院・五班教室",
+    "bg": "academy_hall",
+    "speaker": "喬",
+    "lines": [
+      "（沒有抬頭，很小聲）",
+      "「你就是三一七號房的那個平民吧。」",
+      "「整個學院都知道。不是壞事，只是事實。」",
+      "（翻頁）",
+      "「我叫喬。今天閉館前見。」"
+    ],
+    "subtext": "她說完之後，教室前方的老師剛好開始點名，像是算準了時間。",
+    "next": "ch5_choice1"
+  },
+  "ch5_choice1": {
+    "id": "ch5_choice1",
+    "chapter": "第五章",
+    "scene": "學院・五班教室",
+    "bg": "academy_hall",
+    "type": "choice",
+    "prompt": "你怎麼回應？",
+    "choices": [
+      {
+        "text": "「你怎麼知道找我？」",
+        "next": "ch5_reply_a",
+        "tag": "直接問",
+        "affinity": 1
+      },
+      {
+        "text": "把紙條收進口袋，什麼都不說。",
+        "next": "ch5_reply_b",
+        "tag": "默許",
+        "affinity": 1
+      },
+      {
+        "text": "「我不知道你是誰，也不知道你要幹嘛。」",
+        "next": "ch5_reply_c",
+        "tag": "保持距離",
+        "affinity": 0
+      }
+    ]
+  },
+  "ch5_reply_a": {
+    "id": "ch5_reply_a",
+    "chapter": "第五章",
+    "scene": "學院・五班教室",
+    "bg": "academy_hall",
+    "speaker": "喬",
+    "lines": [
+      "（還是沒抬頭）",
+      "「因為沒有人注意平民在看什麼。」",
+      "（短暫停頓）",
+      "「包括我。」"
+    ],
+    "subtext": "你不確定這算不算回答了你的問題。",
+    "next": "ch5_class_continue"
+  },
+  "ch5_reply_b": {
+    "id": "ch5_reply_b",
+    "chapter": "第五章",
+    "scene": "學院・五班教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你把紙條折起來放進口袋。",
+      "喬的鉛筆繼續在書頁邊緣移動，像是那個動作得到了她要的答案。"
+    ],
+    "next": "ch5_class_continue"
+  },
+  "ch5_reply_c": {
+    "id": "ch5_reply_c",
+    "chapter": "第五章",
+    "scene": "學院・五班教室",
+    "bg": "academy_hall",
+    "speaker": "喬",
+    "lines": [
+      "（這次抬起頭，看了你一眼，眼神很平靜）",
+      "「對。你不知道。」",
+      "（重新低下頭）",
+      "「但你還是把紙條放口袋裡了。」"
+    ],
+    "subtext": "你這才發現，你的手確實已經把那張紙條捏在手心裡了。",
+    "next": "ch5_class_continue"
+  },
+  "ch5_class_continue": {
+    "id": "ch5_class_continue",
+    "chapter": "第五章",
+    "scene": "學院・五班教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "那一整天，你都在想那張紙條。",
+      "圖書館最裡面那排書架。別讓人看到你去。",
+      "你不知道喬是誰，不知道她要帶你去看什麼，不知道該不該相信一個今天才第一次說話的人。",
+      "但你想起那把鑰匙發熱的感覺，想起布林克手心的燒傷，想起那道牆上的裂縫。",
+      "這個學院有太多你不知道的事了。"
+    ],
+    "next": "ch5_library_enter"
+  },
+  "ch5_library_enter": {
+    "id": "ch5_library_enter",
+    "chapter": "第五章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "閉館前半小時，圖書館已經快沒有人了。",
+      "管理員坐在入口的桌子後面打盹，沒有抬頭。",
+      "你走進去，穿過一排排書架，越走越裡面，燈光越來越暗，空氣裡有舊紙和某種說不清楚的氣味——不是黴，是更古老的東西，像是某種在乾燥之前就已經塵封的時間。",
+      "最裡面那排書架。左邊第三個隔間。"
+    ],
+    "next": "ch5_jo_waiting"
+  },
+  "ch5_jo_waiting": {
+    "id": "ch5_jo_waiting",
+    "chapter": "第五章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "喬已經在那裡了，蹲在書架旁邊，正在把最下層的幾本厚書往旁邊移。",
+      "她聽見你的腳步聲，沒有回頭。",
+      "「你來了。」",
+      "「幫我壓著這邊。」"
+    ],
+    "next": "ch5_trapdoor"
+  },
+  "ch5_trapdoor": {
+    "id": "ch5_trapdoor",
+    "chapter": "第五章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "書架後面有一扇地板門。",
+      "不大，沒有上鎖，鉸鏈看起來是新的——有人定期保養過。",
+      "喬把它掀開，下面有一段往下的石階，有燈，不亮，但夠用。",
+      "「要先說明，」她轉過頭看你，表情很認真，「下去之後，你會知道一些事。」",
+      "「你不一定會喜歡你知道的事。」"
+    ],
+    "next": "ch5_choice2"
+  },
+  "ch5_choice2": {
+    "id": "ch5_choice2",
+    "chapter": "第五章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "type": "choice",
+    "prompt": "你怎麼說？",
+    "choices": [
+      {
+        "text": "「我想知道。」",
+        "next": "ch5_go_down_a",
+        "tag": "直接",
+        "affinity": 0
+      },
+      {
+        "text": "「那你是怎麼知道的？」",
+        "next": "ch5_go_down_b",
+        "tag": "先問她",
+        "affinity": 1
+      },
+      {
+        "text": "沉默，直接往石階走去。",
+        "next": "ch5_go_down_c",
+        "tag": "行動",
+        "affinity": 0
+      }
+    ]
+  },
+  "ch5_go_down_a": {
+    "id": "ch5_go_down_a",
+    "chapter": "第五章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": "喬",
+    "lines": [
+      "（看了你一秒）",
+      "「好。」",
+      "（她先下去）"
+    ],
+    "next": "ch5_basement_arrive"
+  },
+  "ch5_go_down_b": {
+    "id": "ch5_go_down_b",
+    "chapter": "第五章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": "喬",
+    "lines": [
+      "（短暫沉默）",
+      "「因為沒有人注意平民在哪裡，平民就可以去任何地方。」",
+      "（她往石階踏了一步）",
+      "「我在這裡念了一年了。這個地方，一年前就讓我找到了。」"
+    ],
+    "subtext": "她沒有說那一年裡發生了什麼。",
+    "next": "ch5_basement_arrive"
+  },
+  "ch5_go_down_c": {
+    "id": "ch5_go_down_c",
+    "chapter": "第五章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你沒有說話，踏上了第一格石階。",
+      "喬在你身後停了一秒，然後跟上來，把地板門帶上。",
+      "黑暗降下來，然後那道微弱的燈光亮了，前方的石階繼續往下延伸。"
+    ],
+    "next": "ch5_basement_arrive"
+  },
+  "ch5_basement_arrive": {
+    "id": "ch5_basement_arrive",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "地下室不大，但書很多。",
+      "不是圖書館那種整齊上架的書——是堆放的，摞在角落，塞進臨時架起的木板之間，有些直接放在地上，有些用布蓋著。",
+      "空氣很冷，冷得跟上面不一樣，像是這裡的空氣從來沒有換過。",
+      "你靠近其中一疊，看了一眼書脊——書名不是學院課程裡的任何一本，有些是你認識的古字，有些是你完全沒看過的語言。"
+    ],
+    "next": "ch5_jo_explains"
+  },
+  "ch5_jo_explains": {
+    "id": "ch5_jo_explains",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": "喬",
+    "lines": [
+      "「這些書是學院從課程裡拿掉的。」",
+      "「不是禁書，沒有明文禁止。只是某一年開始，它們就從書架上消失了。沒有解釋，沒有記錄。」",
+      "「如果不是這個地方，它們就不存在了。」"
+    ],
+    "next": "ch5_the_ledger"
+  },
+  "ch5_the_ledger": {
+    "id": "ch5_the_ledger",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "喬走到角落，從一疊布蓋著的東西底下抽出一本泛黃的記錄冊。",
+      "她把它放到你面前唯一的一張桌子上，打開到中間某頁。",
+      "頁面上是手寫的，字跡工整但密集，旁邊用紅色標注過，有些字已經看不清楚了。",
+      "但標題你看得清楚：",
+      "《符文魔法的情感代謝——長期觀察記錄》"
+    ],
+    "next": "ch5_truth_reveal"
+  },
+  "ch5_truth_reveal": {
+    "id": "ch5_truth_reveal",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": "喬",
+    "lines": [
+      "「符文魔法不是免費的。不是用體力，不是用時間。」",
+      "「它燒的是情感。」",
+      "（停頓）",
+      "「每一次施法，每一次讓魔力成長，你就在失去某一部分感受事情的能力。不是記憶——記憶還在。是那個溫度。那個當時的感覺。」",
+      "「記得那個人，但再也感覺不到當初為什麼在乎他。就這樣。」"
+    ],
+    "next": "ch5_player_reaction"
+  },
+  "ch5_player_reaction": {
+    "id": "ch5_player_reaction",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你沒有說話。",
+      "你看著那本記錄冊，看著那些密密麻麻的字，看著那些用紅筆標注的段落——",
+      "有人知道這件事，把它記錄下來，然後它從圖書館消失了。",
+      "學院知道。",
+      "學院沒有告訴任何人。"
+    ],
+    "next": "ch5_jo_civilian"
+  },
+  "ch5_jo_civilian": {
+    "id": "ch5_jo_civilian",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": "喬",
+    "lines": [
+      "「你知道學院為什麼要讓平民進來嗎。」",
+      "（她沒有用問句的語氣，是陳述）",
+      "「貴族的孩子，背後有家族。家族不願意讓孩子失去情感——那些家族靠聯姻、靠血脈維繫勢力，情感對他們來說是有用的東西。他們會讓孩子在某個時間點停止施法。」",
+      "「平民沒有家族。沒有人在乎平民失去什麼。」",
+      "（停頓，聲音很平靜，但那個平靜本身就是一種重量）",
+      "「平民可以一直燒，燒到底。」"
+    ],
+    "subtext": "這個房間的空氣沒有流動，但你感覺到一陣冷。",
+    "next": "ch5_choice3"
+  },
+  "ch5_choice3": {
+    "id": "ch5_choice3",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "type": "choice",
+    "prompt": "你的第一個反應是什麼？",
+    "choices": [
+      {
+        "text": "「你是怎麼查到這些的？」",
+        "next": "ch5_react_a",
+        "tag": "問她來源",
+        "affinity": 1
+      },
+      {
+        "text": "「有多少人知道這件事？」",
+        "next": "ch5_react_b",
+        "tag": "問範圍",
+        "affinity": 0
+      },
+      {
+        "text": "沉默。你需要時間消化這件事。",
+        "next": "ch5_react_c",
+        "tag": "沉默消化",
+        "affinity": 0
+      }
+    ]
+  },
+  "ch5_react_a": {
+    "id": "ch5_react_a",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": "喬",
+    "lines": [
+      "「這本冊子，還有那些被拿掉的書。」",
+      "「然後是觀察。」",
+      "（她頓了一下）",
+      "「我在這裡念了一年。我有很多時間可以觀察，因為沒有人注意平民在哪裡。」",
+      "「有個五班的前輩，上學期開始說她對任何事都提不起勁。她說她記得所有朋友，但她說，那種感覺就像是在看一張很久以前的照片——知道這個人對你很重要，但感覺不到了。」",
+      "「上個月她申請退學了。」"
+    ],
+    "next": "ch5_react_converge"
+  },
+  "ch5_react_b": {
+    "id": "ch5_react_b",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": "喬",
+    "lines": [
+      "「真正知道的？」",
+      "（她想了一下）",
+      "「學院的高層，一定知道。某些老師，可能知道。學生裡，除了你現在，就我一個。」",
+      "（停頓）",
+      "「貴族家族的家長，應該也知道。所以他們才讓孩子在某個時間點停下來。」",
+      "「他們只是沒有告訴孩子，為什麼要停。」"
+    ],
+    "next": "ch5_react_converge"
+  },
+  "ch5_react_c": {
+    "id": "ch5_react_c",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你沒有說話。",
+      "你把手放到那本記錄冊上，感覺到舊紙的紋路，感覺到它的重量。",
+      "有人花了很長的時間把這些寫下來。把它藏在這裡。",
+      "也許是希望有人能找到。也許只是不想讓它消失。",
+      "你不知道那個人現在在哪裡，不知道他們還記不記得當初寫下這些字的感覺。"
+    ],
+    "next": "ch5_react_converge"
+  },
+  "ch5_react_converge": {
+    "id": "ch5_react_converge",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "喬把記錄冊重新合上。",
+      "「我不是要你做什麼，」她說，「我只是覺得你應該知道。」",
+      "「特別是你——近二十年來第一個進來的平民。學院沒有特別善良到讓你進來因為你有天份。」",
+      "「他們讓你進來，因為你對他們有用。」"
+    ],
+    "next": "ch5_key_warmth"
+  },
+  "ch5_key_warmth": {
+    "id": "ch5_key_warmth",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你把手插進口袋。",
+      "鑰匙是涼的——只是一把普通的金屬，像每一天一樣。",
+      "但你想起那個夜晚，它發熱、發光，然後熄滅的樣子。",
+      "你想起報到處的人把這把鑰匙放到桌上時，皺了一下眉——那個停頓，那個「三一七號房」說出口前的猶豫。",
+      "有人知道這把鑰匙是什麼。",
+      "也許從一開始，它就不是一個錯誤。"
+    ],
+    "next": "ch5_jo_leaves"
+  },
+  "ch5_jo_leaves": {
+    "id": "ch5_jo_leaves",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": "喬",
+    "lines": [
+      "「閉館了，我們得走了。」",
+      "（她往石階走，停了一下）",
+      "「記錄冊你可以再來看，這個地方每天都開著——鎖壞了，沒有人修。」",
+      "（很短暫的停頓）",
+      "「或者說，有人故意讓它壞著。」"
+    ],
+    "subtext": "她說完就上去了，沒有等你的反應。",
+    "next": "ch5_alone_moment"
+  },
+  "ch5_alone_moment": {
+    "id": "ch5_alone_moment",
+    "chapter": "第五章",
+    "scene": "學院・圖書館地下室",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你在地下室裡多待了一會兒。",
+      "你站在那張桌子前，看著那本合起來的記錄冊，看著四周那些被從圖書館抽掉的書。",
+      "有些事燃燒過。就算燒完了，灰還在。",
+      "你不知道你是不是已經開始燒了。",
+      "你只知道，你現在知道了這件事，你沒有辦法假裝不知道。"
+    ],
+    "next": "ch5_night_return"
+  },
+  "ch5_night_return": {
+    "id": "ch5_night_return",
+    "chapter": "第五章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你回到宿舍的時候，布林克在。",
+      "他坐在桌前，面前打開著一本書，但他沒有在看書——他在看你進門。",
+      "「你去哪了。」",
+      "不是關心，是純粹的陳述。但他問了。"
+    ],
+    "next": "ch5_choice4"
+  },
+  "ch5_choice4": {
+    "id": "ch5_choice4",
+    "chapter": "第五章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "type": "choice",
+    "prompt": "你怎麼回答布林克？",
+    "choices": [
+      {
+        "text": "「圖書館。查一些東西。」",
+        "next": "ch5_brinke_a",
+        "tag": "部分實話",
+        "affinity": 1
+      },
+      {
+        "text": "「隨便走走。」",
+        "next": "ch5_brinke_b",
+        "tag": "帶過",
+        "affinity": 0
+      },
+      {
+        "text": "「有件事我想問你。」",
+        "next": "ch5_brinke_c",
+        "tag": "直接問",
+        "affinity": 2
+      }
+    ]
+  },
+  "ch5_brinke_a": {
+    "id": "ch5_brinke_a",
+    "chapter": "第五章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（低下頭，繼續看書）",
+      "「符文構築學的參考資料在第七排右側。」",
+      "（停頓）",
+      "「你找的東西在那嗎？」"
+    ],
+    "subtext": "他的語氣還是平的，但這個問題不是廢話。他想知道你在找什麼。",
+    "next": "ch5_brinke_converge"
+  },
+  "ch5_brinke_b": {
+    "id": "ch5_brinke_b",
+    "chapter": "第五章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（看了你一眼，低下頭）",
+      "「嗯。」"
+    ],
+    "subtext": "他沒有繼續問，但你感覺到他翻書的速度比剛才慢了一點。",
+    "next": "ch5_brinke_converge"
+  },
+  "ch5_brinke_c": {
+    "id": "ch5_brinke_c",
+    "chapter": "第五章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（抬起頭，看你，等著）"
+    ],
+    "next": "ch5_brinke_c2"
+  },
+  "ch5_brinke_c2": {
+    "id": "ch5_brinke_c2",
+    "chapter": "第五章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你看著他，想說什麼，但話到嘴邊，你停下來了。",
+      "不是因為你不信任他——是因為你還不知道怎麼說。",
+      "「……沒事，」你說，「我去洗澡了。」",
+      "布林克看了你三秒，沒有說話，重新低下頭。",
+      "但他把書合上了。"
+    ],
+    "subtext": "他知道你有話沒說。他選擇不問。",
+    "next": "ch5_brinke_converge"
+  },
+  "ch5_brinke_converge": {
+    "id": "ch5_brinke_converge",
+    "chapter": "第五章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你換好衣服，躺到床上。",
+      "燈熄了之後，房間很安靜。",
+      "你盯著天花板，腦子裡是那本記錄冊，是喬說的那些話，是那個五班前輩說「感覺就像在看很久以前的照片」的樣子——你沒見過那個人，但你好像懂那種感覺的輪廓。",
+      "你轉過身，看著布林克那邊的輪廓。",
+      "他已經睡著了，或者看起來是。"
+    ],
+    "next": "ch5_night_thought"
+  },
+  "ch5_night_thought": {
+    "id": "ch5_night_thought",
+    "chapter": "第五章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你想到那個深夜——他坐在窗邊，手裡握著那封信，表情是你從來沒見過的疲憊。",
+      "你倒了兩杯水，把一杯放到他手邊。",
+      "那個時候你心裡有一種溫度，你現在還感覺得到——不是很大的什麼，只是你覺得你應該這樣做，而且你想這樣做。",
+      "你現在還感覺得到。",
+      "你不知道這代表什麼。",
+      "你只知道，你現在還感覺得到，而你很希望這件事永遠不要改變。"
+    ],
+    "next": "ch5_end_narration"
+  },
+  "ch5_end_narration": {
+    "id": "ch5_end_narration",
+    "chapter": "第五章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "維爾德的夜很安靜。",
+      "學院的石牆把外面的聲音都隔在外面了，只有偶爾的風聲，從窗縫裡漏進來。",
+      "你閉上眼睛。",
+      "你知道的事又多了一些，而這些知識的重量，比符文構築學的課本還要重。",
+      "但喬說的那句話，一直在你腦子裡繞：",
+      "「有些事情，你應該知道。」",
+      "你想，也許你早就應該知道了。"
+    ],
+    "next": "ch5_end"
+  },
+  "ch5_end": {
+    "id": "ch5_end",
+    "type": "chapter_end",
+    "chapter": "第五章",
+    "title": "圖書館地下室",
+    "bg": "dorm_night",
+    "next": "ch6_title"
+  }
+}

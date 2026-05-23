@@ -1,0 +1,758 @@
+{
+  "ch6_title": {
+    "id": "ch6_title",
+    "type": "chapter_title",
+    "chapter": "第六章",
+    "title": "代價",
+    "bg": "academy_gate",
+    "next": "ch6_days_after"
+  },
+  "ch6_days_after": {
+    "id": "ch6_days_after",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "日子繼續過。",
+      "符文構築學的課程進入第二個月，難度陡然上升，教室裡開始有人跟不上了。",
+      "但你沒有。",
+      "你坐在位置上，看著黑板上那道你上週還需要想三分鐘的推導式，發現自己不到三十秒就看懂了。",
+      "你把這件事在心裡記下來，沒有說出來。"
+    ],
+    "next": "ch6_magic_grows"
+  },
+  "ch6_magic_grows": {
+    "id": "ch6_magic_grows",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "魔力在長，你感覺得到。",
+      "不是那種課本描述的「溫熱的流動」——是更實際的東西：符文在你手裡反應的速度變快了，紙上的推導不再需要那麼多步驟，你開始能感覺到符文結構裡哪裡有缺口，哪裡勉強，哪裡會在最大負荷時最先崩潰。",
+      "你以為這是好事。",
+      "然後你想起地下室那本記錄冊。",
+      "然後你就不確定了。"
+    ],
+    "next": "ch6_first_sign"
+  },
+  "ch6_first_sign": {
+    "id": "ch6_first_sign",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "第一個徵兆出現的時候，你幾乎沒有注意到。",
+      "那天傍晚，布林克從外面回來，把一本書扔到桌上，說了一句：「你要的。」",
+      "你愣了一下，才想起來——三天前你隨口說過，符文學有一個歷史典故你查不到出處。",
+      "他記得，找來了。",
+      "你看著那本書，心裡有什麼東西，但比你預期的要輕一點點。",
+      "你以為只是今天太累了。"
+    ],
+    "next": "ch6_rationalize"
+  },
+  "ch6_rationalize": {
+    "id": "ch6_rationalize",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "「謝謝，」你說。",
+      "布林克點了一下頭，坐回自己的桌前。",
+      "你把書打開，開始翻，試著專注在那個典故上。",
+      "但有一部分的你停在剛才那個感覺上——那個比預期輕一點點的東西。",
+      "你想，也許只是因為你已經習慣他了。",
+      "人對習慣的事反應都會變輕，這很正常。",
+      "你繼續翻書，把這件事放到一邊去了。"
+    ],
+    "next": "ch6_jo_meets"
+  },
+  "ch6_jo_meets": {
+    "id": "ch6_jo_meets",
+    "chapter": "第六章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "幾天後，你在圖書館遇見喬。",
+      "不是在地下室，是在上面，她坐在角落的桌子，面前攤著那本你以為只有她自己才看的書。",
+      "她看見你，把旁邊的椅子用腳推出來一點點。",
+      "你坐過去。"
+    ],
+    "next": "ch6_jo_observes"
+  },
+  "ch6_jo_observes": {
+    "id": "ch6_jo_observes",
+    "chapter": "第六章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": "喬",
+    "lines": [
+      "「你最近符文學課的反應變快了。」",
+      "（她沒有抬頭）",
+      "「我有在觀察。不是針對你——我對每個人都在觀察。」",
+      "（停頓）",
+      "「你有沒有感覺到什麼不一樣的地方？」"
+    ],
+    "next": "ch6_choice1"
+  },
+  "ch6_choice1": {
+    "id": "ch6_choice1",
+    "chapter": "第六章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "type": "choice",
+    "prompt": "你怎麼回答喬？",
+    "choices": [
+      {
+        "text": "「有。但我以為只是習慣。」",
+        "next": "ch6_jo_a",
+        "tag": "說出來",
+        "affinity": 1
+      },
+      {
+        "text": "「魔力在長，課業變快了，其他的我不確定。」",
+        "next": "ch6_jo_b",
+        "tag": "部分說",
+        "affinity": 0
+      },
+      {
+        "text": "「你觀察到什麼？」",
+        "next": "ch6_jo_c",
+        "tag": "反問",
+        "affinity": 1
+      }
+    ]
+  },
+  "ch6_jo_a": {
+    "id": "ch6_jo_a",
+    "chapter": "第六章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": "喬",
+    "lines": [
+      "（終於抬頭，看了你一眼）",
+      "「不是習慣。」",
+      "「習慣是你反應變慢，因為你不再需要全力關注一件事。」",
+      "「你說的那種輕，是另一種東西。」",
+      "（她重新低下頭）",
+      "「記錄冊裡有描述。第十七頁，第三段。」"
+    ],
+    "next": "ch6_jo_converge"
+  },
+  "ch6_jo_b": {
+    "id": "ch6_jo_b",
+    "chapter": "第六章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": "喬",
+    "lines": [
+      "「其他的那個不確定，才是我在問的。」",
+      "（她把書翻到某一頁，推到你面前）",
+      "「你有沒有遇過某件事，你的反應比你預期的要小——不是你控制的，只是感覺比以前輕了？」"
+    ],
+    "subtext": "你沉默了一下。你有。",
+    "next": "ch6_jo_converge"
+  },
+  "ch6_jo_c": {
+    "id": "ch6_jo_c",
+    "chapter": "第六章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": "喬",
+    "lines": [
+      "「你解符文的速度比上個月快了大概三成。」",
+      "「你在教室裡的表情越來越少變化——不是因為你在掩飾，是因為你好像真的不那麼波動了。」",
+      "（她看著你）",
+      "「你自己有感覺嗎。」"
+    ],
+    "next": "ch6_jo_converge"
+  },
+  "ch6_jo_converge": {
+    "id": "ch6_jo_converge",
+    "chapter": "第六章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你沒有繼續說話。",
+      "喬也沒有再問。",
+      "你們就這樣在那張桌子旁邊各自看書，圖書館的燈光打在紙頁上，很安靜。",
+      "但那個輕的感覺，你現在想起來了，它已經不只一次了。",
+      "你只是每一次都找到了別的理由。"
+    ],
+    "next": "ch6_loxas_summons"
+  },
+  "ch6_loxas_summons": {
+    "id": "ch6_loxas_summons",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室外",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "符文構築學下課，你正要走出教室，洛克斯叫住你。",
+      "「{name}。」",
+      "你停下來。班上其他人陸續走出去，洛克斯等到教室只剩你們兩個，才從講台後面走出來。",
+      "他站在你面前，看著你，那個眼神——還是你第一次在他臉上看到的那種辨認，但今天比以前更重了一些。"
+    ],
+    "next": "ch6_loxas_talk"
+  },
+  "ch6_loxas_talk": {
+    "id": "ch6_loxas_talk",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "「你最近有沒有感覺到，某些事情的重量變輕了？」",
+      "（停頓）",
+      "「不是變得不重要。只是那個感覺本身——比你記憶中的要薄一點。」"
+    ],
+    "next": "ch6_choice2"
+  },
+  "ch6_choice2": {
+    "id": "ch6_choice2",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "type": "choice",
+    "prompt": "你怎麼回答？",
+    "choices": [
+      {
+        "text": "「有。」",
+        "next": "ch6_loxas_b1",
+        "tag": "承認",
+        "affinity": 0
+      },
+      {
+        "text": "「你為什麼這樣問？」",
+        "next": "ch6_loxas_b2",
+        "tag": "反問",
+        "affinity": 0
+      },
+      {
+        "text": "沉默，等他繼續說。",
+        "next": "ch6_loxas_b3",
+        "tag": "等待",
+        "affinity": 0
+      }
+    ]
+  },
+  "ch6_loxas_b1": {
+    "id": "ch6_loxas_b1",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "（他點了一下頭，像是確認了什麼）",
+      "「謝謝你告訴我。」",
+      "（停頓）",
+      "「坐下來，我需要告訴你一些事。」"
+    ],
+    "next": "ch6_nonan_truth"
+  },
+  "ch6_loxas_b2": {
+    "id": "ch6_loxas_b2",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "（他沒有迴避這個問題）",
+      "「因為我一直在觀察你。從你入學開始。」",
+      "（走到靠窗的桌邊，坐下來）",
+      "「因為這把鑰匙，」他頓了頓，「我認識它。」",
+      "「坐下來，我需要從頭說。」"
+    ],
+    "next": "ch6_nonan_truth"
+  },
+  "ch6_loxas_b3": {
+    "id": "ch6_loxas_b3",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "（他看了你一會兒）",
+      "「你不問。」",
+      "（短暫停頓，像是在評估什麼）",
+      "「坐下來。」"
+    ],
+    "next": "ch6_nonan_truth"
+  },
+  "ch6_nonan_truth": {
+    "id": "ch6_nonan_truth",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "「你知道諾南的故事。每個維爾德人都知道。」",
+      "「幾百年前，初代英雄，以鮮血與符文建立了學院的結界。」",
+      "「你知道的版本到這裡就結束了。」",
+      "（停頓）",
+      "「但真正的結局是：諾南在建立結界的那一刻，燃盡了他所有的情感。」",
+      "「他記得所有愛過的人，記得所有做過的選擇。他只是再也感覺不到任何一件事的溫度了。」",
+      "「然後他消失了。不是死亡——是走掉了。去了沒有人找得到他的地方。」",
+      "「因為一個對所有事情都感覺不到溫度的人，留在這裡，已經沒有意義了。」"
+    ],
+    "next": "ch6_player_absorb"
+  },
+  "ch6_player_absorb": {
+    "id": "ch6_player_absorb",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你沒有說話。",
+      "教室的窗外，學院的院子裡有學生在練習符文，你能聽見偶爾的聲響。",
+      "這裡的一切都是諾南建立的。結界，學院，這些走廊，這些教室。",
+      "他建完，然後走掉了，因為他燒完了。",
+      "你手裡握著那把鑰匙——你沒有拿出來，但你感覺得到它的重量。"
+    ],
+    "next": "ch6_key_reveal"
+  },
+  "ch6_key_reveal": {
+    "id": "ch6_key_reveal",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "「那把鑰匙，是我放的。」",
+      "（他看著你，語氣很平靜，但那個平靜是克制出來的）",
+      "「鑰匙圈上的符文——那是諾南留下的。不是他刻的，是他在建立結界的最後一刻，魔力自然凝結成的形狀。學院把它保存了幾百年。」",
+      "「它會對魔力有反應。會發光，會發熱。對魔力越強的人，反應越明顯。」"
+    ],
+    "next": "ch6_why_player"
+  },
+  "ch6_why_player": {
+    "id": "ch6_why_player",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "「入學試的時候，你拿著報名表走進考場，鑰匙在收納室裡發了光。」",
+      "「我是唯一注意到的人。」",
+      "（停頓）",
+      "「我把它放進你的宿舍配發的那批鑰匙裡。讓你拿到它。」",
+      "「我安排你住進三一七號房，因為那裡已經有人了——有人陪著你，比讓你一個人待著要好。」"
+    ],
+    "next": "ch6_choice3"
+  },
+  "ch6_choice3": {
+    "id": "ch6_choice3",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "type": "choice",
+    "prompt": "你的反應是什麼？",
+    "choices": [
+      {
+        "text": "「你為什麼要告訴我這些？」",
+        "next": "ch6_react_a",
+        "tag": "問動機",
+        "affinity": 0
+      },
+      {
+        "text": "「學院知道你做了這件事嗎？」",
+        "next": "ch6_react_b",
+        "tag": "問學院",
+        "affinity": 0
+      },
+      {
+        "text": "「你一開始就知道這會發生。」",
+        "next": "ch6_react_c",
+        "tag": "質問",
+        "affinity": -1
+      }
+    ]
+  },
+  "ch6_react_a": {
+    "id": "ch6_react_a",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "（沉默了一會兒）",
+      "「因為諾南走掉之前，留下了一句話。」",
+      "「他說：『下一個找到這把鑰匙的人，讓他們自己選擇。』」",
+      "（他看著你）",
+      "「學院不打算讓你選擇。我打算讓你選擇。」"
+    ],
+    "next": "ch6_loxas_converge"
+  },
+  "ch6_react_b": {
+    "id": "ch6_react_b",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "「學院知道鑰匙被你拿了。」",
+      "「他們以為是行政失誤。」",
+      "（停頓）",
+      "「我沒有解釋。」"
+    ],
+    "next": "ch6_loxas_converge"
+  },
+  "ch6_react_c": {
+    "id": "ch6_react_c",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "（他沒有否認）",
+      "「我知道魔力會成長。我知道成長是有代價的。」",
+      "「我不知道你會成長得這麼快。」",
+      "（停頓，語氣裡有什麼東西，不完全是歉意，但接近）",
+      "「如果我當時就把這些告訴你，你不會相信我。」",
+      "「現在你相信了，因為你已經感覺到了。」"
+    ],
+    "next": "ch6_loxas_converge"
+  },
+  "ch6_loxas_converge": {
+    "id": "ch6_loxas_converge",
+    "chapter": "第六章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "洛克斯・索羅里斯",
+    "lines": [
+      "「現在你知道了。」",
+      "「魔力還在繼續長。代價也還在繼續走。」",
+      "「你可以選擇繼續——魔力會更強，你會成為這個學院幾百年來最出色的學生之一。情感會繼續變輕，慢慢的，像水蒸發，你幾乎不會感覺到它在走。直到有一天，你感覺到它不在了。」",
+      "「你也可以選擇停下來。停止施法，魔力就停止成長，代價也停止。你已經失去的那一點點，可能找不回來，但也不會再多失去。」",
+      "（他站起來）",
+      "「這不是今天要決定的事。但我需要你知道，你有選擇。」"
+    ],
+    "next": "ch6_alone_corridor"
+  },
+  "ch6_alone_corridor": {
+    "id": "ch6_alone_corridor",
+    "chapter": "第六章",
+    "scene": "學院・主樓走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你走出教室，走進走廊。",
+      "光從走廊盡頭的窗戶進來，打在石板地上，一格一格的。",
+      "你站在那裡，試著去感覺你現在的狀態。",
+      "你記得所有的事：布林克找來的那本書，喬推過來的紙條，第四章那個深夜的兩杯水。",
+      "你記得全部。",
+      "只是你在回想那本書的時候，心裡升起的東西——確實比你記憶裡那個當下的感覺，要薄一點。",
+      "你現在確定了。那不是習慣，不是疲憊。那是它在走。"
+    ],
+    "next": "ch6_what_is_left"
+  },
+  "ch6_what_is_left": {
+    "id": "ch6_what_is_left",
+    "chapter": "第六章",
+    "scene": "學院・主樓走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你做了一件事——",
+      "你試著去想布林克。",
+      "不是他做了什麼，只是想他這個人，想他坐在窗邊的輪廓，想他第一次叫你名字的聲音。",
+      "溫度還在。",
+      "還在，但你感覺得到它的邊緣——像一杯快要涼掉的茶，還有溫度，但你知道它正在走。",
+      "你不知道它什麼時候會完全涼掉。"
+    ],
+    "next": "ch6_choice4"
+  },
+  "ch6_choice4": {
+    "id": "ch6_choice4",
+    "chapter": "第六章",
+    "scene": "學院・主樓走廊",
+    "bg": "dormitory",
+    "type": "choice",
+    "prompt": "你站在走廊上，你想到的第一件事是什麼？",
+    "choices": [
+      {
+        "text": "你想告訴布林克。",
+        "next": "ch6_think_brinke",
+        "tag": "想告訴他",
+        "affinity": 2
+      },
+      {
+        "text": "你想去找喬，確認記錄冊裡有沒有辦法阻止這件事。",
+        "next": "ch6_think_jo",
+        "tag": "想找出路",
+        "affinity": 1
+      },
+      {
+        "text": "你不知道你想做什麼。你只是站在那裡。",
+        "next": "ch6_think_still",
+        "tag": "站著",
+        "affinity": 0
+      }
+    ]
+  },
+  "ch6_think_brinke": {
+    "id": "ch6_think_brinke",
+    "chapter": "第六章",
+    "scene": "學院・主樓走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你想告訴布林克。",
+      "你不知道為什麼是這個念頭先來——不是喬，不是洛克斯，是他。",
+      "也許是因為他是你每天睜開眼睛第一個看見的人。也許是因為你想在那個溫度還在的時候，讓他知道它存在過。",
+      "你往宿舍的方向走。",
+      "然後你走到走廊的一半，停下來。",
+      "你還不知道怎麼說這件事。你連你自己都還沒有消化完。",
+      "你轉過身，去了圖書館。"
+    ],
+    "next": "ch6_converge_night"
+  },
+  "ch6_think_jo": {
+    "id": "ch6_think_jo",
+    "chapter": "第六章",
+    "scene": "學院・主樓走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你往圖書館走。",
+      "記錄冊——那本記錄了幾十年觀察的冊子，也許裡面有什麼你還沒看到的東西。",
+      "也許有人試過別的辦法。也許有人找到過出口。",
+      "你下了石階，進了地下室，把那本冊子翻到最後幾頁。",
+      "最後幾頁是空白的。",
+      "記錄的人在某一頁停下來了，然後再也沒有寫了。",
+      "你不知道那個人後來做了什麼選擇。"
+    ],
+    "next": "ch6_converge_night"
+  },
+  "ch6_think_still": {
+    "id": "ch6_think_still",
+    "chapter": "第六章",
+    "scene": "學院・主樓走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你站在走廊上，什麼都沒做。",
+      "光還是一格一格的打在地板上。",
+      "走廊兩端偶爾有人經過，沒有人注意你。",
+      "你想，也許這就是它走掉的感覺——不是轟然倒塌，是你站在一個走廊上，想不清楚你應該去哪裡，然後發現你對這件事也沒有特別強烈的感受了。",
+      "你深吸一口氣。",
+      "你往宿舍走。"
+    ],
+    "next": "ch6_converge_night"
+  },
+  "ch6_converge_night": {
+    "id": "ch6_converge_night",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "那天晚上你回到宿舍，布林克在桌前練習符文，手指在紙上輕輕描著路徑。",
+      "你換好衣服，坐到自己的桌前，打開課本，但你沒有在看。",
+      "你在看布林克。",
+      "他沒有察覺，或者他察覺了但沒有說。",
+      "他的側臉在燈光下很安靜，那種習慣了的、不是刻意裝出來的安靜。"
+    ],
+    "next": "ch6_brinke_looks_up"
+  },
+  "ch6_brinke_looks_up": {
+    "id": "ch6_brinke_looks_up",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（沒有抬頭）",
+      "「你今天臉色不太對。」",
+      "（停頓，繼續描符文）",
+      "「不是要問你發生了什麼。只是說。」"
+    ],
+    "next": "ch6_choice5"
+  },
+  "ch6_choice5": {
+    "id": "ch6_choice5",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "type": "choice",
+    "prompt": "你怎麼回答？",
+    "choices": [
+      {
+        "text": "「洛克斯告訴我一些事。關於魔法的代價。」",
+        "next": "ch6_tell_brinke",
+        "tag": "說了",
+        "affinity": 3
+      },
+      {
+        "text": "「沒事，只是有點累。」",
+        "next": "ch6_hide_brinke",
+        "tag": "帶過",
+        "affinity": 0
+      },
+      {
+        "text": "「你知道魔法會消耗情感嗎。」",
+        "next": "ch6_ask_brinke",
+        "tag": "直接問",
+        "affinity": 2
+      }
+    ]
+  },
+  "ch6_tell_brinke": {
+    "id": "ch6_tell_brinke",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你說了。",
+      "不是全部，但你說了大概的輪廓——符文魔法燒的是情感，魔力越強失去越多，學院知道這件事但沒有告訴任何人。",
+      "你說到一半，布林克放下了筆。",
+      "你說完之後，房間裡很安靜。"
+    ],
+    "next": "ch6_brinke_response"
+  },
+  "ch6_hide_brinke": {
+    "id": "ch6_hide_brinke",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（看了你一眼，重新低下頭）",
+      "「嗯。」",
+      "（停頓，沒有再說話）",
+      "（他把手邊的一個小符文石推到桌子邊緣——離你這側近一點點的位置，然後繼續描他的符文）"
+    ],
+    "subtext": "就這樣，什麼都沒說。但那顆符文石現在離你更近了。",
+    "next": "ch6_night_alone_thought"
+  },
+  "ch6_ask_brinke": {
+    "id": "ch6_ask_brinke",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（他的手停了一下）",
+      "（然後繼續描符文，聲音很平）",
+      "「我知道。」"
+    ],
+    "next": "ch6_ask_brinke2"
+  },
+  "ch6_ask_brinke2": {
+    "id": "ch6_ask_brinke2",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你愣了一下。",
+      "「你知道。」",
+      "「從什麼時候。」",
+      "布林克沒有立刻回答，他把那道符文描完，才抬起頭看你。",
+      "「從我開始學之前。」",
+      "「我家族的人告訴我的。他們說，所以要在某個時間點停下來。」",
+      "（停頓）",
+      "「他們沒有告訴我停下來的原因，只說停就對了。」",
+      "「我後來自己查到的。」"
+    ],
+    "next": "ch6_brinke_response"
+  },
+  "ch6_brinke_response": {
+    "id": "ch6_brinke_response",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（沉默了一會兒）",
+      "「你已經感覺到了。」",
+      "（不是問句）",
+      "「那個輕的感覺。」"
+    ],
+    "next": "ch6_player_confirm"
+  },
+  "ch6_player_confirm": {
+    "id": "ch6_player_confirm",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你點了頭。",
+      "布林克看著你，那個眼神——不是憐憫，不是同情，是某種更平等的東西，像是兩個知道同一件事的人，第一次承認他們都知道。",
+      "「我不知道你該怎麼辦，」他說，聲音很低，「我的情況和你不一樣。我可以停。」",
+      "（停頓）",
+      "「但你來這裡不是為了停的。」"
+    ],
+    "next": "ch6_night_alone_thought"
+  },
+  "ch6_night_alone_thought": {
+    "id": "ch6_night_alone_thought",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "燈熄了之後，你躺在床上，聽著布林克平穩的呼吸聲。",
+      "你想著洛克斯說的話——你有選擇。",
+      "你想著諾南：記得所有事，感覺不到任何事，然後走掉了。",
+      "你想著那個五班的前輩說的「就像在看很久以前的照片」。",
+      "你試著去感覺那個深夜放下那杯水的溫度。",
+      "還在。",
+      "還在，但它的邊緣——你感覺得到邊緣了，而以前你感覺不到，因為它沒有邊緣，它只是在。",
+      "你閉上眼睛，你知道你睡不著。"
+    ],
+    "next": "ch6_end_narration"
+  },
+  "ch6_end_narration": {
+    "id": "ch6_end_narration",
+    "chapter": "第六章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "窗外，維爾德的夜還是那個維爾德的夜。",
+      "學院的結界在黑暗裡安靜地存在著，幾百年了，它從來不需要人去維護它，它只是在。",
+      "諾南把自己所有的溫度燒進去了，換來了這個結界，換來了這個學院，換來了這幾百年。",
+      "你不知道這是不是值得的交換。",
+      "你不知道諾南自己覺得值不值得——因為到最後，他已經感覺不到值不值得這件事了。",
+      "你想，你還感覺得到。",
+      "你還有時間決定。"
+    ],
+    "next": "ch6_end"
+  },
+  "ch6_end": {
+    "id": "ch6_end",
+    "type": "chapter_end",
+    "chapter": "第六章",
+    "title": "代價",
+    "bg": "dorm_night",
+    "next": null
+  }
+}
