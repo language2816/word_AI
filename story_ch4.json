@@ -1,0 +1,546 @@
+{
+  "ch4_title": {
+    "id": "ch4_title",
+    "type": "chapter_title",
+    "chapter": "第四章",
+    "title": "帶刺的玫瑰",
+    "bg": "dorm_room",
+    "next": "ch4_days"
+  },
+
+  "ch4_days": {
+    "id": "ch4_days",
+    "chapter": "第四章",
+    "scene": "學院・日常",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "日子開始有了重量。",
+      "不是那種壓垮人的重——是一種逐漸累積的、讓你知道自己還在的重。",
+      "課業、訓練、走廊裡的眼神、食堂裡沒有人遞給你的椅子。",
+      "你學會了哪條路能繞開貴族學生最多，哪個時段圖書館最安靜，哪堂課坐在哪個位子不會被點到。",
+      "這是平民在這裡唯一的生存技術：學會如何讓自己的存在不造成任何人的不便。"
+    ],
+    "next": "ch4_brinke_pattern"
+  },
+
+  "ch4_brinke_pattern": {
+    "id": "ch4_brinke_pattern",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你漸漸摸清了布林克的節奏。",
+      "他每天五點五十分起床，不用鬧鐘。六點出門，回來的時間不固定，但從來不會超過晚上十一點。",
+      "他不在房間的時候，那本沒有封面的書永遠放在桌上，合著，書頁朝下。",
+      "他從不問你去哪裡，你去哪裡，也從不解釋自己去了哪裡。",
+      "某種意義上，你們各自在這個房間裡過著自己的生活，只是共享了同一個屋頂、同一片窗外的天空。"
+    ],
+    "next": "ch4_brinke_pattern2"
+  },
+
+  "ch4_brinke_pattern2": {
+    "id": "ch4_brinke_pattern2",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "布林克不是殘忍的人。",
+      "你花了一段時間才分清楚：他的冷漠不是針對你，是針對整個世界，只是你剛好住在他的世界裡。",
+      "他不趕你走，不欺負你，不在背後說你壞話——在學院裡，這已經是某些貴族學生給不起的待遇了。",
+      "他只是從來沒學過怎麼對一個不在他世界裡的人開口。",
+      "你慢慢開始覺得，那道刺，其實是一種很笨拙的自我保護。"
+    ],
+    "next": "ch4_small_things"
+  },
+
+  "ch4_small_things": {
+    "id": "ch4_small_things",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "有一些很小的事，你後來才注意到。",
+      "有一天你回來，桌上多了一本五班符文課的參考書，不是你的版本，是更舊的、注記更多的那種。沒有人告訴你那是給你的，但它就在你桌上。",
+      "有一次你感冒，早上沒有去食堂，下午他回來，桌上出現了一包學院醫務室的退燒藥，沒有留紙條。",
+      "你沒有問，他沒有提。",
+      "你把藥收起來，吃了，好了。"
+    ],
+    "next": "ch4_choice1"
+  },
+
+  "ch4_choice1": {
+    "id": "ch4_choice1",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "type": "choice",
+    "prompt": "你要不要為那包藥道謝？",
+    "choices": [
+      {
+        "text": "等他回來，直接說謝謝。",
+        "next": "ch4_thanks_a",
+        "tag": "直接",
+        "affinity": 2
+      },
+      {
+        "text": "什麼都不說，但有天你出門，在他桌上放了一本他找很久的書的正確版本。",
+        "next": "ch4_thanks_b",
+        "tag": "以物還物",
+        "affinity": 3
+      },
+      {
+        "text": "什麼都不做。維持現狀就是最好的回應。",
+        "next": "ch4_thanks_c",
+        "tag": "沉默",
+        "affinity": 1
+      }
+    ]
+  },
+
+  "ch4_thanks_a": {
+    "id": "ch4_thanks_a",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "他回來，你說了謝謝。",
+      "他在門口停了一秒，然後走進來，把外套掛好，坐到桌前。"
+    ],
+    "next": "ch4_thanks_a2"
+  },
+  "ch4_thanks_a2": {
+    "id": "ch4_thanks_a2",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "「醫務室的藥不好用。」",
+      "（停頓，翻開書）",
+      "「下次直接去找護士說是我叫你去的，她會給好一點的。」"
+    ],
+    "subtext": "他沒有說「不客氣」，但他回答了，這已經是他說過最長的一段話之一。",
+    "next": "ch4_days_continue"
+  },
+
+  "ch4_thanks_b": {
+    "id": "ch4_thanks_b",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你在圖書館找到了那本書——他桌上的那份缺了第三章後半段的舊版本，你找到了完整的新版，悄悄放在他桌上，然後出門。",
+      "他回來的時候你假裝在看自己的課本。",
+      "房間裡安靜了很久。"
+    ],
+    "next": "ch4_thanks_b2"
+  },
+  "ch4_thanks_b2": {
+    "id": "ch4_thanks_b2",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（沒有回頭）",
+      "「圖書館三樓西側。」"
+    ],
+    "subtext": "你不知道他在說什麼，直到你後來去圖書館，發現三樓西側有一個角落，永遠沒有人坐，光線剛好，安靜得像另一個世界。他在告訴你一個地方。",
+    "next": "ch4_days_continue"
+  },
+
+  "ch4_thanks_c": {
+    "id": "ch4_thanks_c",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你什麼都沒說。",
+      "他也什麼都沒說。",
+      "這個房間裡，有時候沉默是唯一能讓兩個人都舒服的語言。",
+      "藥你吃了。好了。",
+      "這就夠了。"
+    ],
+    "next": "ch4_days_continue"
+  },
+
+  "ch4_days_continue": {
+    "id": "ch4_days_continue",
+    "chapter": "第四章",
+    "scene": "學院・日常",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "日子繼續過。",
+      "五班的課越來越重，訓練量是第一週的兩倍，你開始睡得更死，醒得更晚。",
+      "布林克的課表和你不重疊，你們有時整天只在深夜碰到——你回來，他已經在了；或者他還沒回，你先睡著了。",
+      "但你開始知道他的某些事：他喝茶不喝咖啡，他不喜歡窗戶全開，他書讀得很慢但一頁都不會跳過，他右手的燒傷在天氣涼的晚上會疼，他不說，但你看得出來。"
+    ],
+    "next": "ch4_night_setup"
+  },
+
+  "ch4_night_setup": {
+    "id": "ch4_night_setup",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "那一夜，你醒來的時候，窗外還是黑的。",
+      "你不知道是什麼把你弄醒的——可能是風，可能是某個聲音，可能只是身體決定在三點鐘的時候清醒。",
+      "你盯著天花板，準備再閉上眼睛。",
+      "然後你注意到，布林克那邊的床是空的。"
+    ],
+    "next": "ch4_night_brinke"
+  },
+
+  "ch4_night_brinke": {
+    "id": "ch4_night_brinke",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "他坐在窗邊。",
+      "不是站著，是坐在窗台下的地板上，背靠著牆，膝蓋撐著，手裡握著一封信。",
+      "月光從窗縫透進來，剛好落在那封信上。",
+      "你看不清楚內容，但你看得清楚他的臉——那個表情是你從來沒見過的樣子。",
+      "不是冷漠。是一種被什麼東西壓住的疲憊，像是他扛著某個重量扛了太久，現在只是暫時放下了偽裝，一個人坐在黑暗裡。"
+    ],
+    "next": "ch4_night_choice"
+  },
+
+  "ch4_night_choice": {
+    "id": "ch4_night_choice",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "type": "choice",
+    "prompt": "你怎麼做？",
+    "choices": [
+      {
+        "text": "假裝沒看見，翻個身，繼續躺著。",
+        "next": "ch4_pretend",
+        "tag": "不打擾",
+        "affinity": 1
+      },
+      {
+        "text": "輕聲問他：「睡不著？」",
+        "next": "ch4_ask",
+        "tag": "開口",
+        "affinity": 2
+      },
+      {
+        "text": "不說話，起身去倒了兩杯水，把一杯放到他手邊，然後回去躺下。",
+        "next": "ch4_water",
+        "tag": "那杯水",
+        "affinity": 3
+      }
+    ]
+  },
+
+  "ch4_pretend": {
+    "id": "ch4_pretend",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你翻了個身，把臉朝向牆壁。",
+      "有些事，讓它靜靜地存在比什麼都重要。",
+      "你不知道自己是否真的睡著了，還是只是閉著眼睛等天亮。",
+      "但窗邊一直沒有傳來聲音，只有偶爾的、很輕的呼吸。",
+      "你覺得他知道你醒著。你覺得你知道他需要這個安靜。",
+      "這也是一種陪伴。"
+    ],
+    "next": "ch4_morning_after"
+  },
+
+  "ch4_ask": {
+    "id": "ch4_ask",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "「睡不著？」你說，聲音比預期的更輕，像是不想打破什麼。"
+    ],
+    "next": "ch4_ask2"
+  },
+  "ch4_ask2": {
+    "id": "ch4_ask2",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（沉默了很長的時間）",
+      "「吵到你了？」"
+    ],
+    "subtext": "他沒有回答你的問題。但他問了你。這是他第一次問你任何事，不是陳述，不是反問——是真的在問。",
+    "next": "ch4_ask3"
+  },
+  "ch4_ask3": {
+    "id": "ch4_ask3",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "「沒有，」你說，「就是醒了。」",
+      "他沒有再說話，你也沒有。",
+      "你去倒了兩杯水，把一杯放到他手邊。",
+      "他看著那杯水，沒動，但也沒有推開。"
+    ],
+    "next": "ch4_morning_after"
+  },
+
+  "ch4_water": {
+    "id": "ch4_water",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你沒有說話。",
+      "你起身，去倒了兩杯水。",
+      "走到他旁邊，把其中一杯放在他手邊的地板上，然後回到床上，躺下，把眼睛閉上。",
+      "沒有問他怎麼了，沒有說你在這裡，沒有說任何一句話。",
+      "只是放了一杯水。"
+    ],
+    "next": "ch4_water2"
+  },
+  "ch4_water2": {
+    "id": "ch4_water2",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "很長很長的沉默。",
+      "然後你聽見他拿起那杯水的聲音——陶杯碰到地板的輕響，然後是他喝水的聲音。",
+      "就這樣。",
+      "你閉著眼睛，不知道什麼時候睡著的。"
+    ],
+    "next": "ch4_morning_after"
+  },
+
+  "ch4_morning_after": {
+    "id": "ch4_morning_after",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "早上，你醒來，布林克已經不在了。",
+      "窗邊的地板上什麼都沒有，那封信不見了。",
+      "陶杯放在桌上，洗乾淨了，倒扣著。",
+      "你看著它，不知道說什麼好，也沒有人需要你說什麼。",
+      "你起身，整理東西，準備去上課。"
+    ],
+    "next": "ch4_name_moment"
+  },
+
+  "ch4_name_moment": {
+    "id": "ch4_name_moment",
+    "chapter": "第四章",
+    "scene": "學院・走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你走到門口，把門打開。",
+      "走廊上，布林克正要往另一個方向走。",
+      "他應該沒有發現你，或者說，你以為他沒有。"
+    ],
+    "next": "ch4_name_called"
+  },
+
+  "ch4_name_called": {
+    "id": "ch4_name_called",
+    "chapter": "第四章",
+    "scene": "學院・走廊",
+    "bg": "dormitory",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（沒有回頭，但停下腳步，聲音很平）",
+      "「{name}。」"
+    ],
+    "subtext": "他叫了你的名字。不是「喂」，不是「你」，不是任何一個代稱——是你的名字，第一次從他口中說出來，就像它本來就應該在那裡。",
+    "next": "ch4_name_response"
+  },
+
+  "ch4_name_response": {
+    "id": "ch4_name_response",
+    "chapter": "第四章",
+    "scene": "學院・走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你愣了一秒。",
+      "「什麼？」"
+    ],
+    "next": "ch4_name_response2"
+  },
+
+  "ch4_name_response2": {
+    "id": "ch4_name_response2",
+    "chapter": "第四章",
+    "scene": "學院・走廊",
+    "bg": "dormitory",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（繼續往前走，背對著你）",
+      "「今天符文學有測驗。」",
+      "（停頓）",
+      "「第四章的推導公式，你寫錯了一個符號，昨晚我看到的。」"
+    ],
+    "next": "ch4_name_after"
+  },
+
+  "ch4_name_after": {
+    "id": "ch4_name_after",
+    "chapter": "第四章",
+    "scene": "學院・走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "他走了，沒有等你回答。",
+      "你站在走廊上，看著他的背影消失在轉角。",
+      "你想，你記筆記的時候根本不知道自己寫錯了。",
+      "他看到了，沒有說，等到今天早上，用叫你名字的方式告訴你。",
+      "你低下頭，把筆記本翻出來，找到那個符號。",
+      "他說得對。"
+    ],
+    "next": "ch4_choice2"
+  },
+
+  "ch4_choice2": {
+    "id": "ch4_choice2",
+    "chapter": "第四章",
+    "scene": "學院・走廊",
+    "bg": "dormitory",
+    "type": "choice",
+    "prompt": "你的心裡有什麼感覺？",
+    "choices": [
+      {
+        "text": "某種像是鬆了口氣的東西——你在這裡，有人看見你了。",
+        "next": "ch4_feel_a",
+        "tag": "被看見",
+        "affinity": 0
+      },
+      {
+        "text": "有點想笑。他記得你的筆記比你自己記得還清楚。",
+        "next": "ch4_feel_b",
+        "tag": "有點溫暖",
+        "affinity": 0
+      },
+      {
+        "text": "說不清楚。只是覺得那個名字從他口中說出來，和從任何人口中說出來的感覺都不一樣。",
+        "next": "ch4_feel_c",
+        "tag": "說不清楚",
+        "affinity": 0
+      }
+    ]
+  },
+
+  "ch4_feel_a": {
+    "id": "ch4_feel_a",
+    "chapter": "第四章",
+    "scene": "學院・走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你在這裡。",
+      "不是背景，不是例外，不是那個闖進來的平民——",
+      "是{name}，住在三一七號房，今天符文學有測驗，第四章的推導公式寫錯了一個符號。",
+      "就這樣，沒有更多了。但這已經夠了。"
+    ],
+    "next": "ch4_end_narration"
+  },
+
+  "ch4_feel_b": {
+    "id": "ch4_feel_b",
+    "chapter": "第四章",
+    "scene": "學院・走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你低著頭改筆記，嘴角莫名地往上扯了一點。",
+      "你把它壓下去，但壓得不太成功。",
+      "你想，布林克・弗洛斯特，你記性也太好了一點。",
+      "然後你想，但你沒有說出口。"
+    ],
+    "next": "ch4_end_narration"
+  },
+
+  "ch4_feel_c": {
+    "id": "ch4_feel_c",
+    "chapter": "第四章",
+    "scene": "學院・走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你說不清楚。",
+      "你只是站在那個走廊上，把筆記本翻開，找到那個錯誤的符號，用比平常更慢的速度把它改掉。",
+      "他叫了你的名字。就這樣。",
+      "但有些事，就是這樣開始的——不是什麼大事，只是一個名字，在對的時候，從對的人嘴裡說出來。"
+    ],
+    "next": "ch4_end_narration"
+  },
+
+  "ch4_end_narration": {
+    "id": "ch4_end_narration",
+    "chapter": "第四章",
+    "scene": "學院・三一七號房・夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "那天測驗，你答對了那道推導題。",
+      "回到宿舍，布林克已經在了，坐在桌前，沒有抬頭。",
+      "你換好衣服，坐到自己的桌前，打開課本。",
+      "房間裡很安靜，但是是一種不一樣的安靜了——不是兩個陌生人共用一個空間的安靜，是某種更接近默契的東西。",
+      "你不知道怎麼形容它。你只知道，昨晚那封信裡裝著什麼，你還不知道。",
+      "但那杯水，你放對了。"
+    ],
+    "next": "ch4_end"
+  },
+
+  "ch4_end": {
+    "id": "ch4_end",
+    "type": "chapter_end",
+    "chapter": "第四章",
+    "title": "帶刺的玫瑰",
+    "bg": "dorm_night",
+    "next": null
+  }
+}
