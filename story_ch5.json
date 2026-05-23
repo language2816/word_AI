@@ -646,6 +646,13 @@
     "chapter": "第五章",
     "title": "圖書館地下室",
     "bg": "dorm_night",
+    "next": "ch5_save_prompt"
+  },
+  "ch5_save_prompt": {
+    "id": "ch5_save_prompt",
+    "type": "save_prompt",
+    "bg": "dorm_night",
+    "prompt": "第五章・圖書館地下室　已完成\n\n是否儲存目前的進度？",
     "next": "ch6_title"
   }
 }

@@ -7,7 +7,6 @@
     "bg": "dorm_room",
     "next": "ch4_days"
   },
-
   "ch4_days": {
     "id": "ch4_days",
     "chapter": "第四章",
@@ -16,6 +15,9 @@
     "speaker": null,
     "isNarration": true,
     "lines": [
+      "布林克去找教授了。",
+      "你不知道他們說了什麼——他回來的時候和平常一樣，背脊很直，臉上什麼都看不出來。",
+      "你沒有問。他沒有說。",
       "日子開始有了重量。",
       "不是那種壓垮人的重——是一種逐漸累積的、讓你知道自己還在的重。",
       "課業、訓練、走廊裡的眼神、食堂裡沒有人遞給你的椅子。",
@@ -24,7 +26,6 @@
     ],
     "next": "ch4_brinke_pattern"
   },
-
   "ch4_brinke_pattern": {
     "id": "ch4_brinke_pattern",
     "chapter": "第四章",
@@ -41,7 +42,6 @@
     ],
     "next": "ch4_brinke_pattern2"
   },
-
   "ch4_brinke_pattern2": {
     "id": "ch4_brinke_pattern2",
     "chapter": "第四章",
@@ -58,7 +58,6 @@
     ],
     "next": "ch4_small_things"
   },
-
   "ch4_small_things": {
     "id": "ch4_small_things",
     "chapter": "第四章",
@@ -75,7 +74,6 @@
     ],
     "next": "ch4_choice1"
   },
-
   "ch4_choice1": {
     "id": "ch4_choice1",
     "chapter": "第四章",
@@ -104,7 +102,6 @@
       }
     ]
   },
-
   "ch4_thanks_a": {
     "id": "ch4_thanks_a",
     "chapter": "第四章",
@@ -132,7 +129,6 @@
     "subtext": "他沒有說「不客氣」，但他回答了，這已經是他說過最長的一段話之一。",
     "next": "ch4_days_continue"
   },
-
   "ch4_thanks_b": {
     "id": "ch4_thanks_b",
     "chapter": "第四章",
@@ -160,7 +156,6 @@
     "subtext": "你不知道他在說什麼，直到你後來去圖書館，發現三樓西側有一個角落，永遠沒有人坐，光線剛好，安靜得像另一個世界。他在告訴你一個地方。",
     "next": "ch4_days_continue"
   },
-
   "ch4_thanks_c": {
     "id": "ch4_thanks_c",
     "chapter": "第四章",
@@ -177,7 +172,6 @@
     ],
     "next": "ch4_days_continue"
   },
-
   "ch4_days_continue": {
     "id": "ch4_days_continue",
     "chapter": "第四章",
@@ -193,7 +187,6 @@
     ],
     "next": "ch4_night_setup"
   },
-
   "ch4_night_setup": {
     "id": "ch4_night_setup",
     "chapter": "第四章",
@@ -209,7 +202,6 @@
     ],
     "next": "ch4_night_brinke"
   },
-
   "ch4_night_brinke": {
     "id": "ch4_night_brinke",
     "chapter": "第四章",
@@ -226,7 +218,6 @@
     ],
     "next": "ch4_night_choice"
   },
-
   "ch4_night_choice": {
     "id": "ch4_night_choice",
     "chapter": "第四章",
@@ -255,7 +246,6 @@
       }
     ]
   },
-
   "ch4_pretend": {
     "id": "ch4_pretend",
     "chapter": "第四章",
@@ -273,7 +263,6 @@
     ],
     "next": "ch4_morning_after"
   },
-
   "ch4_ask": {
     "id": "ch4_ask",
     "chapter": "第四章",
@@ -314,7 +303,6 @@
     ],
     "next": "ch4_morning_after"
   },
-
   "ch4_water": {
     "id": "ch4_water",
     "chapter": "第四章",
@@ -346,7 +334,6 @@
     ],
     "next": "ch4_morning_after"
   },
-
   "ch4_morning_after": {
     "id": "ch4_morning_after",
     "chapter": "第四章",
@@ -363,7 +350,6 @@
     ],
     "next": "ch4_name_moment"
   },
-
   "ch4_name_moment": {
     "id": "ch4_name_moment",
     "chapter": "第四章",
@@ -378,7 +364,6 @@
     ],
     "next": "ch4_name_called"
   },
-
   "ch4_name_called": {
     "id": "ch4_name_called",
     "chapter": "第四章",
@@ -392,7 +377,6 @@
     "subtext": "他叫了你的名字。不是「喂」，不是「你」，不是任何一個代稱——是你的名字，第一次從他口中說出來，就像它本來就應該在那裡。",
     "next": "ch4_name_response"
   },
-
   "ch4_name_response": {
     "id": "ch4_name_response",
     "chapter": "第四章",
@@ -406,7 +390,6 @@
     ],
     "next": "ch4_name_response2"
   },
-
   "ch4_name_response2": {
     "id": "ch4_name_response2",
     "chapter": "第四章",
@@ -417,11 +400,10 @@
       "（繼續往前走，背對著你）",
       "「今天符文學有測驗。」",
       "（停頓）",
-      "「第四章的推導公式，你寫錯了一個符號，昨晚我看到的。」"
+      "「第四章。」"
     ],
     "next": "ch4_name_after"
   },
-
   "ch4_name_after": {
     "id": "ch4_name_after",
     "chapter": "第四章",
@@ -432,14 +414,15 @@
     "lines": [
       "他走了，沒有等你回答。",
       "你站在走廊上，看著他的背影消失在轉角。",
-      "你想，你記筆記的時候根本不知道自己寫錯了。",
-      "他看到了，沒有說，等到今天早上，用叫你名字的方式告訴你。",
-      "你低下頭，把筆記本翻出來，找到那個符號。",
-      "他說得對。"
+      "第四章。",
+      "你把筆記本翻出來，找到第四章的推導公式。",
+      "你盯著它看了三秒。",
+      "你寫錯了一個符號。",
+      "他知道。他沒有說，只叫了你的名字，然後說了「第四章」，然後走了。",
+      "你把那個符號改掉，重新收好筆記本。"
     ],
     "next": "ch4_choice2"
   },
-
   "ch4_choice2": {
     "id": "ch4_choice2",
     "chapter": "第四章",
@@ -468,7 +451,6 @@
       }
     ]
   },
-
   "ch4_feel_a": {
     "id": "ch4_feel_a",
     "chapter": "第四章",
@@ -484,7 +466,6 @@
     ],
     "next": "ch4_end_narration"
   },
-
   "ch4_feel_b": {
     "id": "ch4_feel_b",
     "chapter": "第四章",
@@ -500,7 +481,6 @@
     ],
     "next": "ch4_end_narration"
   },
-
   "ch4_feel_c": {
     "id": "ch4_feel_c",
     "chapter": "第四章",
@@ -516,7 +496,6 @@
     ],
     "next": "ch4_end_narration"
   },
-
   "ch4_end_narration": {
     "id": "ch4_end_narration",
     "chapter": "第四章",
@@ -534,13 +513,19 @@
     ],
     "next": "ch4_end"
   },
-
   "ch4_end": {
     "id": "ch4_end",
     "type": "chapter_end",
     "chapter": "第四章",
     "title": "帶刺的玫瑰",
     "bg": "dorm_night",
-    "next": null
+    "next": "ch4_save_prompt"
+  },
+  "ch4_save_prompt": {
+    "id": "ch4_save_prompt",
+    "type": "save_prompt",
+    "bg": "dorm_night",
+    "prompt": "第四章・帶刺的玫瑰　已完成\n\n是否儲存目前的進度？",
+    "next": "ch5_title"
   }
 }

@@ -135,7 +135,8 @@
     "speaker": null,
     "isNarration": true,
     "lines": [
-      "教授暫時離開去取下一份教材。",
+      "教授把石板重新封好，轉身去隔壁儲藏室取下一份教材。",
+      "她說要五分鐘，門沒有關上，走廊上看得到她的背影。",
       "教室裡有人開始低聲交談，有人在翻筆記。",
       "你看著那塊石板，想著教授說的話——它尋找的是裂縫。",
       "然後你聽到你前排的同學低聲說：「就畫一下而已，能怎樣。」"
@@ -688,6 +689,13 @@
     "chapter": "第三章",
     "title": "裂",
     "bg": "dorm_night",
-    "next": null
+    "next": "ch3_save_prompt"
+  },
+  "ch3_save_prompt": {
+    "id": "ch3_save_prompt",
+    "type": "save_prompt",
+    "bg": "dorm_night",
+    "prompt": "第三章・裂　已完成\n\n是否儲存目前的進度？",
+    "next": "ch4_title"
   }
 }

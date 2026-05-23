@@ -423,6 +423,13 @@
     "chapter": "第一章",
     "title": "鑰匙",
     "bg": "dorm_night",
+    "next": "ch1_save_prompt"
+  },
+  "ch1_save_prompt": {
+    "id": "ch1_save_prompt",
+    "type": "save_prompt",
+    "bg": "dorm_night",
+    "prompt": "第一章・鑰匙　已完成\n\n是否儲存目前的進度？",
     "next": "ch2_title"
   }
 }
