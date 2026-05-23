@@ -376,7 +376,7 @@
     <div id="top-toolbar">
       <button class="tool-btn" id="btn-log"   title="劇情回顧">LOG</button>
       <button class="tool-btn" id="btn-save"  title="存檔讀檔">SAVE</button>
-      <button class="tool-btn muted" id="btn-music" title="音樂開關">♪</button>
+      <button class="tool-btn" id="btn-music" title="音樂開關">♪</button>
     </div>
 
     <!-- 角色立繪 -->
@@ -523,7 +523,7 @@ let state = {
   playerGender: "male",
   affinity: 0,          // 布林克好感度（隱藏）
   visitedNodes: [],     // 已讀節點（用於劇情回顧）
-  musicMuted: false,     // 音樂預設開啟
+  musicMuted: true,      // 音樂預設靜音，等玩家點「開始遊戲」後自動開啟
 };
 
 // 劇情回顧記錄
@@ -1007,13 +1007,16 @@ function renderTitle() {
         <button id="start-btn">開始遊戲</button>
         <button id="load-btn">讀取存檔</button>
       </div>
-      <div id="title-chapter-label">第零章 · 第一章</div>
+      <div id="title-chapter-label">第零章 · 第七章</div>
     </div>
   `;
   setTimeout(() => { const ts = document.getElementById("title-screen"); if (ts) ts.style.opacity = "1"; }, 200);
   document.getElementById("start-btn").addEventListener("click", () => {
-    state = { phase:"game", nodeId:"ch0_open", lineIndex:0, playerName:"", playerGender:"male", affinity:0, visitedNodes:[], musicMuted:state.musicMuted };
+    state = { phase:"game", nodeId:"ch0_open", lineIndex:0, playerName:"", playerGender:"male", affinity:0, visitedNodes:[], musicMuted:false };
     logHistory.length = 0;
+    // 解除靜音並更新按鈕樣式
+    const btn = document.getElementById("btn-music");
+    if (btn) btn.classList.remove("muted");
     renderGame();
   });
   document.getElementById("load-btn").addEventListener("click", () => { openSavePanel(); });
@@ -1104,7 +1107,8 @@ function renderSavePrompt(node) {
   });
 
   document.getElementById("save-prompt-skip").addEventListener("click", () => {
-    goTo(node.next);
+    if (node.next) goTo(node.next);
+    else { state.phase = "title"; renderGame(); }
   });
 
   // 恢復 vignette
@@ -1255,7 +1259,7 @@ function renderChoiceBox(node, container) {
         ${node.choices.map((c,i) => `
           <button class="choice-btn" data-idx="${i}">
             <span class="choice-letter">${String.fromCharCode(65+i)}</span>
-            <span class="choice-text">${c.text}</span>
+            <span class="choice-text">${resolveText(c.text)}</span>
             ${c.tag ? `<span class="choice-tag">${c.tag}</span>` : ""}
           </button>
         `).join("")}
