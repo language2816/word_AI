@@ -571,8 +571,10 @@ function loadFromSlot(slot) {
     if (!applySaveData(data)) { showToast("存檔格式錯誤"); return; }
     closeSavePanel();
     state.phase = "game";
-    renderGame();
-    showToast(`存檔 ${slot} 已讀取`);
+    ensureChapterLoaded(state.nodeId, () => {
+      renderGame();
+      showToast(`存檔 ${slot} 已讀取`);
+    });
   } catch(e) { showToast("讀取失敗"); }
 }
 
@@ -686,8 +688,10 @@ function importCode() {
   if (!data || !applySaveData(data)) { showToast("存檔碼無效"); return; }
   closeSavePanel();
   state.phase = "game";
-  renderGame();
-  showToast("存檔碼讀取成功");
+  ensureChapterLoaded(state.nodeId, () => {
+    renderGame();
+    showToast("存檔碼讀取成功");
+  });
 }
 
 // ════════════════════════════════════════════════════
