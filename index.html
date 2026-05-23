@@ -108,7 +108,7 @@
   #dialogue-wrap  { cursor:pointer;width:100%; }
   #speaker-plate  { margin-bottom:8px;display:inline-block;padding:4px 16px;background:rgba(180,155,90,0.12);border:1px solid rgba(180,155,90,0.25);border-bottom:none; }
   #speaker-name   { font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(210,185,120,0.9); }
-  #text-box       { padding:20px 24px 20px 24px;backdrop-filter:blur(8px);height:120px;min-height:120px;max-height:120px;overflow:hidden;position:relative; }
+  #text-box       { padding:20px 24px 32px 24px;backdrop-filter:blur(8px);min-height:100px;overflow:visible;position:relative; }
 
   /* 主角頭像 */
   #player-avatar-wrap {
@@ -360,6 +360,44 @@
     font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;
     z-index:30;pointer-events:none;opacity:0;transition:opacity 0.3s;
     white-space:nowrap;
+  }
+
+  /* ── 手機版響應式調整 ── */
+  @media (max-width: 600px) {
+    #game-window {
+      max-height: 100vh;
+    }
+    #bottom-ui {
+      padding: 0 14px 16px;
+    }
+    #text-box {
+      padding: 16px 16px 36px 16px;
+      min-height: 90px;
+    }
+    #dialogue-text {
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    #subtext {
+      font-size: 11px;
+    }
+    .choice-btn {
+      padding: 12px 14px;
+    }
+    .choice-text {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    #choice-prompt-text {
+      font-size: 13px;
+    }
+    #character-sprite-image-wrap {
+      width: 160px;
+      height: 260px;
+    }
+    #character-sprite {
+      max-width: 160px;
+    }
   }
 </style>
 </head>
