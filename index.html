@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>視覺小說</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
@@ -296,30 +297,60 @@
     transition:opacity 0.5s;
   }
 
-  /* ── 角色立繪 ── */
+  /* ── 角色立繪容器 ── */
   #character-sprite-wrap {
     position: absolute;
-    bottom: 130px;   /* 對齊對話框上方 */
-    right: 24px;
+    bottom: 120px;   /* 對齊對話框上方 */
+    right: 20px;
     z-index: 3;
     pointer-events: none;
-    width: 220px;
-    height: 300px;
-    overflow: hidden;          /* 裁切腰部以下 */
     display: flex;
-    align-items: flex-start;   /* 圖從頂部開始，底部被裁 */
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
     transition: opacity 0.4s ease;
-    /* 底部漸層淡出，讓裁切更自然 */
-    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
   }
+  
+  /* 角色名稱標籤 */
+  #character-name-label {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: rgba(210, 185, 120, 0.9);
+    text-transform: uppercase;
+    background: rgba(8, 6, 14, 0.7);
+    border: 1px solid rgba(180, 155, 90, 0.3);
+    padding: 6px 14px;
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(180, 155, 90, 0.15);
+    text-shadow: 0 0 8px rgba(180, 155, 90, 0.3);
+    animation: slideUp 0.3s ease;
+  }
+  
+  /* 角色圖片容器 */
+  #character-sprite-image-wrap {
+    position: relative;
+    width: 240px;
+    height: 380px;
+    overflow: hidden;
+    border: 1px solid rgba(180, 155, 90, 0.25);
+    background: linear-gradient(180deg, rgba(20, 15, 25, 0.4) 0%, rgba(10, 8, 15, 0.8) 100%);
+    box-shadow: 
+      0 0 30px rgba(180, 155, 90, 0.2),
+      inset 0 0 40px rgba(0, 0, 0, 0.6),
+      -2px 0 20px rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
   #character-sprite {
-    width: 220px;
-    height: auto;
-    object-fit: cover;
-    object-position: top center;
-    filter: drop-shadow(-4px 0 16px rgba(0,0,0,0.9));
+    height: 100%;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    object-position: bottom center;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
     animation: fadeIn 0.4s ease;
   }
 
@@ -352,7 +383,10 @@
 
     <!-- 角色立繪 -->
     <div id="character-sprite-wrap" style="display:none">
-      <img id="character-sprite" src="" alt="" />
+      <div id="character-name-label"></div>
+      <div id="character-sprite-image-wrap">
+        <img id="character-sprite" src="" alt="" />
+      </div>
     </div>
 
     <!-- 音樂版權 -->
@@ -458,7 +492,8 @@ let currentSprite = null;
 function updateSprite(speaker) {
   const wrap = document.getElementById("character-sprite-wrap");
   const img  = document.getElementById("character-sprite");
-  if (!wrap || !img) return;
+  const nameLabel = document.getElementById("character-name-label");
+  if (!wrap || !img || !nameLabel) return;
 
   const url = getSpriteUrl(speaker);
 
@@ -474,6 +509,10 @@ function updateSprite(speaker) {
   currentSprite = url;
   wrap.style.opacity = "0";
   wrap.style.display = "flex";
+  
+  // 設定角色名稱標籤
+  nameLabel.textContent = speaker || "";
+  
   img.src = url;
   img.onload = () => {
     wrap.style.opacity = "1";
