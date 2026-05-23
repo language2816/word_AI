@@ -316,159 +316,10 @@
 
 <script>
 // ════════════════════════════════════════════════════
-// STORY DATA
+// STORY DATA（從 story.json 動態載入）
+// 新增劇情請編輯 story.json，不需要動這個檔案
 // ════════════════════════════════════════════════════
-const STORY = {
-  "ch0_open": {
-    id:"ch0_open", bg:"night_fog", speaker:null,
-    lines:["沒有人記得他的名字。","沒有人記得她的臉。","沒有人記得他們愛過誰，失去過什麼。","但有些事燃燒過。","就算燒完了，灰還在。"],
-    next:"ch0_setup", isNarration:true,
-  },
-  "ch0_setup": {
-    id:"ch0_setup", bg:"night_fog", speaker:null,
-    lines:["維爾德城，學院入學前夕。","你站在城門口，背著一個裝了全部家當的布包。","學院的塔尖在霧裡若隱若現。","城裡的人說，能進學院的平民，幾百年才出一個。","上一個是諾南。","沒有人記得諾南長什麼樣子了。"],
-    next:"ch0_name", isNarration:true,
-  },
-  "ch0_name":   { id:"ch0_name",   bg:"night_fog", type:"input_name",   prompt:"你叫什麼名字？", next:"ch0_gender" },
-  "ch0_gender": { id:"ch0_gender", bg:"night_fog", type:"input_gender", prompt:"你是？",         next:"ch0_end" },
-  "ch0_end": {
-    id:"ch0_end", bg:"night_fog", speaker:null,
-    lines:["記住這個名字。","因為最後，可能只有你自己還記得。"],
-    next:"ch1_title", isNarration:true,
-  },
-  "ch1_title": { id:"ch1_title", type:"chapter_title", chapter:"第一章", title:"鑰匙", bg:"academy_gate", next:"ch1_fog" },
-  "ch1_fog": {
-    id:"ch1_fog", chapter:"第一章", scene:"維爾德・學院正門", bg:"academy_gate", speaker:null,
-    lines:["維爾德的九月總是帶著霧。","不是那種早晨會散去的薄霧——是從古老森林裡漫出來的、帶著松脂和潮濕氣息的霧，附著在石板路上，附著在學院高聳的圍牆上，附著在每一個第一天踏進這裡的新生臉上。","像是某種無聲的提醒：你來到了一個和外面不一樣的地方。"],
-    next:"ch1_entrance", isNarration:true,
-  },
-  "ch1_entrance": {
-    id:"ch1_entrance", chapter:"第一章", scene:"維爾德・學院正門", bg:"academy_gate", speaker:null,
-    lines:["你跟著入學的人群走進學院正門。","左邊是 ᛇ Eihwaz 一班的新生——他們的行李有人幫忙提，臉上帶著那種從小被告知「你理所當然屬於這裡」的平靜。","右邊是 ᛟ Othala 二班，幾個人已經在互相打招呼，像是早就認識。","你低下頭，把布包的帶子握緊一點。"],
-    next:"ch1_reception", isNarration:true,
-  },
-  "ch1_reception": {
-    id:"ch1_reception", chapter:"第一章", scene:"維爾德・學院報到處", bg:"academy_hall", speaker:"報到處職員",
-    lines:["（翻了翻名冊，沒有抬頭）","「ᚾ Nauthiz 五班。西翼三樓……」","（停頓，皺了一下眉）","「……三一七號房。」"],
-    next:"ch1_key_desc",
-  },
-  "ch1_key_desc": {
-    id:"ch1_key_desc", chapter:"第一章", scene:"維爾德・學院報到處", bg:"academy_hall", speaker:null,
-    lines:["你拿起鑰匙。","鑰匙的樣式有點奇怪——比一般的宿舍鑰匙重，鑰匙圈上刻著一個你看不懂的符文。","你想問，但報到處的人已經在招呼下一個人了。"],
-    next:"ch1_corridor", isNarration:true,
-  },
-  "ch1_corridor": {
-    id:"ch1_corridor", chapter:"第一章", scene:"學院・西翼三樓走廊", bg:"dormitory", speaker:null,
-    lines:["西翼三樓的走廊很安靜。","三一七號房在走廊的最裡端，窗戶對著內院，常年照不到陽光的那種。","你把鑰匙插進鎖孔——","鎖開了。"],
-    next:"ch1_door_open", isNarration:true,
-  },
-  "ch1_door_open": {
-    id:"ch1_door_open", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["門推開，你看見房間裡已經有人。","靠窗的床上坐著一個人，背脊很直，手裡拿著一本書，但沒有在看。","他看著你走進來，沒有站起來，沉默了三秒。"],
-    next:"ch1_brinke_first", isNarration:true,
-  },
-  "ch1_brinke_first": {
-    id:"ch1_brinke_first", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:"布林克・弗洛斯特",
-    lines:["「你走錯了。」"],
-    subtext:"聲音很平，不是憤怒，不是疑問。是一個陳述，像在說天氣。",
-    next:"ch1_choice1",
-  },
-  "ch1_choice1": {
-    id:"ch1_choice1", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", type:"choice",
-    prompt:"你怎麼回應？",
-    choices:[
-      {text:"「我沒有走錯。這是三一七號房。」", next:"ch1_reply_a", tag:"直接", affinity:+2},
-      {text:"沉默，把鑰匙舉起來給他看。",       next:"ch1_reply_b", tag:"沉默", affinity:+1},
-      {text:"「……對不起，我確認一下。」",       next:"ch1_reply_c", tag:"退讓", affinity:-1},
-    ],
-  },
-  "ch1_reply_a": {
-    id:"ch1_reply_a", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["他的視線從你臉上移到你手裡的鑰匙，停了一下。"],
-    next:"ch1_reply_a2", isNarration:true,
-  },
-  "ch1_reply_a2": {
-    id:"ch1_reply_a2", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:"布林克・弗洛斯特",
-    lines:["「三一七號是我的房間。」"], next:"ch1_reply_a3",
-  },
-  "ch1_reply_a3": {
-    id:"ch1_reply_a3", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["「我知道，」你說，「但這把鑰匙開的是這扇門。」","他站起來，走到你面前，把自己的鑰匙拿出來，和你手裡的並排放。","兩把鑰匙，同樣的房號，不同的樣式。","他看著它們，第一次出現了一個不是冷漠的表情：困惑。"],
-    next:"ch1_admin", isNarration:true,
-  },
-  "ch1_reply_b": {
-    id:"ch1_reply_b", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["你沒有說話，把鑰匙舉起來。","他的視線落在鑰匙上，站起來走近，低頭看了一會兒。","沒有說話，轉身拿出自己的鑰匙，和你的並排比對。","兩把鑰匙，同樣的房號。他抬起頭看你，眼神說的是：這不可能。","但它就是發生了。"],
-    next:"ch1_admin", isNarration:true,
-  },
-  "ch1_reply_c": {
-    id:"ch1_reply_c", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["你轉身去找宿舍管理員。","管理員跟著你回來，翻遍了名冊，皺著眉頭反覆核對。"],
-    next:"ch1_reply_c2", isNarration:true,
-  },
-  "ch1_reply_c2": {
-    id:"ch1_reply_c2", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:"宿舍管理員",
-    lines:["「名冊上沒有問題，但這把鑰匙……」","（翻過鑰匙看了看背面）","「這不是我們發的樣式。」"],
-    next:"ch1_reply_c3",
-  },
-  "ch1_reply_c3": {
-    id:"ch1_reply_c3", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["靠窗的那個人一直站在原地，看著這一切，表情沒有變化。"],
-    next:"ch1_admin", isNarration:true,
-  },
-  "ch1_admin": {
-    id:"ch1_admin", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["宿舍管理員來了，行政處的人來了。","沒有人能解釋那把鑰匙的來歷，也沒有人能解釋名冊上為什麼同時有兩個人分配到這裡。"],
-    next:"ch1_admin2", isNarration:true,
-  },
-  "ch1_admin2": {
-    id:"ch1_admin2", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:"行政處職員",
-    lines:["「先住著，等學院調查清楚再說。」"], next:"ch1_settle",
-  },
-  "ch1_settle": {
-    id:"ch1_settle", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["調查結果從來沒有來。","房間裡有兩張床，一張靠窗，一張靠門。靠窗的那張已經有人了。","你把布包放到靠門的床上。"],
-    next:"ch1_name_exchange", isNarration:true,
-  },
-  "ch1_name_exchange": {
-    id:"ch1_name_exchange", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:"布林克・弗洛斯特",
-    lines:["「布林克・弗洛斯特。」"],
-    subtext:"已經回到自己的床上，重新拿起那本書，沒有看你，只是說了這句話。",
-    next:"ch1_choice2",
-  },
-  "ch1_choice2": {
-    id:"ch1_choice2", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", type:"choice",
-    prompt:"你愣了一秒，才明白過來。那是他的名字。你怎麼回應？",
-    choices:[
-      {text:"說出自己的名字。",                       next:"ch1_name_a", tag:"坦誠", affinity:+3},
-      {text:"「……我知道要怎麼稱呼你了。」",           next:"ch1_name_b", tag:"保留", affinity:+2},
-      {text:"沉默，點點頭，開始整理自己的東西。",     next:"ch1_name_c", tag:"沉默", affinity:0},
-    ],
-  },
-  "ch1_name_a": {
-    id:"ch1_name_a", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["你說了自己的名字。","布林克沒有回應，繼續看書。","但你注意到他翻頁的動作停頓了一下——只有一下，很短，然後繼續。"],
-    next:"ch1_night", isNarration:true,
-  },
-  "ch1_name_b": {
-    id:"ch1_name_b", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["布林克這次真的抬起頭看了你一眼。","那個眼神很難形容——不是欣賞，不是反感，是某種重新評估的東西，像是你說了一句他沒有預期的話。","然後他低下頭，繼續看書。"],
-    next:"ch1_night", isNarration:true,
-  },
-  "ch1_name_c": {
-    id:"ch1_name_c", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", speaker:null,
-    lines:["你沒有說話，開始把布包裡的東西一件一件取出來。","房間裡很安靜，只有偶爾翻頁的聲音。","某種意義上，這是你們之間第一條無形的界線——你在你那側，他在他那側。安靜得幾乎是一種默契。"],
-    next:"ch1_night", isNarration:true,
-  },
-  "ch1_night": {
-    id:"ch1_night", chapter:"第一章", scene:"學院・三一七號房・深夜", bg:"dorm_night", speaker:null,
-    lines:["那一夜，維爾德下了入秋後的第一場雨。","你躺在靠門的床上，盯著天花板，聽雨聲。","隔壁床傳來平穩的呼吸聲——布林克・弗洛斯特睡著了。","你想，你不知道這個人是誰，不知道那把鑰匙從哪裡來，不知道接下來的日子會是什麼樣子。","但有一件事是確定的：","明天，ᚾ Nauthiz 五班，第一堂課。","你閉上眼睛。"],
-    next:"ch1_end", isNarration:true,
-  },
-  "ch1_end": {
-    id:"ch1_end", type:"chapter_end", chapter:"第一章", title:"鑰匙", bg:"dorm_night", next:null,
-  },
-};
+let STORY = {};
 
 // ════════════════════════════════════════════════════
 // BACKGROUNDS
@@ -1164,8 +1015,34 @@ function renderGenderSelect(node, container) {
 // ════════════════════════════════════════════════════
 // INIT
 // ════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════
+// INIT — 載入 story.json 後啟動
+// ════════════════════════════════════════════════════
 initToolbar();
-renderGame();
+
+// 顯示載入中畫面
+document.getElementById("content").innerHTML = `
+  <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+    <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;color:rgba(180,155,90,0.4);">LOADING</div>
+    <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(180,155,90,0.3),transparent);"></div>
+  </div>`;
+
+fetch("story.json")
+  .then(r => r.json())
+  .then(data => {
+    STORY = data;
+    renderGame();
+  })
+  .catch(err => {
+    console.error("無法載入 story.json：", err);
+    document.getElementById("content").innerHTML = `
+      <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;text-align:center;">
+        <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:rgba(200,100,100,0.7);">LOAD ERROR</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:12px;color:rgba(160,155,145,0.6);line-height:2;">
+          找不到 story.json<br/>請確認檔案和 index.html 放在同一個資料夾
+        </div>
+      </div>`;
+  });
 </script>
 </body>
 </html>
