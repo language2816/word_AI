@@ -93,7 +93,35 @@
   #dialogue-wrap  { cursor:pointer;width:100%; }
   #speaker-plate  { margin-bottom:8px;display:inline-block;padding:4px 16px;background:rgba(180,155,90,0.12);border:1px solid rgba(180,155,90,0.25);border-bottom:none; }
   #speaker-name   { font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(210,185,120,0.9); }
-  #text-box       { padding:20px 24px;backdrop-filter:blur(8px);min-height:80px;position:relative; }
+  #text-box       { padding:20px 24px 20px 24px;backdrop-filter:blur(8px);min-height:80px;position:relative; }
+
+  /* 主角頭像 */
+  #player-avatar-wrap {
+    position: absolute;
+    bottom: 100%; left: 0;
+    margin-bottom: 0;
+    display: flex; align-items: flex-end; gap: 10px;
+    pointer-events: none;
+    animation: fadeIn 0.3s ease;
+  }
+  #player-avatar-frame {
+    width: 56px; height: 56px;
+    border: 1px solid rgba(180,155,90,0.35);
+    background: rgba(8,6,14,0.85);
+    backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 18px rgba(180,155,90,0.12), inset 0 0 12px rgba(0,0,0,0.5);
+  }
+  #player-avatar-frame svg { width: 40px; height: 40px; }
+  #player-avatar-name {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(210,185,120,0.85);
+    margin-bottom: 6px;
+    text-shadow: 0 0 12px rgba(180,155,90,0.3);
+  }
   #dialogue-text  { font-family:'Noto Serif TC',serif;font-size:15px;line-height:2;margin:0; }
   #cursor-blink   { opacity:0.6;animation:blink 0.7s infinite; }
   #subtext        { font-family:'Noto Serif TC',serif;font-size:12px;color:rgba(150,145,135,0.7);font-style:italic;margin:10px 0 0;line-height:1.8; }
@@ -992,21 +1020,106 @@ function renderSavePrompt(node) {
 // ════════════════════════════════════════════════════
 // DIALOGUE
 // ════════════════════════════════════════════════════
+// ── 主角頭像 SVG（根據性別切換）────────────────────────
+function getPlayerAvatarSVG(gender) {
+  const isFemale = gender === "female";
+  // 共用顏色
+  const skinColor   = isFemale ? "#e8c9a8" : "#d4a97a";
+  const hairColor   = isFemale ? "#3a2a1a" : "#2a1a0a";
+  const eyeColor    = "rgba(80,70,60,0.9)";
+  const goldAccent  = "rgba(180,155,90,0.7)";
+
+  if (isFemale) {
+    // 女性頭像：較圓的臉型、長髮、細眉
+    return `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <!-- 長髮（後層） -->
+      <ellipse cx="20" cy="30" rx="12" ry="9" fill="${hairColor}" opacity="0.9"/>
+      <!-- 臉 -->
+      <ellipse cx="20" cy="19" rx="9" ry="10" fill="${skinColor}"/>
+      <!-- 頭髮（前層） -->
+      <ellipse cx="20" cy="11" rx="9.5" ry="7" fill="${hairColor}"/>
+      <!-- 瀏海 -->
+      <path d="M11.5 13 Q14 8 20 9 Q26 8 28.5 13" fill="${hairColor}"/>
+      <!-- 耳朵 -->
+      <ellipse cx="11" cy="20" rx="1.8" ry="2.2" fill="${skinColor}"/>
+      <ellipse cx="29" cy="20" rx="1.8" ry="2.2" fill="${skinColor}"/>
+      <!-- 眼睛 -->
+      <ellipse cx="16.5" cy="19" rx="2" ry="1.5" fill="${eyeColor}"/>
+      <ellipse cx="23.5" cy="19" rx="2" ry="1.5" fill="${eyeColor}"/>
+      <!-- 眼神高光 -->
+      <circle cx="17.3" cy="18.3" r="0.5" fill="rgba(255,255,255,0.7)"/>
+      <circle cx="24.3" cy="18.3" r="0.5" fill="rgba(255,255,255,0.7)"/>
+      <!-- 細眉 -->
+      <path d="M14.5 16.5 Q16.5 15.5 18.5 16.2" stroke="${hairColor}" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+      <path d="M21.5 16.2 Q23.5 15.5 25.5 16.5" stroke="${hairColor}" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+      <!-- 嘴 -->
+      <path d="M17.5 24 Q20 25.5 22.5 24" stroke="rgba(180,100,90,0.7)" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+      <!-- 金色裝飾（髮飾） -->
+      <circle cx="28" cy="13" r="1.2" fill="${goldAccent}"/>
+    </svg>`;
+  } else {
+    // 男性頭像：較方的臉型、短髮、粗眉
+    return `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <!-- 臉 -->
+      <rect x="11" y="12" width="18" height="20" rx="5" ry="6" fill="${skinColor}"/>
+      <!-- 頭髮 -->
+      <ellipse cx="20" cy="13" rx="9" ry="5.5" fill="${hairColor}"/>
+      <rect x="11" y="11" width="18" height="5" rx="3" fill="${hairColor}"/>
+      <!-- 耳朵 -->
+      <ellipse cx="11" cy="21" rx="1.8" ry="2.2" fill="${skinColor}"/>
+      <ellipse cx="29" cy="21" rx="1.8" ry="2.2" fill="${skinColor}"/>
+      <!-- 眼睛 -->
+      <ellipse cx="16.5" cy="20" rx="2.2" ry="1.6" fill="${eyeColor}"/>
+      <ellipse cx="23.5" cy="20" rx="2.2" ry="1.6" fill="${eyeColor}"/>
+      <!-- 眼神高光 -->
+      <circle cx="17.4" cy="19.2" r="0.55" fill="rgba(255,255,255,0.7)"/>
+      <circle cx="24.4" cy="19.2" r="0.55" fill="rgba(255,255,255,0.7)"/>
+      <!-- 粗眉 -->
+      <path d="M14 17.2 Q16.5 16 19 17" stroke="${hairColor}" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <path d="M21 17 Q23.5 16 26 17.2" stroke="${hairColor}" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <!-- 嘴 -->
+      <path d="M17 25.5 Q20 26.8 23 25.5" stroke="rgba(160,90,80,0.6)" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+      <!-- 金色衣領裝飾 -->
+      <path d="M15 32 Q20 34 25 32" stroke="${goldAccent}" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    </svg>`;
+  }
+}
+
 function renderDialogue(node, container) {
   const lines = node.lines || [];
   const isNarration = node.isNarration;
   const speaker = node.speaker;
   const resolvedLine = resolveText(lines[state.lineIndex] || "");
 
+  // 判斷是否為主角說話（speaker 為玩家名字，或節點標記 isPlayer）
+  const isPlayerSpeaking = !isNarration && speaker && (
+    speaker === state.playerName ||
+    node.isPlayer === true
+  );
+
   const boxBg     = isNarration ? "rgba(5,5,10,0.55)"    : "rgba(8,6,14,0.82)";
-  const boxBorder = isNarration ? "rgba(140,150,180,0.12)": "rgba(180,155,90,0.2)";
+  const boxBorder = isNarration
+    ? "rgba(140,150,180,0.12)"
+    : isPlayerSpeaking
+      ? "rgba(180,155,90,0.35)"
+      : "rgba(180,155,90,0.2)";
   const textColor = isNarration ? "rgba(190,185,175,0.85)": "rgba(230,220,200,0.95)";
+
+  // 頭像 HTML
+  const avatarHTML = isPlayerSpeaking ? `
+    <div id="player-avatar-wrap">
+      <div id="player-avatar-frame">
+        ${getPlayerAvatarSVG(state.playerGender)}
+      </div>
+      <span id="player-avatar-name">${state.playerName || "你"}</span>
+    </div>` : "";
 
   container.innerHTML = `
     <div id="dialogue-wrap">
-      ${speaker && !isNarration ? `<div id="speaker-plate"><span id="speaker-name">${speaker}</span></div>` : ""}
-      <div id="text-box" style="background:${boxBg};border:1px solid ${boxBorder};">
-        <p id="dialogue-text" style="color:${textColor};"></p>
+      ${speaker && !isNarration && !isPlayerSpeaking ? `<div id="speaker-plate"><span id="speaker-name">${speaker}</span></div>` : ""}
+      <div id="text-box" style="background:${boxBg};border:1px solid ${boxBorder};position:relative;">
+        ${avatarHTML}
+        <p id="dialogue-text" style="color:${textColor};${isPlayerSpeaking ? "padding-left:0;" : ""}"></p>
         <span id="cursor-blink">▌</span>
         <p id="subtext" style="display:none">${node.subtext || ""}</p>
         <div id="continue-indicator" style="display:none"></div>
