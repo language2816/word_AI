@@ -1,0 +1,693 @@
+{
+  "ch3_title": {
+    "id": "ch3_title",
+    "type": "chapter_title",
+    "chapter": "第三章",
+    "title": "裂",
+    "bg": "academy_gate",
+    "next": "ch3_dawn"
+  },
+  "ch3_dawn": {
+    "id": "ch3_dawn",
+    "chapter": "第三章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你夢見那把鑰匙。",
+      "它懸在某個沒有牆壁的地方，自己旋轉，鑰匙圈上的符文發著光，是一種你說不清楚顏色的光——不是白，不是金，是某種更深的東西。",
+      "然後它裂了。",
+      "不是碎，是從中間裂開，像一個傷口，裡面是黑的。",
+      "你醒來，天還沒亮。布林克的床空著。"
+    ],
+    "next": "ch3_dawn2"
+  },
+  "ch3_dawn2": {
+    "id": "ch3_dawn2",
+    "chapter": "第三章",
+    "scene": "學院・三一七號房・清晨",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你把手伸進口袋，鑰匙還在，是涼的，像一塊普通的金屬。",
+      "你盯著天花板。",
+      "窗外，維爾德的霧比昨天更厚。"
+    ],
+    "next": "ch3_corridor_morning"
+  },
+  "ch3_corridor_morning": {
+    "id": "ch3_corridor_morning",
+    "chapter": "第三章",
+    "scene": "學院・主樓走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "第二堂符文學課。",
+      "走廊上的氣氛有點不一樣——有人在小聲說話，斷斷續續的，像在傳一件你沒聽到開頭的事。",
+      "你走進去，聽到一個詞：封印。"
+    ],
+    "next": "ch3_rumor"
+  },
+  "ch3_rumor": {
+    "id": "ch3_rumor",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室外",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "「聽說今天要展示禁用符文。」",
+      "「不是使用，只是展示。但上次展示是三十年前，那次……」",
+      "說話的人壓低了聲音，你走近，他閉上了嘴。",
+      "你進了教室。布林克已經在後排，低著頭，手邊放著一本你沒見過的書，封面沒有字。"
+    ],
+    "next": "ch3_prof_announce"
+  },
+  "ch3_prof_announce": {
+    "id": "ch3_prof_announce",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "「今天不一樣。」",
+      "（把一塊厚重的石板抬上講台，石板表面刻著一個符文，用紅蠟封著）",
+      "「這是 ᚷ Gebo 的變體——獻祭符文，北方語系第七紀的產物。它已經被學院封存了兩百年。」",
+      "（目光掃過全場）",
+      "「我今天展示它，不是要你們學它。是要你們記住它的樣子，然後一輩子不要自己去碰它。」"
+    ],
+    "next": "ch3_forbidden_intro"
+  },
+  "ch3_forbidden_intro": {
+    "id": "ch3_forbidden_intro",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "「所有符文都有共鳴對象——你喚醒它，它就在尋找回應。」",
+      "「普通符文的共鳴是可控的，是人與符文之間的對話。」",
+      "「但 Gebo 的變體不同。它尋找的不是人——它尋找的是裂縫。」",
+      "（停頓，聲音放輕）",
+      "「任何有裂縫的地方：牆壁，石頭，或是人。它會找到，然後讓裂縫變大。」"
+    ],
+    "next": "ch3_demo"
+  },
+  "ch3_demo": {
+    "id": "ch3_demo",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "教授戴上一副厚手套，刮去石板上的一小塊紅蠟。",
+      "符文露出來了。",
+      "它沒有發光，沒有震動，只是靜靜地刻在石板上，看起來和其他符文沒有兩樣——但不知道為什麼，你不想繼續看它。",
+      "你的目光移開，然後你發現布林克也移開了視線，他的手壓著那本沒有封面的書，指節泛白。"
+    ],
+    "next": "ch3_warning"
+  },
+  "ch3_warning": {
+    "id": "ch3_warning",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "「記住它的形狀。」",
+      "（重新蓋上紅蠟，動作很快）",
+      "「如果你在任何地方看到這個符文——不是石板上，是牆上，地上，或是有人的皮膚上——立刻離開，立刻來找我。」",
+      "「不要靠近，不要觸碰，不要嘗試臨摹。」",
+      "（聲音沉了一點）",
+      "「我說的『不要臨摹』，是認真的。」"
+    ],
+    "next": "ch3_before_incident"
+  },
+  "ch3_before_incident": {
+    "id": "ch3_before_incident",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "教授暫時離開去取下一份教材。",
+      "教室裡有人開始低聲交談，有人在翻筆記。",
+      "你看著那塊石板，想著教授說的話——它尋找的是裂縫。",
+      "然後你聽到你前排的同學低聲說：「就畫一下而已，能怎樣。」"
+    ],
+    "next": "ch3_reckless"
+  },
+  "ch3_reckless": {
+    "id": "ch3_reckless",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你看見他把筆記本翻到空白頁，對著石板，開始臨摹那個符文。",
+      "筆畫一，筆畫二——",
+      "第三筆還沒收，石板上的紅蠟開始龜裂。",
+      "沒有聲音。只是蠟裂了，然後符文的光從裂縫裡透出來，不是你能說出名字的顏色。",
+      "然後整個教室的石牆同時發出一聲低沉的震響。"
+    ],
+    "next": "ch3_crack"
+  },
+  "ch3_crack": {
+    "id": "ch3_crack",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "牆壁裂開了。",
+      "不是崩塌——是像皮膚被割開那樣，從石縫裡滲出黑色的東西，質地像墨，但在移動，緩慢地沿著牆面蔓延。",
+      "有人尖叫。",
+      "然後燈滅了。"
+    ],
+    "next": "ch3_lights_out"
+  },
+  "ch3_lights_out": {
+    "id": "ch3_lights_out",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "教室陷入完全的黑暗。",
+      "只有那個符文還亮著，從石板上透出來的光照在天花板上，把每個人的影子拉得很長。",
+      "有人在衝，有人在推，有人在哭——",
+      "然後你聽到一聲撞擊聲，很重，然後是一個人倒下的聲音。"
+    ],
+    "next": "ch3_injured"
+  },
+  "ch3_injured": {
+    "id": "ch3_injured",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你旁邊的女生倒在地上——她被衝跑的人撞倒，頭撞到了書桌的角，額頭在流血，黑暗中看起來更黑。",
+      "她沒有失去意識，但她在顫抖，撐不起來。",
+      "與此同時，牆上的黑色繼續蔓延，已經爬過了半面牆，空氣裡有一股燒焦的氣味。",
+      "門口擠滿了人，沒有人在組織，只有推擠和哭喊。",
+      "你必須做決定。"
+    ],
+    "next": "ch3_choice1"
+  },
+  "ch3_choice1": {
+    "id": "ch3_choice1",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "type": "choice",
+    "prompt": "你怎麼做？",
+    "choices": [
+      {
+        "text": "先蹲下去扶那個受傷的女生。",
+        "next": "ch3_help_a",
+        "tag": "救人",
+        "affinity": 2
+      },
+      {
+        "text": "衝向石板，想辦法阻止符文擴散。",
+        "next": "ch3_stop_b",
+        "tag": "阻符文",
+        "affinity": 1
+      },
+      {
+        "text": "大聲呼喊，試圖讓門口的人有秩序地離開。",
+        "next": "ch3_evac_c",
+        "tag": "疏散",
+        "affinity": 1
+      }
+    ]
+  },
+  "ch3_help_a": {
+    "id": "ch3_help_a",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你蹲下去，把她的手臂架上你的肩膀。",
+      "「站得起來嗎？」",
+      "她點頭，但站起來的時候腿在抖。你扶著她往門口移動，用空著的那隻手撥開正在亂跑的人。",
+      "有人撞了你的肩膀，你差點跌倒，但你站住了。"
+    ],
+    "next": "ch3_help_a2"
+  },
+  "ch3_help_a2": {
+    "id": "ch3_help_a2",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你把她帶到走廊，讓她靠著牆坐下，然後回頭。",
+      "教室裡還有人沒出來。",
+      "符文的光越來越亮，黑色的東西已經蔓延到地面了。",
+      "就在這時，你看見布林克。"
+    ],
+    "next": "ch3_converge"
+  },
+  "ch3_stop_b": {
+    "id": "ch3_stop_b",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你逆著人流往前衝，往講台的方向。",
+      "石板就在那裡，符文的光從蠟的裂縫裡滲出來，越來越亮。",
+      "你不知道要怎麼阻止它——你只是覺得不能就這樣讓它繼續。",
+      "你伸出手，手指距離石板還有半尺——然後有人從旁邊抓住你的手腕。"
+    ],
+    "next": "ch3_stop_b2"
+  },
+  "ch3_stop_b2": {
+    "id": "ch3_stop_b2",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "「不要碰。」",
+      "聲音很低，但在混亂裡你聽得清清楚楚。",
+      "（他把你的手拉回來，站到你前面）",
+      "「退到門口。」"
+    ],
+    "next": "ch3_converge"
+  },
+  "ch3_evac_c": {
+    "id": "ch3_evac_c",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "「停！聽我說！」你喊，聲音比你預期的大。",
+      "有幾個人停下來看你。",
+      "「一個一個出去——不要擠，擠了只會更慢！先讓倒地的人站起來！」",
+      "你不知道自己有沒有說服力，但有幾個人開始照著做，門口的推擠稍微緩和了一點。"
+    ],
+    "next": "ch3_evac_c2"
+  },
+  "ch3_evac_c2": {
+    "id": "ch3_evac_c2",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你去扶起了倒地的女生，把她推向門口的人群，有人接住了她。",
+      "你轉頭，符文的光已經把你的影子投在牆上，放大，扭曲。",
+      "黑色的東西爬過了你的腳旁，你往後退了一步。",
+      "然後你看見布林克。"
+    ],
+    "next": "ch3_converge"
+  },
+  "ch3_converge": {
+    "id": "ch3_converge",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "布林克站在石板正前方。",
+      "所有人都在往門口跑，只有他往反方向走。",
+      "他沒有猶豫，沒有看四周，像是從一開始就知道自己要去哪裡。",
+      "你想叫他，但你的聲音卡在喉嚨裡。"
+    ],
+    "next": "ch3_brinke_acts"
+  },
+  "ch3_brinke_acts": {
+    "id": "ch3_brinke_acts",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "他把手直接按在石板上——按在符文上，按在那道光上。",
+      "沒有手套。",
+      "他低下頭，嘴唇動了，你聽不到聲音，但你看見他在說話，說的不是你聽過的任何語言。",
+      "然後他說的那些東西開始發光。",
+      "不是嘴唇——是他的掌心。"
+    ],
+    "next": "ch3_rune_stops"
+  },
+  "ch3_rune_stops": {
+    "id": "ch3_rune_stops",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室・黑暗中",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "黑色的東西停了。",
+      "不是慢慢停——是像被什麼東西捏住了，猛地靜止。",
+      "牆上的裂縫沒有再蔓延，符文的光從過亮到變暗，最後只剩下一個微弱的輪廓。",
+      "然後，一盞，一盞，教室的燈重新亮起來。",
+      "布林克從石板上移開手，退後一步，沒有說話，沒有回頭。",
+      "你看見他的右手掌心，有一道新鮮的燒傷。"
+    ],
+    "next": "ch3_aftermath"
+  },
+  "ch3_aftermath": {
+    "id": "ch3_aftermath",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "教授衝進來的時候，教室裡只剩幾個人——大部分都跑了。",
+      "地上有血跡，是受傷的女生留下的。牆上的黑色已經凝固，不再移動，但它還在那裡，像一道巨大的燒痕，從天花板一直蔓延到地板。",
+      "教授掃視了整個教室，她的視線在牆上的痕跡停了一下，然後落在布林克身上。"
+    ],
+    "next": "ch3_prof_sees"
+  },
+  "ch3_prof_sees": {
+    "id": "ch3_prof_sees",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "（聲音很平靜，但平靜得有點不對）",
+      "「弗洛斯特。你的手。」"
+    ],
+    "next": "ch3_brinke_hides"
+  },
+  "ch3_brinke_hides": {
+    "id": "ch3_brinke_hides",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（把右手收進袖子裡）",
+      "「沒事。」"
+    ],
+    "subtext": "他說的是事實陳述，不是在安慰任何人。",
+    "next": "ch3_choice2"
+  },
+  "ch3_choice2": {
+    "id": "ch3_choice2",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "type": "choice",
+    "prompt": "教授的視線移到你身上，像是在等你說什麼。你怎麼做？",
+    "choices": [
+      {
+        "text": "「是我先去碰的，他把我拉開。他沒有碰符文。」",
+        "next": "ch3_cover_a",
+        "tag": "幫他打掩護",
+        "affinity": 3
+      },
+      {
+        "text": "沉默，等布林克自己說。",
+        "next": "ch3_watch_b",
+        "tag": "沉默觀望",
+        "affinity": 1
+      },
+      {
+        "text": "「他按住了符文，我不知道他怎麼做到的。」",
+        "next": "ch3_confront_c",
+        "tag": "說實話",
+        "affinity": -1
+      }
+    ]
+  },
+  "ch3_cover_a": {
+    "id": "ch3_cover_a",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你說了，聲音比你預期的更穩。",
+      "教授看著你，沉默了三秒。",
+      "你感覺到旁邊布林克的視線落在你側臉上，很短，然後移開。"
+    ],
+    "next": "ch3_cover_a2"
+  },
+  "ch3_cover_a2": {
+    "id": "ch3_cover_a2",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "（看了你很久，然後看布林克，然後又看你）",
+      "「好。」",
+      "（轉向其他人）",
+      "「所有人回去。今天的課取消，明天重排。」",
+      "（最後，用只有你們兩個人聽得到的聲音）",
+      "「弗洛斯特，明天來找我。」"
+    ],
+    "next": "ch3_dismissed"
+  },
+  "ch3_watch_b": {
+    "id": "ch3_watch_b",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（沉默了兩秒）",
+      "「石板的封印有瑕疵。我只是阻止它繼續擴散。」",
+      "（語氣平，像在描述一件無關緊要的事）",
+      "「任何人靠近都會有同樣的效果。」"
+    ],
+    "subtext": "這句話是謊言。你知道。教授大概也知道。但沒有人說破。",
+    "next": "ch3_dismissed"
+  },
+  "ch3_confront_c": {
+    "id": "ch3_confront_c",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你說了。",
+      "教室裡安靜了一秒。",
+      "布林克沒有看你，但你感覺到他站在那裡的方式變了——不是緊繃，是某種很細微的收攏，像是把什麼東西藏得更深了一層。",
+      "教授的表情沒有變，但她的眼神變了。"
+    ],
+    "next": "ch3_prof_reaction"
+  },
+  "ch3_prof_reaction": {
+    "id": "ch3_prof_reaction",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "（看著布林克，聲音很輕）",
+      "「弗洛斯特。」",
+      "（停頓）",
+      "「明天，來找我。」",
+      "（轉向其他人，聲音恢復正常音量）",
+      "「所有人離開。課取消。受傷的同學去醫務室，有人陪她去。」"
+    ],
+    "next": "ch3_dismissed"
+  },
+  "ch3_dismissed": {
+    "id": "ch3_dismissed",
+    "chapter": "第三章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "人陸續散了。",
+      "受傷的女生被兩個同學扶去了醫務室，她走的時候回頭看了你一眼——如果你去幫過她，那個眼神裡有什麼東西，你一時說不清楚。",
+      "牆上的黑色痕跡沒有人去管它，就那樣留在那裡，像一道很長的沉默。",
+      "你和布林克是最後兩個離開教室的人。"
+    ],
+    "next": "ch3_corridor_after"
+  },
+  "ch3_corridor_after": {
+    "id": "ch3_corridor_after",
+    "chapter": "第三章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "走廊上沒有其他人了。",
+      "你們走在一起，但沒有一起走——只是剛好同方向，剛好沒有人在中間。",
+      "你的視線落在他右手邊，他把手插在口袋裡。",
+      "你知道裡面有什麼。"
+    ],
+    "next": "ch3_brinke_hand"
+  },
+  "ch3_brinke_hand": {
+    "id": "ch3_brinke_hand",
+    "chapter": "第三章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "他走路的姿勢和平時一樣，背脊很直，步伐不快不慢。",
+      "但他右手的口袋稍微撐著，那個弧度說明他的手沒有完全放平——燒傷的部位碰到布料會痛，所以他懸著手掌。",
+      "你看出來了，但你不確定他知不知道你看出來了。"
+    ],
+    "next": "ch3_choice3"
+  },
+  "ch3_choice3": {
+    "id": "ch3_choice3",
+    "chapter": "第三章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "type": "choice",
+    "prompt": "你怎麼做？",
+    "choices": [
+      {
+        "text": "「你的手——痛嗎？」",
+        "next": "ch3_ask_pain",
+        "tag": "直接問傷",
+        "affinity": 3
+      },
+      {
+        "text": "「你怎麼知道怎麼做？」",
+        "next": "ch3_ask_how",
+        "tag": "問他來歷",
+        "affinity": 2
+      },
+      {
+        "text": "什麼都不說，繼續走，但放慢了腳步和他並排。",
+        "next": "ch3_walk_beside",
+        "tag": "無聲陪伴",
+        "affinity": 2
+      }
+    ]
+  },
+  "ch3_ask_pain": {
+    "id": "ch3_ask_pain",
+    "chapter": "第三章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（走了兩步，沒有停）",
+      "「不。」",
+      "（停頓，語氣沒有變化）",
+      "「有一點。」"
+    ],
+    "subtext": "這是他第一次在你面前修改自己說的話。",
+    "next": "ch3_response_converge"
+  },
+  "ch3_ask_how": {
+    "id": "ch3_ask_how",
+    "chapter": "第三章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（走了三步，你以為他不會回答）",
+      "「看過。」",
+      "（停頓）",
+      "「在哪裡看過，不重要。」"
+    ],
+    "subtext": "他沒有說謊，但他把真話切掉了一半。",
+    "next": "ch3_response_converge"
+  },
+  "ch3_walk_beside": {
+    "id": "ch3_walk_beside",
+    "chapter": "第三章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你什麼都沒說，只是把腳步放慢了一點，剛好和他並排。",
+      "他沒有加快，也沒有說話。",
+      "你們就這樣走了很長的走廊，什麼都沒說，但你感覺到他右手邊的肌肉稍微放鬆了一點點——只有一點點，幾乎看不出來。",
+      "但你看出來了。"
+    ],
+    "next": "ch3_response_converge"
+  },
+  "ch3_response_converge": {
+    "id": "ch3_response_converge",
+    "chapter": "第三章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你們走到走廊的分岔口。",
+      "他沒有說再見，拐進了另一個方向。",
+      "你站在原地，看著他的背影消失在轉角。",
+      "你想起他按下去的那一刻——不是猶豫，不是嘗試，是一種你只有在見過某件事很多次之後才會有的確定。",
+      "他見過這種符文。",
+      "不只是在書裡。"
+    ],
+    "next": "ch3_key_glow"
+  },
+  "ch3_key_glow": {
+    "id": "ch3_key_glow",
+    "chapter": "第三章",
+    "scene": "學院・西翼走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你往宿舍走，手插進口袋。",
+      "鑰匙是熱的。",
+      "不是微溫——是真的熱，像是剛從火邊拿起來的那種熱，燙手。",
+      "你把它拿出來。",
+      "鑰匙圈上的符文在發光。不是強烈的光，是很微弱的、像餘燼一樣的光，正在熄滅。",
+      "然後它滅了。鑰匙重新變涼，變回一把普通的金屬。",
+      "好像什麼都沒發生過。"
+    ],
+    "next": "ch3_end_narration"
+  },
+  "ch3_end_narration": {
+    "id": "ch3_end_narration",
+    "chapter": "第三章",
+    "scene": "學院・三一七號房",
+    "bg": "dorm_room",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你回到宿舍，布林克不在。",
+      "你坐在床上，把鑰匙放在手心，看著它。",
+      "它尋找的是裂縫——教授說的。",
+      "你不知道符文和鑰匙有沒有關係。你不知道布林克在那道光裡說的是什麼語言。你不知道那個女生的傷有多重，不知道牆上的黑色明天還在不在。",
+      "你只知道一件事：",
+      "這把鑰匙剛才對教室裡發生的事有反應。",
+      "而布林克的手掌心，有一道燒傷，形狀和這把鑰匙上的符文，一模一樣。"
+    ],
+    "next": "ch3_end"
+  },
+  "ch3_end": {
+    "id": "ch3_end",
+    "type": "chapter_end",
+    "chapter": "第三章",
+    "title": "裂",
+    "bg": "dorm_night",
+    "next": null
+  }
+}

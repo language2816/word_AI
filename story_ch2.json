@@ -1,0 +1,522 @@
+{
+  "ch2_title": {
+    "id": "ch2_title",
+    "type": "chapter_title",
+    "chapter": "第二章",
+    "title": "霧",
+    "bg": "academy_gate",
+    "next": "ch2_morning"
+  },
+  "ch2_morning": {
+    "id": "ch2_morning",
+    "chapter": "第二章",
+    "scene": "學院・西翼三樓走廊",
+    "bg": "dormitory",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "第一堂課是早上八點。",
+      "走廊上已經有人了——Eihwaz 一班的學生穿著整齊，三三兩兩往東翼走，聲音大，笑聲也大，像是把「我屬於這裡」這件事穿在身上。",
+      "你調整了一下布包，往反方向走。"
+    ],
+    "next": "ch2_classroom_enter"
+  },
+  "ch2_classroom_enter": {
+    "id": "ch2_classroom_enter",
+    "chapter": "第二章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "符文學教室在主樓三樓，階梯式座位，黑板是整面牆，上面殘留著上一堂課沒擦乾淨的粉筆痕——一個你認不出來的符文，只剩下半邊。",
+      "你找了一個中間靠走廊的位置坐下。",
+      "布林克已經在了。最後一排，靠窗，和昨晚一樣。手邊沒有書，只是坐著，望著窗外還沒散的霧。"
+    ],
+    "next": "ch2_professor_enter"
+  },
+  "ch2_professor_enter": {
+    "id": "ch2_professor_enter",
+    "chapter": "第二章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "教授遲了三分鐘進來。",
+      "她大概四十多歲，頭髮用一根木簪隨意挽著，袖口沾了墨水，走路的聲音很輕，像是習慣了不想驚動任何人。",
+      "她把一疊名冊扔到講台上，沒有說「早安」，直接翻開。"
+    ],
+    "next": "ch2_rollcall"
+  },
+  "ch2_rollcall": {
+    "id": "ch2_rollcall",
+    "chapter": "第二章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "（逐一唸名，聲音平靜，不帶抑揚）",
+      "「……{name}。」",
+      "（停頓，抬起頭，視線在你臉上停了一秒）",
+      "「三一七號房的事我聽說了。先上課，其他的之後再說。」",
+      "（繼續點名，沒有等你回應）"
+    ],
+    "next": "ch2_rollcall_reaction"
+  },
+  "ch2_rollcall_reaction": {
+    "id": "ch2_rollcall_reaction",
+    "chapter": "第二章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你感覺到幾道視線。",
+      "不是惡意，只是好奇——你是那個「鑰匙弄錯了還是名冊出問題了」的人。在學院的第一天，已經有了一個別人記得你的理由。",
+      "你不確定這是好事。"
+    ],
+    "next": "ch2_lesson_start"
+  },
+  "ch2_lesson_start": {
+    "id": "ch2_lesson_start",
+    "chapter": "第二章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "「符文不是工具。」",
+      "（在黑板上寫下一個符文，動作乾脆，不多餘）",
+      "「符文是語言。是某種比文字更古老的東西留下來的聲音。你們學的不是怎麼使用它——是怎麼聽懂它。」",
+      "（轉過身，掃視全場）",
+      "「這是 ᚾ Nauthiz。五班的徽記。有人知道它代表什麼嗎？」"
+    ],
+    "subtext": "沉默。沒有人舉手。",
+    "next": "ch2_lesson_silence"
+  },
+  "ch2_lesson_silence": {
+    "id": "ch2_lesson_silence",
+    "chapter": "第二章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "教室裡很安靜。",
+      "你低下頭，裝作在翻筆記本。",
+      "然後你聽到後排有人開口。"
+    ],
+    "next": "ch2_brinke_answers"
+  },
+  "ch2_brinke_answers": {
+    "id": "ch2_brinke_answers",
+    "chapter": "第二章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "「需求。匱乏。」",
+      "（停頓）",
+      "「也是不得不走的路。」"
+    ],
+    "subtext": "沒有舉手，沒有站起來。只是說了這句話，然後繼續看窗外。",
+    "next": "ch2_professor_responds"
+  },
+  "ch2_professor_responds": {
+    "id": "ch2_professor_responds",
+    "chapter": "第二章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "（看了布林克一眼，表情沒有變化，但語速慢了一點）",
+      "「對。Nauthiz 代表的不是苦難本身——是苦難之後，你選擇怎麼走的那一步。」",
+      "（在黑板上繼續寫）",
+      "「五班，記住這個符文。你們被分到這裡，不是巧合。」"
+    ],
+    "next": "ch2_after_class"
+  },
+  "ch2_after_class": {
+    "id": "ch2_after_class",
+    "chapter": "第二章",
+    "scene": "學院・符文學教室",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "下課的時候，你身邊的人低聲議論。",
+      "「那個弗洛斯特是什麼來頭？」",
+      "「聽說他父親是沒落貴族，媽媽那邊根本查不到。」",
+      "「他在入學前就自己研究符文了，有人看過他的申請卷子，全是手寫符文分析，密密麻麻的。」",
+      "你沒有參與討論。你只是記得他說那句話的語氣——不是在炫耀，也不是在答題。更像是說了一件他自己也不想說穿的事。"
+    ],
+    "next": "ch2_hallway_stop"
+  },
+  "ch2_hallway_stop": {
+    "id": "ch2_hallway_stop",
+    "chapter": "第二章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "（在你身後叫住你）",
+      "「{name}，等一下。」",
+      "（等其他人走遠，聲音壓低了一些）",
+      "「你入學時拿到的那把鑰匙——你還帶著嗎？」"
+    ],
+    "next": "ch2_hallway_reaction"
+  },
+  "ch2_hallway_reaction": {
+    "id": "ch2_hallway_reaction",
+    "chapter": "第二章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你把手伸進口袋，鑰匙還在。"
+    ],
+    "next": "ch2_choice_key"
+  },
+  "ch2_choice_key": {
+    "id": "ch2_choice_key",
+    "chapter": "第二章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "type": "choice",
+    "prompt": "你怎麼回應教授？",
+    "choices": [
+      {
+        "text": "「帶著。這是怎麼回事？」",
+        "next": "ch2_key_a",
+        "tag": "直接問",
+        "affinity": 0
+      },
+      {
+        "text": "把鑰匙拿出來，遞給她看，沒有說話。",
+        "next": "ch2_key_b",
+        "tag": "沉默示",
+        "affinity": 0
+      },
+      {
+        "text": "「……為什麼問這個？」",
+        "next": "ch2_key_c",
+        "tag": "警戒",
+        "affinity": 0
+      }
+    ]
+  },
+  "ch2_key_a": {
+    "id": "ch2_key_a",
+    "chapter": "第二章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "（看著你，沉默了一下）",
+      "「先不要告訴別人你有這把鑰匙。包括你的室友。」",
+      "（語氣像在陳述事實，不是命令）",
+      "「等我查清楚。」"
+    ],
+    "next": "ch2_key_end"
+  },
+  "ch2_key_b": {
+    "id": "ch2_key_b",
+    "chapter": "第二章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "（低頭看了鑰匙一眼，沒有伸手接）",
+      "「收好。」",
+      "（停頓）",
+      "「先不要告訴別人你有這把鑰匙。我在查一件事，查清楚之前，不要讓人看到它。」"
+    ],
+    "next": "ch2_key_end"
+  },
+  "ch2_key_c": {
+    "id": "ch2_key_c",
+    "chapter": "第二章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": "艾芙琳・瑟頓教授",
+    "lines": [
+      "（嘴角動了一下，不是笑，是某種你說不清楚的反應）",
+      "「因為那把鑰匙不該存在。」",
+      "（轉身要走，停下）",
+      "「先不要讓任何人看到它。等我的消息。」"
+    ],
+    "next": "ch2_key_end"
+  },
+  "ch2_key_end": {
+    "id": "ch2_key_end",
+    "chapter": "第二章",
+    "scene": "學院・主樓走廊",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "她走了，走廊上沒有其他人了。",
+      "你握著鑰匙，感覺它比昨天又重了一點。",
+      "或者是你的手沒有昨天那麼穩。"
+    ],
+    "next": "ch2_library_enter"
+  },
+  "ch2_library_enter": {
+    "id": "ch2_library_enter",
+    "chapter": "第二章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "晚飯後，你去了圖書館。",
+      "你想查那個符文——ᚾ Nauthiz——不是因為好奇，是因為有件事讓你說不清楚的不安：教授說五班被分到這裡不是巧合，你的鑰匙不該存在。",
+      "你想知道自己在哪一種巧合裡面。"
+    ],
+    "next": "ch2_library_search"
+  },
+  "ch2_library_search": {
+    "id": "ch2_library_search",
+    "chapter": "第二章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "符文學的書在最裡面一排，書架高到天花板，要踩凳子才能拿到頂層的書。",
+      "你找到了一本《古符文辭典：北方語系》，抱著坐到角落的桌子旁。",
+      "翻到 Nauthiz 那一頁，你開始讀。",
+      "然後你發現有人站在你旁邊。"
+    ],
+    "next": "ch2_library_brinke"
+  },
+  "ch2_library_brinke": {
+    "id": "ch2_library_brinke",
+    "chapter": "第二章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "「那本書我借不到。」"
+    ],
+    "subtext": "他站在書架旁，手裡空著，聲音很低，像是在跟自己說話，不太像在跟你說。",
+    "next": "ch2_choice_book"
+  },
+  "ch2_choice_book": {
+    "id": "ch2_choice_book",
+    "chapter": "第二章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "type": "choice",
+    "prompt": "你怎麼做？",
+    "choices": [
+      {
+        "text": "把書推到桌子中間。「可以一起看。」",
+        "next": "ch2_book_share",
+        "tag": "分享",
+        "affinity": 3
+      },
+      {
+        "text": "「我先看完，放回去就是你的了。」",
+        "next": "ch2_book_wait",
+        "tag": "讓步",
+        "affinity": 1
+      },
+      {
+        "text": "繼續看書，沒有說話。",
+        "next": "ch2_book_silent",
+        "tag": "沉默",
+        "affinity": -1
+      }
+    ]
+  },
+  "ch2_book_share": {
+    "id": "ch2_book_share",
+    "chapter": "第二章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "他看著那本書，停了三秒。",
+      "然後他拉開你對面的椅子，坐下來。",
+      "沒有說謝謝，但他翻到 Nauthiz 那一頁，指了一行注釋：「這個解釋是錯的。原文裡這個詞是動詞，不是名詞。」",
+      "你不知道他說的對不對，但你知道他確實讀過原文。",
+      "你們就這樣並排坐著，各自讀，偶爾一個人指著某一行，另一個人看。沒有多餘的話。"
+    ],
+    "next": "ch2_book_margin"
+  },
+  "ch2_book_wait": {
+    "id": "ch2_book_wait",
+    "chapter": "第二章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "他點了一下頭，在你旁邊的書架前站著，抽出另一本書翻著，等著。",
+      "你加快了一點速度。",
+      "你把書放回書架的時候，他直接伸手接過去，沒有看你，翻到他要找的頁面。",
+      "但在他接過書的一瞬間，你注意到他書頁的最後一行下方，用很輕的鉛筆寫著一個符文，筆畫細小，幾乎看不見。"
+    ],
+    "next": "ch2_book_margin"
+  },
+  "ch2_book_silent": {
+    "id": "ch2_book_silent",
+    "chapter": "第二章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你沒有說話，繼續看書。",
+      "他站了一會兒，轉身去了另一排書架。",
+      "你看完，把書放回去，起身的時候往後看了一眼——他坐在最裡面的角落，手裡換了另一本書，頭也不抬。",
+      "你走到門口，忽然想起一件事，回頭看，但他的位置已經看不見了，只有書架和光。"
+    ],
+    "next": "ch2_book_margin"
+  },
+  "ch2_book_margin": {
+    "id": "ch2_book_margin",
+    "chapter": "第二章",
+    "scene": "學院・圖書館",
+    "bg": "academy_hall",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你回宿舍的路上，腦子裡還想著那本書的某一行，還有布林克在黑板上回答問題時的那個語氣。",
+      "不得不走的路。",
+      "你在想他說那句話的時候，是不是想到了自己的什麼事。"
+    ],
+    "next": "ch2_night_return"
+  },
+  "ch2_night_return": {
+    "id": "ch2_night_return",
+    "chapter": "第二章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "宿舍的燈滅了。",
+      "你推開門，以為他已經睡了。",
+      "但布林克坐在窗邊，背靠著牆，膝蓋抬起，手臂隨意搭著——不是在看書，只是在看窗外。",
+      "維爾德的霧今晚比昨晚更深，把內院的燈暈成一個模糊的光圈。",
+      "他聽到你進來，但沒有轉頭。"
+    ],
+    "next": "ch2_choice_night"
+  },
+  "ch2_choice_night": {
+    "id": "ch2_choice_night",
+    "chapter": "第二章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "type": "choice",
+    "prompt": "你怎麼做？",
+    "choices": [
+      {
+        "text": "「你在看什麼？」",
+        "next": "ch2_night_talk",
+        "tag": "開口",
+        "affinity": 2
+      },
+      {
+        "text": "在窗邊站了一下，然後去睡。",
+        "next": "ch2_night_quiet",
+        "tag": "靜默",
+        "affinity": 1
+      },
+      {
+        "text": "直接上床，背對著他。",
+        "next": "ch2_night_turn",
+        "tag": "距離",
+        "affinity": 0
+      }
+    ]
+  },
+  "ch2_night_talk": {
+    "id": "ch2_night_talk",
+    "chapter": "第二章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": "布林克・弗洛斯特",
+    "lines": [
+      "（沉默了一會兒）",
+      "「霧。」",
+      "（停頓）",
+      "「維爾德的霧不是從外面來的。」"
+    ],
+    "subtext": "他說這句話的時候，語氣很平靜，但你說不清楚它是一個觀察，還是一件他早就知道、只是現在才說出來的事。",
+    "next": "ch2_night_talk2"
+  },
+  "ch2_night_talk2": {
+    "id": "ch2_night_talk2",
+    "chapter": "第二章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你想問他什麼意思，但他已經轉回去看窗外了，那個角度讓你看不到他的臉。",
+      "你在自己的床上坐下來，也看著窗外。",
+      "霧在動，緩慢，像在呼吸。",
+      "你們誰都沒有再說話，但房間裡的安靜和昨晚不一樣了——昨晚是兩個陌生人各自待在自己的角落，今晚是兩個人都在看同一個方向，雖然看到的東西可能不同。"
+    ],
+    "next": "ch2_end_narration"
+  },
+  "ch2_night_quiet": {
+    "id": "ch2_night_quiet",
+    "chapter": "第二章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你在窗邊站了一會兒，看著外面的霧。",
+      "布林克還是沒有轉頭。",
+      "你說不清楚為什麼在那裡站了這麼久，只是感覺如果現在走開，會有什麼東西就這樣錯過了。",
+      "但最後你還是回到床上，把毯子拉起來。"
+    ],
+    "next": "ch2_end_narration"
+  },
+  "ch2_night_turn": {
+    "id": "ch2_night_turn",
+    "chapter": "第二章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "你上床，背對著他。",
+      "房間裡很安靜，只有偶爾窗外風吹過去的聲音。",
+      "你閉上眼睛，但沒有很快睡著。",
+      "你不知道布林克在窗邊坐了多久。"
+    ],
+    "next": "ch2_end_narration"
+  },
+  "ch2_end_narration": {
+    "id": "ch2_end_narration",
+    "chapter": "第二章",
+    "scene": "學院・三一七號房・深夜",
+    "bg": "dorm_night",
+    "speaker": null,
+    "isNarration": true,
+    "lines": [
+      "維爾德的霧，不是從外面來的。",
+      "你在快睡著的時候想到這句話。",
+      "你想，如果霧是從裡面生出來的，那麼這座城從建起來的那天，就決定了它的樣子——帶霧的，看不清楚邊界的，讓人無法確定自己走了多遠的。",
+      "那把鑰匙還在口袋裡。",
+      "你閉上眼睛。"
+    ],
+    "next": "ch2_end"
+  },
+  "ch2_end": {
+    "id": "ch2_end",
+    "type": "chapter_end",
+    "chapter": "第二章",
+    "title": "霧",
+    "bg": "dorm_night",
+    "next": "ch3_title"
+  }
+}
