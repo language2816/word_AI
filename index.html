@@ -408,47 +408,13 @@
 
 <script>
 // ════════════════════════════════════════════════════
-// STORY DATA（分章節動態載入）
-// 章節檔案：story_ch1.json / story_ch2.json / story_ch3.json
+// STORY DATA（單一 story.json 載入）
 // ════════════════════════════════════════════════════
 let STORY = {};
 
-// 各章節的起始節點前綴 → 對應檔案
-const CHAPTER_FILES = {
-  ch0: "story_ch1.json",   // 序章包在第一章檔案裡
-  ch1: "story_ch1.json",
-  ch2: "story_ch2.json",
-  ch3: "story_ch3.json",
-};
-
-// 已載入的章節（避免重複 fetch）
-const loadedChapters = new Set();
-
-// 取得節點 id 對應的章節前綴（e.g. "ch2_morning" → "ch2"）
-function getChapterPrefix(nodeId) {
-  const m = nodeId.match(/^(ch\d+)/);
-  return m ? m[1] : null;
-}
-
-// 確保指定節點所在的章節已載入，載入後執行 callback
+// 統一介面：節點已在 STORY 裡，直接執行 callback
 function ensureChapterLoaded(nodeId, callback) {
-  const prefix = getChapterPrefix(nodeId);
-  const file = CHAPTER_FILES[prefix];
-  if (!file || loadedChapters.has(prefix)) {
-    callback();
-    return;
-  }
-  fetch(file)
-    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-    .then(data => {
-      Object.assign(STORY, data);
-      loadedChapters.add(prefix);
-      callback();
-    })
-    .catch(err => {
-      console.error("無法載入 " + file + "：", err);
-      callback();  // 即使失敗也繼續，renderGame 會顯示錯誤
-    });
+  callback();
 }
 
 // ════════════════════════════════════════════════════
@@ -1387,21 +1353,19 @@ document.getElementById("content").innerHTML = `
   </div>`;
 
 // 啟動時只載入第一章（序章+第一章），其他章節在切換時自動載入
-fetch("story_ch1.json")
+fetch("story.json")
   .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
   .then(data => {
     Object.assign(STORY, data);
-    loadedChapters.add("ch0");
-    loadedChapters.add("ch1");
     renderGame();
   })
   .catch(err => {
-    console.error("無法載入 story_ch1.json：", err);
+    console.error("無法載入 story.json：", err);
     document.getElementById("content").innerHTML = `
       <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;text-align:center;">
         <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:rgba(200,100,100,0.7);">LOAD ERROR</div>
         <div style="font-family:'Noto Serif TC',serif;font-size:12px;color:rgba(160,155,145,0.6);line-height:2;">
-          找不到 story_ch1.json<br/>請確認檔案和 index.html 放在同一個資料夾
+          找不到 story.json<br/>請確認檔案和 index.html 放在同一個資料夾
         </div>
       </div>`;
   });
