@@ -300,58 +300,41 @@
   /* ── 角色立繪容器 ── */
   #character-sprite-wrap {
     position: absolute;
-    bottom: 96px;   /* 貼近對話框，減少距離 */
-    right: 20px;
+    bottom: 80px;
+    right: 16px;
     z-index: 3;
     pointer-events: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
   }
-  
-  /* 角色名稱標籤 */
+
+  /* 角色名稱標籤（隱藏）*/
   #character-name-label {
-    font-family: 'Cinzel', serif;
-    font-size: 12px;
-    letter-spacing: 3px;
-    color: rgba(210, 185, 120, 0.9);
-    text-transform: uppercase;
-    background: rgba(8, 6, 14, 0.7);
-    border: 1px solid rgba(180, 155, 90, 0.3);
-    padding: 6px 14px;
-    border-radius: 2px;
-    box-shadow: 0 0 12px rgba(180, 155, 90, 0.15);
-    text-shadow: 0 0 8px rgba(180, 155, 90, 0.3);
-    animation: slideUp 0.3s ease;
+    display: none;
   }
-  
-  /* 角色圖片容器 */
+
+  /* 角色圖片容器（無框、無背景） */
   #character-sprite-image-wrap {
     position: relative;
-    width: 240px;
-    height: 380px;
-    overflow: hidden;
-    border: 1px solid rgba(180, 155, 90, 0.25);
-    background: linear-gradient(180deg, rgba(20, 15, 25, 0.4) 0%, rgba(10, 8, 15, 0.8) 100%);
-    box-shadow: 
-      0 0 30px rgba(180, 155, 90, 0.2),
-      inset 0 0 40px rgba(0, 0, 0, 0.6),
-      -2px 0 20px rgba(0, 0, 0, 0.9);
+    width: 220px;
+    height: 360px;
+    overflow: visible;
+    background: transparent;
     display: flex;
     align-items: flex-end;
     justify-content: center;
   }
-  
+
   #character-sprite {
     height: 100%;
     width: auto;
-    max-width: 240px;
+    max-width: 220px;
     object-fit: contain;
     object-position: bottom center;
-    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
-    animation: fadeIn 0.4s ease;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.85)) drop-shadow(0 0 8px rgba(0,0,0,0.5));
+    animation: fadeIn 0.5s ease;
   }
 
   /* ── 通知提示 ── */
@@ -1358,8 +1341,20 @@ function renderGenderSelect(node, container) {
 }
 
 // ════════════════════════════════════════════════════
-// INIT
+// 頁面可見性：離開/鎖屏暫停音樂，回來後自動恢復
 // ════════════════════════════════════════════════════
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    // 頁面隱藏（切分頁、鎖屏）→ 暫停所有軌道
+    Object.values(audioPlayers).forEach(a => a.pause());
+  } else {
+    // 回到頁面 → 若未手動靜音則恢復播放
+    if (!state.musicMuted && activeTrack) {
+      audioPlayers[activeTrack].play().catch(() => {});
+    }
+  }
+});
+
 // ════════════════════════════════════════════════════
 // INIT — 載入 story.json 後啟動
 // ════════════════════════════════════════════════════
