@@ -316,10 +316,48 @@
 
 <script>
 // ════════════════════════════════════════════════════
-// STORY DATA（從 story.json 動態載入）
-// 新增劇情請編輯 story.json，不需要動這個檔案
+// STORY DATA（分章節動態載入）
+// 章節檔案：story_ch1.json / story_ch2.json / story_ch3.json
 // ════════════════════════════════════════════════════
 let STORY = {};
+
+// 各章節的起始節點前綴 → 對應檔案
+const CHAPTER_FILES = {
+  ch0: "story_ch1.json",   // 序章包在第一章檔案裡
+  ch1: "story_ch1.json",
+  ch2: "story_ch2.json",
+  ch3: "story_ch3.json",
+};
+
+// 已載入的章節（避免重複 fetch）
+const loadedChapters = new Set();
+
+// 取得節點 id 對應的章節前綴（e.g. "ch2_morning" → "ch2"）
+function getChapterPrefix(nodeId) {
+  const m = nodeId.match(/^(ch\d+)/);
+  return m ? m[1] : null;
+}
+
+// 確保指定節點所在的章節已載入，載入後執行 callback
+function ensureChapterLoaded(nodeId, callback) {
+  const prefix = getChapterPrefix(nodeId);
+  const file = CHAPTER_FILES[prefix];
+  if (!file || loadedChapters.has(prefix)) {
+    callback();
+    return;
+  }
+  fetch(file)
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(data => {
+      Object.assign(STORY, data);
+      loadedChapters.add(prefix);
+      callback();
+    })
+    .catch(err => {
+      console.error("無法載入 " + file + "：", err);
+      callback();  // 即使失敗也繼續，renderGame 會顯示錯誤
+    });
+}
 
 // ════════════════════════════════════════════════════
 // BACKGROUNDS
@@ -545,6 +583,9 @@ function openSavePanel() {
 }
 function closeSavePanel() {
   document.getElementById("save-panel").style.display = "none";
+  if (typeof window._savePanelOnClose === "function") {
+    window._savePanelOnClose();
+  }
 }
 
 function renderSavePanel() {
@@ -755,8 +796,11 @@ function goTo(newId) {
   setTimeout(() => {
     state.nodeId = newId;
     state.lineIndex = 0;
-    content.style.opacity = "1";
-    renderGame();
+    // 確保目標節點的章節已載入，再渲染
+    ensureChapterLoaded(newId, () => {
+      content.style.opacity = "1";
+      renderGame();
+    });
   }, 300);
 }
 
@@ -806,6 +850,7 @@ function renderGame() {
   updateBg(node.bg || "night_fog");
   if (node.type === "chapter_title") { renderChapterTitle(node); return; }
   if (node.type === "chapter_end")   { renderChapterEnd(node);   return; }
+  if (node.type === "save_prompt")   { renderSavePrompt(node);   return; }
 
   const content = document.getElementById("content");
   content.innerHTML = `
@@ -874,16 +919,74 @@ function renderChapterTitle(node) {
 function renderChapterEnd(node) {
   playMusicForScene("__end__");
   const content = document.getElementById("content");
+  // 判斷是否有下一章
+  const hasNext = !!node.next;
+  const comingText = hasNext ? "點擊任意處繼續。" : "下一章即將推出，敬請期待。";
   content.innerHTML = `
-    <div id="chapter-end-screen">
+    <div id="chapter-end-screen" ${hasNext ? 'style="cursor:pointer"' : ''}>
       <div id="end-label">END OF</div>
       <div id="end-chapter-title">${node.chapter}　${node.title}</div>
       <div id="end-divider"></div>
-      <p id="end-coming">第二章即將到來。</p>
+      <p id="end-coming">${comingText}</p>
       <p id="end-fin">——完——</p>
     </div>
   `;
   setTimeout(() => { const ce = document.getElementById("chapter-end-screen"); if (ce) ce.style.opacity = "1"; }, 100);
+  if (hasNext) {
+    document.getElementById("chapter-end-screen").addEventListener("click", () => goTo(node.next));
+  }
+}
+
+// ════════════════════════════════════════════════════
+// SAVE PROMPT（黑屏詢問存檔）
+// ════════════════════════════════════════════════════
+function renderSavePrompt(node) {
+  playMusicForScene("__end__");
+  // 黑屏
+  const gw = document.getElementById("game-window");
+  gw.style.backgroundImage = "none";
+  document.getElementById("bg-overlay").style.background = "#000";
+  document.getElementById("vignette").style.opacity = "0";
+  document.getElementById("particles-layer").innerHTML = "";
+
+  const content = document.getElementById("content");
+  const lines = (node.prompt || "").split("\\n");
+  const promptHtml = lines.map(l => `<div>${l}</div>`).join("");
+
+  content.innerHTML = `
+    <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;animation:fadeIn 1.2s ease;">
+      <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:13px;letter-spacing:3px;color:rgba(180,155,90,0.75);line-height:2.2;">
+        ${promptHtml}
+      </div>
+      <div style="width:80px;height:1px;background:linear-gradient(90deg,transparent,rgba(180,155,90,0.3),transparent);"></div>
+      <div style="display:flex;gap:16px;">
+        <button class="choice-btn" id="save-prompt-yes" style="padding:14px 28px;justify-content:center;">
+          <span class="choice-text">儲存進度</span>
+        </button>
+        <button class="choice-btn" id="save-prompt-skip" style="padding:14px 28px;justify-content:center;border-color:rgba(100,100,120,0.2);">
+          <span class="choice-text" style="color:rgba(150,145,135,0.6);">繼續</span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById("save-prompt-yes").addEventListener("click", () => {
+    // 打開存檔面板；關閉後前進下一節點
+    openSavePanel();
+    // 在存檔面板的關閉按鈕上掛一次性攔截
+    const origClose = closeSavePanel;
+    window._savePanelOnClose = () => {
+      window._savePanelOnClose = null;
+      goTo(node.next);
+    };
+  });
+
+  document.getElementById("save-prompt-skip").addEventListener("click", () => {
+    goTo(node.next);
+  });
+
+  // 恢復 vignette
+  document.getElementById("vignette").style.opacity = "1";
 }
 
 // ════════════════════════════════════════════════════
@@ -1027,19 +1130,22 @@ document.getElementById("content").innerHTML = `
     <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(180,155,90,0.3),transparent);"></div>
   </div>`;
 
-fetch("story.json")
-  .then(r => r.json())
+// 啟動時只載入第一章（序章+第一章），其他章節在切換時自動載入
+fetch("story_ch1.json")
+  .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
   .then(data => {
-    STORY = data;
+    Object.assign(STORY, data);
+    loadedChapters.add("ch0");
+    loadedChapters.add("ch1");
     renderGame();
   })
   .catch(err => {
-    console.error("無法載入 story.json：", err);
+    console.error("無法載入 story_ch1.json：", err);
     document.getElementById("content").innerHTML = `
       <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;text-align:center;">
         <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:rgba(200,100,100,0.7);">LOAD ERROR</div>
         <div style="font-family:'Noto Serif TC',serif;font-size:12px;color:rgba(160,155,145,0.6);line-height:2;">
-          找不到 story.json<br/>請確認檔案和 index.html 放在同一個資料夾
+          找不到 story_ch1.json<br/>請確認檔案和 index.html 放在同一個資料夾
         </div>
       </div>`;
   });
