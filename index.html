@@ -108,7 +108,7 @@
   #dialogue-wrap  { cursor:pointer;width:100%; }
   #speaker-plate  { margin-bottom:8px;display:inline-block;padding:4px 16px;background:rgba(180,155,90,0.12);border:1px solid rgba(180,155,90,0.25);border-bottom:none; }
   #speaker-name   { font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(210,185,120,0.9); }
-  #text-box       { padding:20px 24px 20px 24px;backdrop-filter:blur(8px);min-height:80px;position:relative; }
+  #text-box       { padding:20px 24px 20px 24px;backdrop-filter:blur(8px);height:120px;min-height:120px;max-height:120px;overflow:hidden;position:relative; }
 
   /* 主角頭像 */
   #player-avatar-wrap {
@@ -314,7 +314,8 @@
   /* ── 角色立繪容器 ── */
   #character-sprite-wrap {
     position: absolute;
-    bottom: 176px;   /* 貼齊對話框上緣：bottom-ui(24) + text-box(~120) + speaker-plate(~36) ≈ 176px */
+    /* bottom-ui padding(24) + text-box(120) + speaker-plate(36) + margin(8) = 188px */
+    bottom: 188px;
     right: 16px;
     z-index: 3;
     pointer-events: none;
@@ -495,20 +496,24 @@ function updateSprite(speaker) {
   const url = getSpriteUrl(speaker);
 
   if (!url) {
-    // 沒有對應立繪 → 隱藏
     wrap.style.display = "none";
     currentSprite = null;
     return;
   }
 
-  if (url === currentSprite) return; // 同一張不重複切換
+  // 根據是否有 speaker-plate 動態調整底部對齊
+  // 有角色名（非旁白）: bottom-ui(24) + text-box(120) + speaker-plate(36) + margin(8) = 188px
+  // 無角色名（旁白）:   bottom-ui(24) + text-box(120) = 144px
+  wrap.style.bottom = speaker ? "188px" : "144px";
+
+  if (url === currentSprite) return;
 
   currentSprite = url;
   wrap.style.opacity = "0";
   wrap.style.display = "flex";
-  
-  // 設定角色名稱標籤
-  nameLabel.textContent = speaker || "";
+
+  // 角色名稱標籤（已 display:none，保留邏輯備用）
+  nameLabel.textContent = speaker || ""; || "";
   
   img.src = url;
   img.onload = () => {
