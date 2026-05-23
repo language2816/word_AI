@@ -446,13 +446,50 @@
 
 <script>
 // ════════════════════════════════════════════════════
-// STORY DATA（單一 story.json 載入）
+// STORY DATA（分章節動態載入）
 // ════════════════════════════════════════════════════
 let STORY = {};
 
-// 統一介面：節點已在 STORY 裡，直接執行 callback
+// 已載入的章節（避免重複 fetch）
+const loadedChapters = new Set();
+
+// 根據 nodeId 推算需要哪個 JSON 檔
+// ch0_ → story_ch1.json（序章合在第一章檔）
+// ch1_ → story_ch1.json
+// ch2_ → story_ch2.json … 以此類推
+function getChapterFile(nodeId) {
+  if (!nodeId) return null;
+  const m = nodeId.match(/^ch(\d+)_/);
+  if (!m) return null;
+  const n = parseInt(m[1], 10);
+  // 第 0 章放在 story_ch1.json 裡
+  const fileNum = n === 0 ? 1 : n;
+  return `story_ch${fileNum}.json`;
+}
+
+// 確保目標節點的章節已載入，再執行 callback
 function ensureChapterLoaded(nodeId, callback) {
-  callback();
+  // 節點已存在 → 直接執行
+  if (STORY[nodeId]) { callback(); return; }
+
+  const file = getChapterFile(nodeId);
+  // 無法推算檔案，或已載入但節點不存在（JSON 裡沒有該節點）→ 直接執行讓 renderGame 處理錯誤
+  if (!file) { callback(); return; }
+
+  // 已嘗試載入過（但節點不存在）→ 避免無限重試
+  if (loadedChapters.has(file)) { callback(); return; }
+
+  loadedChapters.add(file);
+  fetch(file)
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(data => {
+      Object.assign(STORY, data);
+      callback();
+    })
+    .catch(err => {
+      console.error(`無法載入 ${file}：`, err);
+      callback(); // 仍然執行，讓遊戲顯示錯誤而非卡住
+    });
 }
 
 // ════════════════════════════════════════════════════
@@ -1394,8 +1431,9 @@ document.getElementById("content").innerHTML = `
     <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(180,155,90,0.3),transparent);"></div>
   </div>`;
 
-// 啟動時只載入第一章（序章+第一章），其他章節在切換時自動載入
-fetch("story.json")
+// 啟動時載入第一章（序章+第一章），其他章節在切換時自動載入
+loadedChapters.add("story_ch1.json");
+fetch("story_ch1.json")
   .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
   .then(data => {
     Object.assign(STORY, data);
@@ -1407,7 +1445,7 @@ fetch("story.json")
       <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;text-align:center;">
         <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:rgba(200,100,100,0.7);">LOAD ERROR</div>
         <div style="font-family:'Noto Serif TC',serif;font-size:12px;color:rgba(160,155,145,0.6);line-height:2;">
-          找不到 story.json<br/>請確認檔案和 index.html 放在同一個資料夾
+          找不到 story_ch1.json<br/>請確認檔案和 index.html 放在同一個資料夾
         </div>
       </div>`;
   });
