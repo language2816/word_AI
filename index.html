@@ -17,6 +17,8 @@
   @keyframes pfloat1  { 0%,100%{transform:translateY(0) translateX(0)} 50%{transform:translateY(-14px) translateX(10px)} }
   @keyframes pfloat2  { 0%,100%{transform:translateY(0)} 33%{transform:translateY(-8px)} 66%{transform:translateY(-22px)} }
   @keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+  @keyframes slideUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes pulseGold{ 0%,100%{box-shadow:0 0 0 rgba(180,155,90,0)} 50%{box-shadow:0 0 16px rgba(180,155,90,0.25)} }
 
   input::placeholder { color: rgba(120,115,100,0.4); }
   ::-webkit-scrollbar { width: 3px; }
@@ -40,335 +42,240 @@
     transition: background-image 0.6s ease;
   }
 
-  #bg-overlay {
-    position: absolute; inset: 0;
-    pointer-events: none; z-index: 0;
-    transition: background 0.6s ease;
-  }
-  #vignette {
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%);
-    pointer-events: none; z-index: 1;
-  }
-  #particles-layer {
-    position: absolute; inset: 0; z-index: 1;
-  }
-  #scanline {
-    position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
-  }
-  #content {
-    position: relative; z-index: 2;
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    transition: opacity 0.3s ease;
-  }
+  #bg-overlay { position:absolute;inset:0;pointer-events:none;z-index:0;transition:background 0.6s ease; }
+  #vignette   { position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,0.7) 100%);pointer-events:none;z-index:1; }
+  #particles-layer { position:absolute;inset:0;z-index:1; }
+  #scanline   { position:absolute;inset:0;z-index:1;pointer-events:none;background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px); }
+  #content    { position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;transition:opacity 0.3s ease; }
 
-  /* Corner decorations */
-  .corner {
-    position: absolute; width: 12px; height: 12px;
-    pointer-events: none; z-index: 3;
-  }
-  .corner.tl { top:8px; left:8px;  border-top: 1px solid rgba(180,155,90,0.2); border-left: 1px solid rgba(180,155,90,0.2); }
-  .corner.tr { top:8px; right:8px; border-top: 1px solid rgba(180,155,90,0.2); border-right: 1px solid rgba(180,155,90,0.2); }
-  .corner.bl { bottom:8px; left:8px;  border-bottom: 1px solid rgba(180,155,90,0.2); border-left: 1px solid rgba(180,155,90,0.2); }
-  .corner.br { bottom:8px; right:8px; border-bottom: 1px solid rgba(180,155,90,0.2); border-right: 1px solid rgba(180,155,90,0.2); }
+  .corner { position:absolute;width:12px;height:12px;pointer-events:none;z-index:3; }
+  .corner.tl { top:8px;left:8px;border-top:1px solid rgba(180,155,90,0.2);border-left:1px solid rgba(180,155,90,0.2); }
+  .corner.tr { top:8px;right:8px;border-top:1px solid rgba(180,155,90,0.2);border-right:1px solid rgba(180,155,90,0.2); }
+  .corner.bl { bottom:8px;left:8px;border-bottom:1px solid rgba(180,155,90,0.2);border-left:1px solid rgba(180,155,90,0.2); }
+  .corner.br { bottom:8px;right:8px;border-bottom:1px solid rgba(180,155,90,0.2);border-right:1px solid rgba(180,155,90,0.2); }
 
-  /* Scene label */
-  #scene-label {
-    position: absolute; top: 20px; left: 24px; right: 24px;
-    display: flex; justify-content: space-between; align-items: flex-start;
+  /* ── 頂部工具列 ── */
+  #top-toolbar {
+    position: absolute; top: 0; left: 0; right: 0;
+    z-index: 10; display: flex; justify-content: flex-end;
+    padding: 10px 16px; gap: 6px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent);
     pointer-events: none;
   }
-  #scene-name {
-    font-size: 10px; letter-spacing: 4px; color: rgba(180,160,110,0.6);
-    text-transform: uppercase; font-family: 'Cinzel', serif;
+  .tool-btn {
+    pointer-events: all;
+    background: rgba(8,6,14,0.6);
+    border: 1px solid rgba(180,155,90,0.18);
+    color: rgba(180,160,110,0.65);
+    padding: 5px 10px; font-size: 10px;
+    letter-spacing: 2px; cursor: pointer;
+    font-family: 'Cinzel', serif;
+    transition: all 0.2s; backdrop-filter: blur(4px);
   }
-  #chapter-name {
-    font-size: 10px; letter-spacing: 3px; color: rgba(140,150,180,0.5);
-    font-family: 'Noto Serif TC', serif;
+  .tool-btn:hover {
+    background: rgba(180,155,90,0.12);
+    border-color: rgba(210,185,120,0.4);
+    color: rgba(210,185,120,0.9);
   }
+  /* 音量按鈕特殊狀態 */
+  .tool-btn.muted { color: rgba(120,110,90,0.4); border-color: rgba(120,110,90,0.12); }
+
+  /* 場景標題 */
+  #scene-label { position:absolute;top:20px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none; }
+  #scene-name  { font-size:10px;letter-spacing:4px;color:rgba(180,160,110,0.6);text-transform:uppercase;font-family:'Cinzel',serif; }
+  #chapter-name{ font-size:10px;letter-spacing:3px;color:rgba(140,150,180,0.5);font-family:'Noto Serif TC',serif; }
 
   /* Bottom UI */
   #bottom-ui { padding: 0 24px 24px; }
-  #spacer { flex: 1; }
+  #spacer    { flex: 1; }
 
-  /* Dialogue box */
-  #dialogue-wrap { cursor: pointer; width: 100%; }
-  #speaker-plate {
-    margin-bottom: 8px; display: inline-block;
-    padding: 4px 16px;
-    background: rgba(180,155,90,0.12);
-    border: 1px solid rgba(180,155,90,0.25);
-    border-bottom: none;
-  }
-  #speaker-name {
-    font-family: 'Cinzel', serif; font-size: 12px;
-    letter-spacing: 3px; color: rgba(210,185,120,0.9);
-  }
-  #text-box {
-    padding: 20px 24px;
-    backdrop-filter: blur(8px);
-    min-height: 80px; position: relative;
-  }
-  #dialogue-text {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 15px; line-height: 2; margin: 0;
-  }
-  #cursor-blink {
-    opacity: 0.6; animation: blink 0.7s infinite;
-  }
-  #subtext {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 12px; color: rgba(150,145,135,0.7);
-    font-style: italic; margin: 10px 0 0; line-height: 1.8;
-  }
-  #continue-indicator {
-    position: absolute; bottom: 12px; right: 16px;
-    font-size: 10px;
-    animation: float 1.5s ease-in-out infinite;
-    font-family: 'Noto Serif TC', serif; letter-spacing: 2px;
-  }
-  #line-dots {
-    display: flex; gap: 4px; margin-top: 8px; justify-content: center;
-  }
-  .dot {
-    height: 2px; border-radius: 1px;
-    transition: all 0.3s;
-  }
+  /* Dialogue */
+  #dialogue-wrap  { cursor:pointer;width:100%; }
+  #speaker-plate  { margin-bottom:8px;display:inline-block;padding:4px 16px;background:rgba(180,155,90,0.12);border:1px solid rgba(180,155,90,0.25);border-bottom:none; }
+  #speaker-name   { font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:rgba(210,185,120,0.9); }
+  #text-box       { padding:20px 24px;backdrop-filter:blur(8px);min-height:80px;position:relative; }
+  #dialogue-text  { font-family:'Noto Serif TC',serif;font-size:15px;line-height:2;margin:0; }
+  #cursor-blink   { opacity:0.6;animation:blink 0.7s infinite; }
+  #subtext        { font-family:'Noto Serif TC',serif;font-size:12px;color:rgba(150,145,135,0.7);font-style:italic;margin:10px 0 0;line-height:1.8; }
+  #continue-indicator { position:absolute;bottom:12px;right:16px;font-size:10px;animation:float 1.5s ease-in-out infinite;font-family:'Noto Serif TC',serif;letter-spacing:2px; }
+  #line-dots { display:flex;gap:4px;margin-top:8px;justify-content:center; }
+  .dot { height:2px;border-radius:1px;transition:all 0.3s; }
 
-  /* Choice box */
-  #choice-wrap { width: 100%; }
-  #choice-prompt-box {
-    background: rgba(5,5,10,0.55);
-    border: 1px solid rgba(140,150,180,0.12);
-    padding: 16px 24px; margin-bottom: 12px;
-    backdrop-filter: blur(8px);
-  }
-  #choice-prompt-text {
-    font-size: 14px; color: rgba(190,185,175,0.8);
-    line-height: 1.8; letter-spacing: 0.5px;
-  }
-  #choices-list { display: flex; flex-direction: column; gap: 8px; }
-  .choice-btn {
-    background: rgba(8,6,14,0.7);
-    border: 1px solid rgba(140,150,180,0.15);
-    border-left: 3px solid rgba(100,100,130,0.2);
-    padding: 14px 20px; text-align: left; cursor: pointer;
-    display: flex; align-items: center; gap: 12px;
-    transition: all 0.2s; backdrop-filter: blur(6px);
-    width: 100%;
-  }
-  .choice-btn:hover {
-    background: rgba(180,155,90,0.1);
-    border-color: rgba(180,155,90,0.35);
-    border-left-color: rgba(180,155,90,0.6);
-  }
-  .choice-btn.selected {
-    background: rgba(180,155,90,0.2);
-    border-color: rgba(210,185,120,0.5);
-    border-left-color: rgba(210,185,120,0.8);
-  }
-  .choice-letter {
-    font-size: 10px; letter-spacing: 2px;
-    color: rgba(140,130,110,0.5);
-    font-family: 'Cinzel', serif; min-width: 20px;
-    transition: color 0.2s;
-  }
-  .choice-btn:hover .choice-letter, .choice-btn.selected .choice-letter {
-    color: rgba(210,185,120,0.8);
-  }
-  .choice-text {
-    font-size: 14px; color: rgba(190,185,175,0.75);
-    line-height: 1.7; transition: color 0.2s;
-  }
-  .choice-btn:hover .choice-text, .choice-btn.selected .choice-text {
-    color: rgba(230,220,200,0.95);
-  }
-  .choice-tag {
-    margin-left: auto; font-size: 10px; letter-spacing: 2px;
-    color: rgba(140,130,110,0.4); font-family: 'Cinzel', serif;
-    white-space: nowrap;
-  }
+  /* Choice */
+  #choice-wrap      { width:100%; }
+  #choice-prompt-box{ background:rgba(5,5,10,0.55);border:1px solid rgba(140,150,180,0.12);padding:16px 24px;margin-bottom:12px;backdrop-filter:blur(8px); }
+  #choice-prompt-text{ font-size:14px;color:rgba(190,185,175,0.8);line-height:1.8;letter-spacing:0.5px; }
+  #choices-list     { display:flex;flex-direction:column;gap:8px; }
+  .choice-btn       { background:rgba(8,6,14,0.7);border:1px solid rgba(140,150,180,0.15);border-left:3px solid rgba(100,100,130,0.2);padding:14px 20px;text-align:left;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all 0.2s;backdrop-filter:blur(6px);width:100%; }
+  .choice-btn:hover { background:rgba(180,155,90,0.1);border-color:rgba(180,155,90,0.35);border-left-color:rgba(180,155,90,0.6); }
+  .choice-btn.selected{ background:rgba(180,155,90,0.2);border-color:rgba(210,185,120,0.5);border-left-color:rgba(210,185,120,0.8); }
+  .choice-letter    { font-size:10px;letter-spacing:2px;color:rgba(140,130,110,0.5);font-family:'Cinzel',serif;min-width:20px;transition:color 0.2s; }
+  .choice-btn:hover .choice-letter,.choice-btn.selected .choice-letter{ color:rgba(210,185,120,0.8); }
+  .choice-text      { font-size:14px;color:rgba(190,185,175,0.75);line-height:1.7;transition:color 0.2s; }
+  .choice-btn:hover .choice-text,.choice-btn.selected .choice-text{ color:rgba(230,220,200,0.95); }
+  .choice-tag       { margin-left:auto;font-size:10px;letter-spacing:2px;color:rgba(140,130,110,0.4);font-family:'Cinzel',serif;white-space:nowrap; }
 
   /* Name input */
-  #name-wrap { width: 100%; }
-  #name-prompt-box {
-    background: rgba(5,5,10,0.55);
-    border: 1px solid rgba(140,150,180,0.12);
-    padding: 20px 24px; margin-bottom: 16px;
-    backdrop-filter: blur(8px);
-  }
-  #name-prompt-text {
-    font-size: 15px; color: rgba(190,185,175,0.85); line-height: 2;
-  }
-  #name-input-row { display: flex; gap: 0; }
-  #name-input {
-    flex: 1;
-    background: rgba(8,6,14,0.82);
-    border: 1px solid rgba(140,150,180,0.15); border-right: none;
-    color: rgba(230,220,200,0.95);
-    padding: 14px 18px; font-size: 16px;
-    font-family: 'Noto Serif TC', serif; outline: none;
-    letter-spacing: 2px; transition: border-color 0.2s;
-  }
-  #name-input:focus { border-color: rgba(210,185,120,0.4); }
-  #name-submit {
-    background: rgba(30,25,20,0.5);
-    border: 1px solid rgba(60,55,45,0.3);
-    color: rgba(100,95,85,0.5);
-    padding: 14px 24px; cursor: default;
-    font-family: 'Cinzel', serif; font-size: 12px;
-    letter-spacing: 3px; transition: all 0.2s;
-  }
-  #name-submit.active {
-    background: rgba(180,155,90,0.2);
-    border-color: rgba(210,185,120,0.4);
-    color: rgba(210,185,120,0.9); cursor: pointer;
-  }
+  #name-wrap        { width:100%; }
+  #name-prompt-box  { background:rgba(5,5,10,0.55);border:1px solid rgba(140,150,180,0.12);padding:20px 24px;margin-bottom:16px;backdrop-filter:blur(8px); }
+  #name-prompt-text { font-size:15px;color:rgba(190,185,175,0.85);line-height:2; }
+  #name-input-row   { display:flex;gap:0; }
+  #name-input       { flex:1;background:rgba(8,6,14,0.82);border:1px solid rgba(140,150,180,0.15);border-right:none;color:rgba(230,220,200,0.95);padding:14px 18px;font-size:16px;font-family:'Noto Serif TC',serif;outline:none;letter-spacing:2px;transition:border-color 0.2s; }
+  #name-input:focus { border-color:rgba(210,185,120,0.4); }
+  #name-submit      { background:rgba(30,25,20,0.5);border:1px solid rgba(60,55,45,0.3);color:rgba(100,95,85,0.5);padding:14px 24px;cursor:default;font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;transition:all 0.2s; }
+  #name-submit.active{ background:rgba(180,155,90,0.2);border-color:rgba(210,185,120,0.4);color:rgba(210,185,120,0.9);cursor:pointer; }
 
   /* Gender select */
-  #gender-wrap { width: 100%; }
-  #gender-prompt-box {
-    background: rgba(5,5,10,0.55);
-    border: 1px solid rgba(140,150,180,0.12);
-    padding: 20px 24px; margin-bottom: 16px;
-    backdrop-filter: blur(8px);
-  }
-  #gender-prompt-text { font-size: 15px; color: rgba(190,185,175,0.85); }
-  #gender-buttons { display: flex; gap: 12px; }
-  .gender-btn {
-    flex: 1;
-    background: rgba(8,6,14,0.7);
-    border: 1px solid rgba(140,150,180,0.15);
-    color: rgba(190,185,175,0.75);
-    padding: 20px; cursor: pointer;
-    font-family: 'Noto Serif TC', serif;
-    font-size: 18px; letter-spacing: 4px;
-    transition: all 0.2s;
-  }
-  .gender-btn:hover {
-    background: rgba(180,155,90,0.12);
-    border-color: rgba(210,185,120,0.4);
-    color: rgba(230,220,200,0.95);
-  }
+  #gender-wrap      { width:100%; }
+  #gender-prompt-box{ background:rgba(5,5,10,0.55);border:1px solid rgba(140,150,180,0.12);padding:20px 24px;margin-bottom:16px;backdrop-filter:blur(8px); }
+  #gender-prompt-text{ font-size:15px;color:rgba(190,185,175,0.85); }
+  #gender-buttons   { display:flex;gap:12px; }
+  .gender-btn       { flex:1;background:rgba(8,6,14,0.7);border:1px solid rgba(140,150,180,0.15);color:rgba(190,185,175,0.75);padding:20px;cursor:pointer;font-family:'Noto Serif TC',serif;font-size:18px;letter-spacing:4px;transition:all 0.2s; }
+  .gender-btn:hover { background:rgba(180,155,90,0.12);border-color:rgba(210,185,120,0.4);color:rgba(230,220,200,0.95); }
 
   /* Title screen */
-  #title-screen {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 32px; text-align: center;
-    opacity: 0; transition: opacity 2s ease;
-  }
-  #title-label {
-    font-size: 10px; letter-spacing: 10px;
-    color: rgba(140,150,180,0.4);
-    font-family: 'Cinzel', serif;
-    text-transform: uppercase; margin-bottom: 24px;
-  }
-  #title-main {
-    font-family: 'Noto Serif TC', serif;
-    font-size: clamp(40px, 8vw, 80px);
-    font-weight: 300;
-    color: rgba(230,220,200,0.0);
-    letter-spacing: 16px; margin: 0 0 8px;
-    -webkit-text-stroke: 1px rgba(210,195,155,0.5);
-    text-shadow: 0 0 60px rgba(180,155,90,0.15);
-  }
-  #title-divider {
-    width: 100px; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(180,155,90,0.4), transparent);
-    margin: 24px auto;
-  }
-  #title-tagline {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 13px; color: rgba(160,155,140,0.55);
-    line-height: 2.2; letter-spacing: 1px;
-    max-width: 400px; margin-bottom: 48px; font-style: italic;
-  }
-  #start-btn {
-    background: transparent;
-    border: 1px solid rgba(180,155,90,0.3);
-    color: rgba(210,185,120,0.8);
-    padding: 14px 52px; font-size: 13px;
-    letter-spacing: 6px; cursor: pointer;
-    font-family: 'Cinzel', serif; text-transform: uppercase;
-    transition: all 0.4s; margin-bottom: 16px;
-  }
-  #start-btn:hover {
-    background: rgba(180,155,90,0.08);
-    border-color: rgba(210,185,120,0.5);
-    box-shadow: 0 0 30px rgba(180,155,90,0.1);
-  }
-  #title-chapter-label {
-    font-size: 10px; color: rgba(100,100,110,0.35);
-    letter-spacing: 3px; font-family: 'Cinzel', serif;
-  }
+  #title-screen     { width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;opacity:0;transition:opacity 2s ease; }
+  #title-label      { font-size:10px;letter-spacing:10px;color:rgba(140,150,180,0.4);font-family:'Cinzel',serif;text-transform:uppercase;margin-bottom:24px; }
+  #title-main       { font-family:'Noto Serif TC',serif;font-size:clamp(40px,8vw,80px);font-weight:300;color:rgba(230,220,200,0.0);letter-spacing:16px;margin:0 0 8px;-webkit-text-stroke:1px rgba(210,195,155,0.5);text-shadow:0 0 60px rgba(180,155,90,0.15); }
+  #title-divider    { width:100px;height:1px;background:linear-gradient(90deg,transparent,rgba(180,155,90,0.4),transparent);margin:24px auto; }
+  #title-tagline    { font-family:'Noto Serif TC',serif;font-size:13px;color:rgba(160,155,140,0.55);line-height:2.2;letter-spacing:1px;max-width:400px;margin-bottom:32px;font-style:italic; }
+  #title-buttons    { display:flex;gap:12px;margin-bottom:16px; }
+  #start-btn,#load-btn { background:transparent;border:1px solid rgba(180,155,90,0.3);color:rgba(210,185,120,0.8);padding:14px 36px;font-size:12px;letter-spacing:5px;cursor:pointer;font-family:'Cinzel',serif;text-transform:uppercase;transition:all 0.4s; }
+  #start-btn:hover,#load-btn:hover { background:rgba(180,155,90,0.08);border-color:rgba(210,185,120,0.5);box-shadow:0 0 30px rgba(180,155,90,0.1); }
+  #load-btn         { border-color:rgba(140,150,180,0.2);color:rgba(160,165,185,0.7); }
+  #title-chapter-label{ font-size:10px;color:rgba(100,100,110,0.35);letter-spacing:3px;font-family:'Cinzel',serif; }
 
-  /* Chapter title screen */
-  #chapter-title-screen {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    cursor: pointer; padding: 40px;
-    opacity: 0; transition: opacity 1.5s ease;
-  }
-  #chapter-label {
-    font-size: 11px; letter-spacing: 8px; color: rgba(180,155,90,0.5);
-    font-family: 'Cinzel', serif; margin-bottom: 16px; text-transform: uppercase;
-  }
-  .chapter-divider {
-    width: 60px; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(180,155,90,0.4), transparent);
-    margin-bottom: 20px;
-  }
-  #chapter-title-text {
-    font-family: 'Noto Serif TC', serif;
-    font-size: clamp(28px, 5vw, 48px); font-weight: 300;
-    color: rgba(230,220,200,0.9); letter-spacing: 6px;
-    text-shadow: 0 0 40px rgba(180,155,90,0.2);
-  }
-  #chapter-continue {
-    font-size: 11px; color: rgba(140,135,125,0.4);
-    letter-spacing: 4px; font-family: 'Cinzel', serif;
-    margin-top: 32px;
-  }
-
-  /* Chapter end screen */
-  #chapter-end-screen {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 40px; text-align: center;
-    opacity: 0; transition: opacity 2s ease;
-  }
-  #end-label {
-    font-size: 11px; letter-spacing: 6px; color: rgba(140,150,180,0.4);
-    font-family: 'Cinzel', serif; margin-bottom: 16px;
-  }
-  #end-chapter-title {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 20px; font-weight: 300;
-    color: rgba(190,185,175,0.6); letter-spacing: 8px; margin-bottom: 40px;
-  }
-  #end-divider {
-    width: 80px; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(140,150,180,0.2), transparent);
-    margin-bottom: 40px;
-  }
-  #end-coming {
-    font-size: 13px; color: rgba(130,125,115,0.5);
-    line-height: 2; letter-spacing: 1px; max-width: 360px;
-  }
-  #end-fin {
-    font-size: 11px; color: rgba(100,100,110,0.4);
-    margin-top: 20px; letter-spacing: 2px;
-  }
+  /* Chapter screens */
+  #chapter-title-screen{ width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;padding:40px;opacity:0;transition:opacity 1.5s ease; }
+  #chapter-label    { font-size:11px;letter-spacing:8px;color:rgba(180,155,90,0.5);font-family:'Cinzel',serif;margin-bottom:16px;text-transform:uppercase; }
+  .chapter-divider  { width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(180,155,90,0.4),transparent);margin-bottom:20px; }
+  #chapter-title-text{ font-family:'Noto Serif TC',serif;font-size:clamp(28px,5vw,48px);font-weight:300;color:rgba(230,220,200,0.9);letter-spacing:6px;text-shadow:0 0 40px rgba(180,155,90,0.2); }
+  #chapter-continue { font-size:11px;color:rgba(140,135,125,0.4);letter-spacing:4px;font-family:'Cinzel',serif;margin-top:32px; }
+  #chapter-end-screen{ width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;opacity:0;transition:opacity 2s ease; }
+  #end-label        { font-size:11px;letter-spacing:6px;color:rgba(140,150,180,0.4);font-family:'Cinzel',serif;margin-bottom:16px; }
+  #end-chapter-title{ font-family:'Noto Serif TC',serif;font-size:20px;font-weight:300;color:rgba(190,185,175,0.6);letter-spacing:8px;margin-bottom:40px; }
+  #end-divider      { width:80px;height:1px;background:linear-gradient(90deg,transparent,rgba(140,150,180,0.2),transparent);margin-bottom:40px; }
+  #end-coming       { font-size:13px;color:rgba(130,125,115,0.5);line-height:2;letter-spacing:1px;max-width:360px; }
+  #end-fin          { font-size:11px;color:rgba(100,100,110,0.4);margin-top:20px;letter-spacing:2px; }
 
   /* Particles */
-  .particle {
-    position: absolute; border-radius: 50%;
+  .particle { position:absolute;border-radius:50%; }
+
+  /* ── 存檔面板 ── */
+  #save-panel {
+    position:absolute;inset:0;z-index:20;
+    background:rgba(2,3,8,0.92);
+    backdrop-filter:blur(12px);
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:flex-start;
+    padding:32px 28px;
+    animation:fadeIn 0.2s ease;
+    overflow-y:auto;
+  }
+  #save-panel-title {
+    font-family:'Cinzel',serif;font-size:12px;letter-spacing:6px;
+    color:rgba(180,155,90,0.7);text-transform:uppercase;
+    margin-bottom:24px;
+  }
+  .save-slots { width:100%;display:flex;flex-direction:column;gap:10px;margin-bottom:20px; }
+  .save-slot {
+    background:rgba(8,6,14,0.7);
+    border:1px solid rgba(140,150,180,0.12);
+    padding:14px 18px;display:flex;align-items:center;gap:14px;
+    cursor:pointer;transition:all 0.2s;
+  }
+  .save-slot:hover { border-color:rgba(180,155,90,0.3);background:rgba(180,155,90,0.06); }
+  .save-slot-num { font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:rgba(180,155,90,0.5);min-width:28px; }
+  .save-slot-info { flex:1; }
+  .save-slot-scene { font-size:12px;color:rgba(190,185,175,0.8);letter-spacing:1px; }
+  .save-slot-time  { font-size:10px;color:rgba(130,125,115,0.45);margin-top:3px;letter-spacing:1px; }
+  .save-slot-empty { font-size:11px;color:rgba(100,100,110,0.35);letter-spacing:2px;font-family:'Cinzel',serif; }
+  .save-slot-action{ display:flex;gap:6px; }
+  .slot-btn {
+    font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;
+    padding:5px 10px;border:1px solid;cursor:pointer;transition:all 0.2s;background:transparent;
+  }
+  .slot-btn.save-it { border-color:rgba(180,155,90,0.3);color:rgba(180,155,90,0.7); }
+  .slot-btn.save-it:hover{ background:rgba(180,155,90,0.15);color:rgba(210,185,120,0.9); }
+  .slot-btn.load-it { border-color:rgba(140,150,180,0.25);color:rgba(140,150,180,0.6); }
+  .slot-btn.load-it:hover{ background:rgba(140,150,180,0.1);color:rgba(180,190,210,0.9); }
+  .slot-btn.del-it  { border-color:rgba(160,80,80,0.2);color:rgba(160,80,80,0.4); }
+  .slot-btn.del-it:hover{ background:rgba(160,80,80,0.1);color:rgba(200,100,100,0.8); }
+
+  /* 手動存檔碼 */
+  .save-code-section { width:100%;margin-top:8px; }
+  .save-code-label   { font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:rgba(140,150,180,0.5);margin-bottom:8px; }
+  #save-code-output  { width:100%;background:rgba(4,4,10,0.8);border:1px solid rgba(140,150,180,0.1);color:rgba(160,160,180,0.7);padding:10px 12px;font-size:10px;font-family:monospace;letter-spacing:1px;resize:none;height:48px;line-height:1.6;outline:none; }
+  #load-code-input   { width:100%;background:rgba(4,4,10,0.8);border:1px solid rgba(140,150,180,0.1);color:rgba(160,160,180,0.7);padding:10px 12px;font-size:10px;font-family:monospace;letter-spacing:1px;resize:none;height:48px;line-height:1.6;outline:none;margin-top:6px; }
+  .code-btns         { display:flex;gap:8px;margin-top:8px; }
+  .code-btn {
+    font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;
+    padding:6px 14px;border:1px solid rgba(140,150,180,0.2);color:rgba(140,150,180,0.6);
+    background:transparent;cursor:pointer;transition:all 0.2s;
+  }
+  .code-btn:hover{ border-color:rgba(180,190,210,0.4);color:rgba(180,190,210,0.9);background:rgba(140,150,180,0.08); }
+  .panel-close-btn {
+    margin-top:20px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;
+    color:rgba(130,125,115,0.5);background:transparent;border:none;cursor:pointer;transition:color 0.2s;
+  }
+  .panel-close-btn:hover{ color:rgba(180,155,90,0.8); }
+
+  /* ── 劇情回顧面板 ── */
+  #log-panel {
+    position:absolute;inset:0;z-index:20;
+    background:rgba(2,3,8,0.93);
+    backdrop-filter:blur(12px);
+    display:flex;flex-direction:column;
+    padding:0;
+    animation:fadeIn 0.2s ease;
+  }
+  #log-header {
+    padding:20px 28px 16px;
+    border-bottom:1px solid rgba(180,155,90,0.1);
+    display:flex;justify-content:space-between;align-items:center;
+    flex-shrink:0;
+  }
+  #log-title { font-family:'Cinzel',serif;font-size:11px;letter-spacing:6px;color:rgba(180,155,90,0.65);text-transform:uppercase; }
+  #log-list {
+    flex:1;overflow-y:auto;padding:20px 28px;
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .log-entry { animation:slideUp 0.3s ease both; }
+  .log-entry-speaker {
+    font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;
+    color:rgba(210,185,120,0.6);margin-bottom:4px;
+  }
+  .log-entry-text {
+    font-family:'Noto Serif TC',serif;font-size:13px;
+    color:rgba(190,185,175,0.75);line-height:1.9;letter-spacing:0.5px;
+    padding-left:12px;border-left:2px solid rgba(180,155,90,0.15);
+  }
+  .log-entry-text.narration {
+    color:rgba(155,150,140,0.6);font-style:italic;border-left-color:rgba(140,150,180,0.15);
+    padding-left:0;
+  }
+  .log-scene-divider {
+    font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;
+    color:rgba(120,120,140,0.3);text-align:center;
+    padding:4px 0;text-transform:uppercase;
+  }
+
+  /* ── 音樂版權標籤 ── */
+  #music-credit {
+    position:absolute;bottom:6px;left:10px;z-index:5;
+    font-size:9px;color:rgba(140,130,100,0.3);letter-spacing:1px;
+    font-family:'Cinzel',serif;pointer-events:none;
+    transition:opacity 0.5s;
+  }
+
+  /* ── 通知提示 ── */
+  #toast {
+    position:absolute;top:50px;left:50%;transform:translateX(-50%);
+    background:rgba(20,16,10,0.88);border:1px solid rgba(180,155,90,0.25);
+    color:rgba(210,185,120,0.85);padding:8px 20px;
+    font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;
+    z-index:30;pointer-events:none;opacity:0;transition:opacity 0.3s;
+    white-space:nowrap;
   }
 </style>
 </head>
@@ -380,6 +287,26 @@
     <div id="particles-layer"></div>
     <div id="scanline"></div>
     <div id="content"></div>
+
+    <!-- 頂部工具列 -->
+    <div id="top-toolbar">
+      <button class="tool-btn" id="btn-log"   title="劇情回顧">LOG</button>
+      <button class="tool-btn" id="btn-save"  title="存檔讀檔">SAVE</button>
+      <button class="tool-btn muted" id="btn-music" title="音樂開關">♪</button>
+    </div>
+
+    <!-- 音樂版權 -->
+    <div id="music-credit"></div>
+
+    <!-- 通知 -->
+    <div id="toast"></div>
+
+    <!-- 存檔面板（隱藏） -->
+    <div id="save-panel" style="display:none"></div>
+
+    <!-- 劇情回顧面板（隱藏） -->
+    <div id="log-panel" style="display:none"></div>
+
     <div class="corner tl"></div>
     <div class="corner tr"></div>
     <div class="corner bl"></div>
@@ -388,7 +315,9 @@
 </div>
 
 <script>
-// ─── Story Data ───────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// STORY DATA
+// ════════════════════════════════════════════════════
 const STORY = {
   "ch0_open": {
     id:"ch0_open", bg:"night_fog", speaker:null,
@@ -400,8 +329,8 @@ const STORY = {
     lines:["維爾德城，學院入學前夕。","你站在城門口，背著一個裝了全部家當的布包。","學院的塔尖在霧裡若隱若現。","城裡的人說，能進學院的平民，幾百年才出一個。","上一個是諾南。","沒有人記得諾南長什麼樣子了。"],
     next:"ch0_name", isNarration:true,
   },
-  "ch0_name": { id:"ch0_name", bg:"night_fog", type:"input_name", prompt:"你叫什麼名字？", next:"ch0_gender" },
-  "ch0_gender": { id:"ch0_gender", bg:"night_fog", type:"input_gender", prompt:"你是？", next:"ch0_end" },
+  "ch0_name":   { id:"ch0_name",   bg:"night_fog", type:"input_name",   prompt:"你叫什麼名字？", next:"ch0_gender" },
+  "ch0_gender": { id:"ch0_gender", bg:"night_fog", type:"input_gender", prompt:"你是？",         next:"ch0_end" },
   "ch0_end": {
     id:"ch0_end", bg:"night_fog", speaker:null,
     lines:["記住這個名字。","因為最後，可能只有你自己還記得。"],
@@ -448,9 +377,9 @@ const STORY = {
     id:"ch1_choice1", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", type:"choice",
     prompt:"你怎麼回應？",
     choices:[
-      {text:"「我沒有走錯。這是三一七號房。」", next:"ch1_reply_a", tag:"直接"},
-      {text:"沉默，把鑰匙舉起來給他看。", next:"ch1_reply_b", tag:"沉默"},
-      {text:"「……對不起，我確認一下。」", next:"ch1_reply_c", tag:"退讓"},
+      {text:"「我沒有走錯。這是三一七號房。」", next:"ch1_reply_a", tag:"直接", affinity:+2},
+      {text:"沉默，把鑰匙舉起來給他看。",       next:"ch1_reply_b", tag:"沉默", affinity:+1},
+      {text:"「……對不起，我確認一下。」",       next:"ch1_reply_c", tag:"退讓", affinity:-1},
     ],
   },
   "ch1_reply_a": {
@@ -511,9 +440,9 @@ const STORY = {
     id:"ch1_choice2", chapter:"第一章", scene:"學院・三一七號房", bg:"dorm_room", type:"choice",
     prompt:"你愣了一秒，才明白過來。那是他的名字。你怎麼回應？",
     choices:[
-      {text:"說出自己的名字。", next:"ch1_name_a", tag:"坦誠"},
-      {text:"「……我知道要怎麼稱呼你了。」", next:"ch1_name_b", tag:"保留"},
-      {text:"沉默，點點頭，開始整理自己的東西。", next:"ch1_name_c", tag:"沉默"},
+      {text:"說出自己的名字。",                       next:"ch1_name_a", tag:"坦誠", affinity:+3},
+      {text:"「……我知道要怎麼稱呼你了。」",           next:"ch1_name_b", tag:"保留", affinity:+2},
+      {text:"沉默，點點頭，開始整理自己的東西。",     next:"ch1_name_c", tag:"沉默", affinity:0},
     ],
   },
   "ch1_name_a": {
@@ -541,7 +470,9 @@ const STORY = {
   },
 };
 
-// ─── Background Styles ────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// BACKGROUNDS
+// ════════════════════════════════════════════════════
 const RAW_BASE = "https://raw.githubusercontent.com/language2816/word_AI/f5156a0f41d859ca9ea7acd82a9be4559ce6b84a/%E5%A0%B4%E6%99%AF";
 const BG_STYLES = {
   night_fog:    { image:`${RAW_BASE}/night_fog.png`,    overlay:"rgba(5,8,18,0.45)",   particles:true  },
@@ -552,22 +483,374 @@ const BG_STYLES = {
   dorm_night:   { image:`${RAW_BASE}/dorm_night.png`,   overlay:"rgba(4,5,14,0.55)",   particles:true  },
 };
 
-// ─── State ────────────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// 音樂設定（Suno AI）
+// ════════════════════════════════════════════════════
+// 兩首曲目
+const BGM_INSTRUMENTAL = { url: "https://github.com/language2816/word_AI/raw/refs/heads/main/Suno%20ai%E7%89%88%E6%AC%8A%E9%9F%B3%E6%A8%82/Suno%20ai%E9%8B%BC%E7%90%B4%E6%8F%90%E7%90%B4%E7%B4%94%E9%9F%B3%E6%A8%82%20.mp3", title: "鋼琴提琴純音樂" };
+const BGM_VOCAL        = { url: "https://github.com/language2816/word_AI/raw/refs/heads/main/Suno%20ai%E7%89%88%E6%AC%8A%E9%9F%B3%E6%A8%82/ai%20suno%20%E4%BA%BA%E8%81%B2%E9%8B%BC%E7%90%B4+%E6%8F%90%E7%90%B4.mp3", title: "人聲鋼琴提琴" };
+
+// 每個場景對應哪首曲目（"instrumental" 或 "vocal"）
+const SCENE_MUSIC = {
+  night_fog:    "vocal",         // 開場霧夜 → 人聲，帶入氣氛
+  academy_gate: "instrumental",  // 劇情開始
+  academy_hall: "instrumental",
+  dormitory:    "instrumental",
+  dorm_room:    "instrumental",
+  dorm_night:   "instrumental",
+  __title__:    "vocal",         // 標題畫面
+  __chapter__:  "vocal",         // 章節過場
+  __end__:      "vocal",         // 結局畫面
+};
+
+const SUNO_CREDIT = "♪ Music by Suno AI";
+
+// ════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════
 let state = {
-  phase: "title",       // "title" | "game"
+  phase: "title",
   nodeId: "ch0_open",
   lineIndex: 0,
   playerName: "",
   playerGender: "male",
+  affinity: 0,          // 布林克好感度（隱藏）
+  visitedNodes: [],     // 已讀節點（用於劇情回顧）
+  musicMuted: false,     // 音樂預設開啟
 };
 
-// Typewriter state
-let twTimer = null;
-let twIndex = 0;
-let twText = "";
-let twDone = false;
-let twCallback = null;
+// 劇情回顧記錄
+const logHistory = [];
 
+// ════════════════════════════════════════════════════
+// MUSIC ENGINE（雙軌 + 淡入淡出）
+// ════════════════════════════════════════════════════
+const audioPlayers = {
+  instrumental: new Audio(),
+  vocal:        new Audio(),
+};
+audioPlayers.instrumental.loop = true;
+audioPlayers.vocal.loop        = true;
+audioPlayers.instrumental.src  = BGM_INSTRUMENTAL.url;
+audioPlayers.vocal.src         = BGM_VOCAL.url;
+audioPlayers.instrumental.volume = 0;
+audioPlayers.vocal.volume        = 0;
+
+const TARGET_VOL = 0.42;
+const FADE_MS    = 1200;
+let activeTrack  = null;   // "instrumental" | "vocal" | null
+let fadeInterval = null;
+
+function fadeToTrack(trackName) {
+  if (activeTrack === trackName) return;
+  const prev = activeTrack ? audioPlayers[activeTrack] : null;
+  const next  = audioPlayers[trackName];
+  activeTrack = trackName;
+
+  clearInterval(fadeInterval);
+
+  if (!state.musicMuted) {
+    next.play().catch(()=>{});
+  }
+
+  let elapsed = 0;
+  const step = 50;
+  const prevStart = prev ? prev.volume : 0;
+  const nextStart = next.volume;
+
+  fadeInterval = setInterval(() => {
+    elapsed += step;
+    const t = Math.min(elapsed / FADE_MS, 1);
+    if (prev) prev.volume = Math.max(0, prevStart * (1 - t));
+    next.volume = nextStart + (TARGET_VOL - nextStart) * t;
+    if (t >= 1) {
+      clearInterval(fadeInterval);
+      if (prev) { prev.pause(); prev.volume = 0; }
+    }
+  }, step);
+
+  // 版權標籤
+  const credit = document.getElementById("music-credit");
+  const info   = trackName === "instrumental" ? BGM_INSTRUMENTAL : BGM_VOCAL;
+  if (credit) credit.textContent = `${SUNO_CREDIT} · ${info.title}`;
+}
+
+function playMusicForScene(sceneKey) {
+  const track = SCENE_MUSIC[sceneKey] || "instrumental";
+  fadeToTrack(track);
+}
+
+function toggleMusic() {
+  state.musicMuted = !state.musicMuted;
+  const btn = document.getElementById("btn-music");
+  if (state.musicMuted) {
+    Object.values(audioPlayers).forEach(a => a.pause());
+    btn.classList.add("muted");
+    showToast("音樂已靜音");
+  } else {
+    if (activeTrack) {
+      audioPlayers[activeTrack].volume = TARGET_VOL;
+      audioPlayers[activeTrack].play().catch(()=>{});
+    }
+    btn.classList.remove("muted");
+    showToast("音樂已開啟");
+  }
+}
+
+// ════════════════════════════════════════════════════
+// TOAST
+// ════════════════════════════════════════════════════
+let toastTimer = null;
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  if (!t) return;
+  t.textContent = msg;
+  t.style.opacity = "1";
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.style.opacity = "0"; }, 1800);
+}
+
+// ════════════════════════════════════════════════════
+// SAVE / LOAD  (localStorage + 手動碼)
+// ════════════════════════════════════════════════════
+const LS_PREFIX = "vn_save_slot_";
+const MAX_SLOTS = 3;
+
+function buildSaveData() {
+  return {
+    ver: 1,
+    ts: Date.now(),
+    state: JSON.parse(JSON.stringify(state)),
+    log: logHistory.slice(-60),   // 最近60筆
+  };
+}
+
+function applySaveData(data) {
+  if (!data || data.ver !== 1) return false;
+  Object.assign(state, data.state);
+  logHistory.length = 0;
+  (data.log || []).forEach(e => logHistory.push(e));
+  return true;
+}
+
+function saveToSlot(slot) {
+  try {
+    const data = buildSaveData();
+    const node = STORY[state.nodeId];
+    data.meta = {
+      scene: node ? (node.scene || node.chapter || node.type || state.nodeId) : state.nodeId,
+      timeStr: new Date(data.ts).toLocaleString("zh-TW", {month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}),
+    };
+    localStorage.setItem(LS_PREFIX + slot, JSON.stringify(data));
+    showToast(`存檔 ${slot} 已儲存`);
+  } catch(e) { showToast("存檔失敗"); }
+}
+
+function loadFromSlot(slot) {
+  try {
+    const raw = localStorage.getItem(LS_PREFIX + slot);
+    if (!raw) { showToast("此槽沒有存檔"); return; }
+    const data = JSON.parse(raw);
+    if (!applySaveData(data)) { showToast("存檔格式錯誤"); return; }
+    closeSavePanel();
+    state.phase = "game";
+    renderGame();
+    showToast(`存檔 ${slot} 已讀取`);
+  } catch(e) { showToast("讀取失敗"); }
+}
+
+function deleteSlot(slot) {
+  localStorage.removeItem(LS_PREFIX + slot);
+  renderSavePanel();
+  showToast(`存檔 ${slot} 已刪除`);
+}
+
+function getSlotData(slot) {
+  try {
+    const raw = localStorage.getItem(LS_PREFIX + slot);
+    return raw ? JSON.parse(raw) : null;
+  } catch(e) { return null; }
+}
+
+function encodeStateToCode() {
+  const data = buildSaveData();
+  return btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+}
+
+function decodeCodeToState(code) {
+  try {
+    const data = JSON.parse(decodeURIComponent(escape(atob(code.trim()))));
+    return data;
+  } catch(e) { return null; }
+}
+
+// ════════════════════════════════════════════════════
+// SAVE PANEL UI
+// ════════════════════════════════════════════════════
+function openSavePanel() {
+  const panel = document.getElementById("save-panel");
+  panel.style.display = "flex";
+  renderSavePanel();
+}
+function closeSavePanel() {
+  document.getElementById("save-panel").style.display = "none";
+}
+
+function renderSavePanel() {
+  const panel = document.getElementById("save-panel");
+  const code = encodeStateToCode();
+  let slotsHtml = "";
+  for (let i = 1; i <= MAX_SLOTS; i++) {
+    const d = getSlotData(i);
+    if (d && d.meta) {
+      slotsHtml += `
+        <div class="save-slot">
+          <div class="save-slot-num">0${i}</div>
+          <div class="save-slot-info">
+            <div class="save-slot-scene">${d.meta.scene}</div>
+            <div class="save-slot-time">${d.meta.timeStr}</div>
+          </div>
+          <div class="save-slot-action">
+            <button class="slot-btn save-it" onclick="saveToSlot(${i});renderSavePanel()">存入</button>
+            <button class="slot-btn load-it" onclick="loadFromSlot(${i})">讀取</button>
+            <button class="slot-btn del-it"  onclick="deleteSlot(${i})">刪除</button>
+          </div>
+        </div>`;
+    } else {
+      slotsHtml += `
+        <div class="save-slot">
+          <div class="save-slot-num">0${i}</div>
+          <div class="save-slot-info"><div class="save-slot-empty">— 空槽 —</div></div>
+          <div class="save-slot-action">
+            <button class="slot-btn save-it" onclick="saveToSlot(${i});renderSavePanel()">存入</button>
+          </div>
+        </div>`;
+    }
+  }
+  panel.innerHTML = `
+    <div id="save-panel-title">存檔 · 讀檔</div>
+    <div class="save-slots">${slotsHtml}</div>
+
+    <div class="save-code-section">
+      <div class="save-code-label">匯出存檔碼</div>
+      <textarea id="save-code-output" readonly>${code}</textarea>
+      <div class="code-btns">
+        <button class="code-btn" onclick="copyCode()">複製</button>
+      </div>
+    </div>
+
+    <div class="save-code-section" style="margin-top:16px">
+      <div class="save-code-label">匯入存檔碼</div>
+      <textarea id="load-code-input" placeholder="貼上存檔碼…"></textarea>
+      <div class="code-btns">
+        <button class="code-btn" onclick="importCode()">匯入並讀取</button>
+      </div>
+    </div>
+
+    <button class="panel-close-btn" onclick="closeSavePanel()">✕ 關閉</button>
+  `;
+}
+
+function copyCode() {
+  const el = document.getElementById("save-code-output");
+  if (!el) return;
+  navigator.clipboard.writeText(el.value).then(() => showToast("存檔碼已複製")).catch(() => {
+    el.select(); document.execCommand("copy"); showToast("存檔碼已複製");
+  });
+}
+
+function importCode() {
+  const el = document.getElementById("load-code-input");
+  if (!el || !el.value.trim()) { showToast("請先貼上存檔碼"); return; }
+  const data = decodeCodeToState(el.value);
+  if (!data || !applySaveData(data)) { showToast("存檔碼無效"); return; }
+  closeSavePanel();
+  state.phase = "game";
+  renderGame();
+  showToast("存檔碼讀取成功");
+}
+
+// ════════════════════════════════════════════════════
+// LOG PANEL UI
+// ════════════════════════════════════════════════════
+function openLogPanel() {
+  const panel = document.getElementById("log-panel");
+  panel.style.display = "flex";
+  renderLogPanel();
+}
+function closeLogPanel() {
+  document.getElementById("log-panel").style.display = "none";
+}
+
+function renderLogPanel() {
+  const panel = document.getElementById("log-panel");
+  if (!logHistory.length) {
+    panel.innerHTML = `
+      <div id="log-header">
+        <div id="log-title">劇情回顧</div>
+        <button class="panel-close-btn" style="margin:0" onclick="closeLogPanel()">✕</button>
+      </div>
+      <div id="log-list" style="align-items:center;justify-content:center">
+        <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:rgba(120,115,105,0.35)">— 尚無記錄 —</div>
+      </div>`;
+    return;
+  }
+  let html = "";
+  let lastScene = null;
+  logHistory.forEach((entry, i) => {
+    if (entry.scene && entry.scene !== lastScene) {
+      html += `<div class="log-scene-divider" style="animation-delay:${i*0.02}s">${entry.scene}</div>`;
+      lastScene = entry.scene;
+    }
+    if (entry.speaker) {
+      html += `<div class="log-entry" style="animation-delay:${i*0.02}s">
+        <div class="log-entry-speaker">${entry.speaker}</div>
+        <div class="log-entry-text">${entry.text}</div>
+      </div>`;
+    } else {
+      html += `<div class="log-entry" style="animation-delay:${i*0.02}s">
+        <div class="log-entry-text narration">${entry.text}</div>
+      </div>`;
+    }
+  });
+  panel.innerHTML = `
+    <div id="log-header">
+      <div id="log-title">劇情回顧</div>
+      <button class="panel-close-btn" style="margin:0" onclick="closeLogPanel()">✕</button>
+    </div>
+    <div id="log-list">${html}</div>`;
+  // 捲到底部
+  setTimeout(() => {
+    const list = document.getElementById("log-list");
+    if (list) list.scrollTop = list.scrollHeight;
+  }, 50);
+}
+
+function addToLog(entry) {
+  logHistory.push(entry);
+  if (logHistory.length > 200) logHistory.shift();
+}
+
+// ════════════════════════════════════════════════════
+// TOOLBAR BUTTONS
+// ════════════════════════════════════════════════════
+function initToolbar() {
+  document.getElementById("btn-log").addEventListener("click", () => {
+    if (document.getElementById("log-panel").style.display !== "none") closeLogPanel();
+    else { closeSavePanel(); openLogPanel(); }
+  });
+  document.getElementById("btn-save").addEventListener("click", () => {
+    if (state.phase !== "game") { showToast("請先開始遊戲"); return; }
+    if (document.getElementById("save-panel").style.display !== "none") closeSavePanel();
+    else { closeLogPanel(); openSavePanel(); }
+  });
+  document.getElementById("btn-music").addEventListener("click", toggleMusic);
+}
+
+// ════════════════════════════════════════════════════
+// TYPEWRITER
+// ════════════════════════════════════════════════════
+let twTimer = null, twIndex = 0, twText = "", twDone = false, twCallback = null;
 function twStart(text, speed, onDone) {
   clearInterval(twTimer);
   twText = text; twIndex = 0; twDone = false; twCallback = onDone;
@@ -575,23 +858,16 @@ function twStart(text, speed, onDone) {
   twTimer = setInterval(() => {
     twIndex++;
     renderTypewriter();
-    if (twIndex >= twText.length) {
-      clearInterval(twTimer);
-      twDone = true;
-      onDone?.();
-      renderTypewriter();
-    }
+    if (twIndex >= twText.length) { clearInterval(twTimer); twDone = true; onDone?.(); renderTypewriter(); }
   }, speed || 38);
 }
 function twSkip() {
-  clearInterval(twTimer);
-  twIndex = twText.length;
-  twDone = true;
-  twCallback?.();
-  renderTypewriter();
+  clearInterval(twTimer); twIndex = twText.length; twDone = true; twCallback?.(); renderTypewriter();
 }
 
-// ─── Particles ────────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// PARTICLES
+// ════════════════════════════════════════════════════
 function renderParticles(show) {
   const layer = document.getElementById("particles-layer");
   layer.innerHTML = "";
@@ -600,31 +876,28 @@ function renderParticles(show) {
     const d = document.createElement("div");
     d.className = "particle";
     const big = i % 4 === 0;
-    d.style.cssText = `
-      width:${big ? 2 : 1}px; height:${big ? 2 : 1}px;
-      background:${i % 5 === 0 ? "rgba(180,160,100,0.35)" : "rgba(140,160,200,0.2)"};
-      left:${(i * 19 + 7) % 100}%;
-      top:${(i * 31 + 13) % 100}%;
-      animation:pfloat${i % 3} ${10 + (i % 6) * 2}s ease-in-out infinite;
-      animation-delay:${(i * 0.6) % 7}s;
-    `;
+    d.style.cssText = `width:${big?2:1}px;height:${big?2:1}px;background:${i%5===0?"rgba(180,160,100,0.35)":"rgba(140,160,200,0.2)"};left:${(i*19+7)%100}%;top:${(i*31+13)%100}%;animation:pfloat${i%3} ${10+(i%6)*2}s ease-in-out infinite;animation-delay:${(i*0.6)%7}s;`;
     layer.appendChild(d);
   }
 }
 
-// ─── Background ───────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// BACKGROUND
+// ════════════════════════════════════════════════════
 let currentBg = null;
 function updateBg(bgKey) {
   if (bgKey === currentBg) return;
   currentBg = bgKey;
   const bg = BG_STYLES[bgKey] || BG_STYLES.night_fog;
-  const win = document.getElementById("game-window");
-  win.style.backgroundImage = `url("${bg.image}")`;
+  document.getElementById("game-window").style.backgroundImage = `url("${bg.image}")`;
   document.getElementById("bg-overlay").style.background = bg.overlay;
   renderParticles(bg.particles);
+  playMusicForScene(bgKey);
 }
 
-// ─── Navigate ─────────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// NAVIGATE
+// ════════════════════════════════════════════════════
 function goTo(newId) {
   const content = document.getElementById("content");
   content.style.opacity = "0";
@@ -636,7 +909,19 @@ function goTo(newId) {
   }, 300);
 }
 
-// ─── Render Typewriter text ────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// RESOLVE TEXT
+// ════════════════════════════════════════════════════
+function resolveText(text) {
+  return (text || "")
+    .replace(/\{name\}/g, state.playerName || "你")
+    .replace(/他\/她/g, state.playerGender === "female" ? "她" : "他")
+    .replace(/他的/g, state.playerGender === "female" ? "她的" : "他的");
+}
+
+// ════════════════════════════════════════════════════
+// RENDER TYPEWRITER
+// ════════════════════════════════════════════════════
 function renderTypewriter() {
   const node = STORY[state.nodeId];
   if (!node || node.type) return;
@@ -646,7 +931,6 @@ function renderTypewriter() {
   const subtextEl = document.getElementById("subtext");
   const lines = node.lines || [];
   const isLast = state.lineIndex >= lines.length - 1;
-
   if (textEl) {
     textEl.textContent = twText.slice(0, twIndex);
     if (cursorEl) cursorEl.style.display = twDone ? "none" : "inline";
@@ -657,29 +941,21 @@ function renderTypewriter() {
     continueEl.textContent = isLast ? "繼續 ▶" : "▶";
   }
   if (subtextEl) {
-    subtextEl.style.display = (twDone && node.subtext && state.lineIndex === lines.length - 1) ? "block" : "none";
+    subtextEl.style.display = (twDone && node.subtext && state.lineIndex === lines.length-1) ? "block" : "none";
   }
 }
 
-// ─── Resolve text ─────────────────────────────────────────────────────────────
-function resolveText(text) {
-  return (text || "")
-    .replace(/\{name\}/g, state.playerName || "你")
-    .replace(/他\/她/g, state.playerGender === "female" ? "她" : "他")
-    .replace(/他的/g, state.playerGender === "female" ? "她的" : "他的");
-}
-
-// ─── Render ───────────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// RENDER GAME
+// ════════════════════════════════════════════════════
 function renderGame() {
   if (state.phase === "title") { renderTitle(); return; }
   const node = STORY[state.nodeId];
   if (!node) return;
   updateBg(node.bg || "night_fog");
-
   if (node.type === "chapter_title") { renderChapterTitle(node); return; }
   if (node.type === "chapter_end")   { renderChapterEnd(node);   return; }
 
-  // Normal scene
   const content = document.getElementById("content");
   content.innerHTML = `
     <div id="scene-label">
@@ -689,19 +965,19 @@ function renderGame() {
     <div id="spacer"></div>
     <div id="bottom-ui"></div>
   `;
-
   const bottomUI = document.getElementById("bottom-ui");
   if (node.type === "input_name")   { renderNameInput(node, bottomUI); return; }
   if (node.type === "input_gender") { renderGenderSelect(node, bottomUI); return; }
   if (node.type === "choice")       { renderChoiceBox(node, bottomUI); return; }
-
-  // Dialogue
   renderDialogue(node, bottomUI);
 }
 
-// ─── Title Screen ─────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// TITLE
+// ════════════════════════════════════════════════════
 function renderTitle() {
   updateBg("night_fog");
+  playMusicForScene("__title__");
   const content = document.getElementById("content");
   content.innerHTML = `
     <div id="title-screen">
@@ -709,24 +985,27 @@ function renderTitle() {
       <h1 id="title-main">〔　　〕</h1>
       <div id="title-divider"></div>
       <p id="title-tagline">沒有人記得他的名字。沒有人記得她的臉。<br />但有些事燃燒過。就算燒完了，灰還在。</p>
-      <button id="start-btn">開始遊戲</button>
+      <div id="title-buttons">
+        <button id="start-btn">開始遊戲</button>
+        <button id="load-btn">讀取存檔</button>
+      </div>
       <div id="title-chapter-label">第零章 · 第一章</div>
     </div>
   `;
-  setTimeout(() => {
-    const ts = document.getElementById("title-screen");
-    if (ts) ts.style.opacity = "1";
-  }, 200);
+  setTimeout(() => { const ts = document.getElementById("title-screen"); if (ts) ts.style.opacity = "1"; }, 200);
   document.getElementById("start-btn").addEventListener("click", () => {
-    state.phase = "game";
-    state.nodeId = "ch0_open";
-    state.lineIndex = 0;
+    state = { phase:"game", nodeId:"ch0_open", lineIndex:0, playerName:"", playerGender:"male", affinity:0, visitedNodes:[], musicMuted:state.musicMuted };
+    logHistory.length = 0;
     renderGame();
   });
+  document.getElementById("load-btn").addEventListener("click", () => { openSavePanel(); });
 }
 
-// ─── Chapter Title ────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// CHAPTER TITLE / END
+// ════════════════════════════════════════════════════
 function renderChapterTitle(node) {
+  playMusicForScene("__chapter__");
   const content = document.getElementById("content");
   content.innerHTML = `
     <div id="chapter-title-screen">
@@ -737,15 +1016,12 @@ function renderChapterTitle(node) {
       <div id="chapter-continue">CLICK TO CONTINUE</div>
     </div>
   `;
-  setTimeout(() => {
-    const ct = document.getElementById("chapter-title-screen");
-    if (ct) ct.style.opacity = "1";
-  }, 100);
+  setTimeout(() => { const ct = document.getElementById("chapter-title-screen"); if (ct) ct.style.opacity = "1"; }, 100);
   document.getElementById("chapter-title-screen").addEventListener("click", () => goTo(node.next));
 }
 
-// ─── Chapter End ──────────────────────────────────────────────────────────────
 function renderChapterEnd(node) {
+  playMusicForScene("__end__");
   const content = document.getElementById("content");
   content.innerHTML = `
     <div id="chapter-end-screen">
@@ -756,28 +1032,25 @@ function renderChapterEnd(node) {
       <p id="end-fin">——完——</p>
     </div>
   `;
-  setTimeout(() => {
-    const ce = document.getElementById("chapter-end-screen");
-    if (ce) ce.style.opacity = "1";
-  }, 100);
+  setTimeout(() => { const ce = document.getElementById("chapter-end-screen"); if (ce) ce.style.opacity = "1"; }, 100);
 }
 
-// ─── Dialogue ─────────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// DIALOGUE
+// ════════════════════════════════════════════════════
 function renderDialogue(node, container) {
   const lines = node.lines || [];
   const isNarration = node.isNarration;
   const speaker = node.speaker;
   const resolvedLine = resolveText(lines[state.lineIndex] || "");
 
-  const boxBg     = isNarration ? "rgba(5,5,10,0.55)"   : "rgba(8,6,14,0.82)";
-  const boxBorder = isNarration ? "rgba(140,150,180,0.12)" : "rgba(180,155,90,0.2)";
-  const textColor = isNarration ? "rgba(190,185,175,0.85)" : "rgba(230,220,200,0.95)";
+  const boxBg     = isNarration ? "rgba(5,5,10,0.55)"    : "rgba(8,6,14,0.82)";
+  const boxBorder = isNarration ? "rgba(140,150,180,0.12)": "rgba(180,155,90,0.2)";
+  const textColor = isNarration ? "rgba(190,185,175,0.85)": "rgba(230,220,200,0.95)";
 
   container.innerHTML = `
     <div id="dialogue-wrap">
-      ${speaker && !isNarration ? `
-        <div id="speaker-plate"><span id="speaker-name">${speaker}</span></div>
-      ` : ""}
+      ${speaker && !isNarration ? `<div id="speaker-plate"><span id="speaker-name">${speaker}</span></div>` : ""}
       <div id="text-box" style="background:${boxBg};border:1px solid ${boxBorder};">
         <p id="dialogue-text" style="color:${textColor};"></p>
         <span id="cursor-blink">▌</span>
@@ -790,11 +1063,12 @@ function renderDialogue(node, container) {
     </div>
   `;
 
-  // Start typewriter
   twStart(resolvedLine, 38, () => { renderTypewriter(); });
 
   document.getElementById("dialogue-wrap").addEventListener("click", () => {
     if (!twDone) { twSkip(); return; }
+    // 記錄已讀文字
+    addToLog({ speaker: isNarration ? null : speaker, text: resolvedLine, scene: node.scene || node.chapter || "" });
     const isLast = state.lineIndex >= lines.length - 1;
     if (!isLast) {
       state.lineIndex++;
@@ -805,16 +1079,16 @@ function renderDialogue(node, container) {
   });
 }
 
-// ─── Choice Box ───────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// CHOICE BOX
+// ════════════════════════════════════════════════════
 function renderChoiceBox(node, container) {
   const prompt = resolveText(node.prompt);
   container.innerHTML = `
     <div id="choice-wrap">
-      <div id="choice-prompt-box">
-        <p id="choice-prompt-text">${prompt}</p>
-      </div>
+      <div id="choice-prompt-box"><p id="choice-prompt-text">${prompt}</p></div>
       <div id="choices-list">
-        ${node.choices.map((c, i) => `
+        ${node.choices.map((c,i) => `
           <button class="choice-btn" data-idx="${i}">
             <span class="choice-letter">${String.fromCharCode(65+i)}</span>
             <span class="choice-text">${c.text}</span>
@@ -827,12 +1101,21 @@ function renderChoiceBox(node, container) {
   document.querySelectorAll(".choice-btn").forEach((btn, i) => {
     btn.addEventListener("click", () => {
       btn.classList.add("selected");
-      setTimeout(() => goTo(node.choices[i].next), 400);
+      const choice = node.choices[i];
+      // 好感度計算
+      if (typeof choice.affinity === "number") {
+        state.affinity += choice.affinity;
+      }
+      // 記錄選擇到回顧
+      addToLog({ speaker: "【你的選擇】", text: choice.text, scene: node.scene || node.chapter || "" });
+      setTimeout(() => goTo(choice.next), 400);
     });
   });
 }
 
-// ─── Name Input ───────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// NAME INPUT
+// ════════════════════════════════════════════════════
 function renderNameInput(node, container) {
   container.innerHTML = `
     <div id="name-wrap">
@@ -851,15 +1134,15 @@ function renderNameInput(node, container) {
     state.playerName = v;
     goTo(node.next);
   };
-  input.addEventListener("input", () => {
-    submit.classList.toggle("active", !!input.value.trim());
-  });
+  input.addEventListener("input", () => { submit.classList.toggle("active", !!input.value.trim()); });
   input.addEventListener("keydown", e => { if (e.key === "Enter") doSubmit(); });
   submit.addEventListener("click", doSubmit);
   input.focus();
 }
 
-// ─── Gender Select ────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// GENDER SELECT
+// ════════════════════════════════════════════════════
 function renderGenderSelect(node, container) {
   container.innerHTML = `
     <div id="gender-wrap">
@@ -878,7 +1161,10 @@ function renderGenderSelect(node, container) {
   });
 }
 
-// ─── Init ─────────────────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════
+initToolbar();
 renderGame();
 </script>
 </body>
