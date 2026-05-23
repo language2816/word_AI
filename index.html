@@ -22,6 +22,20 @@
   @keyframes pulseGold{ 0%,100%{box-shadow:0 0 0 rgba(180,155,90,0)} 50%{box-shadow:0 0 16px rgba(180,155,90,0.25)} }
 
   input::placeholder { color: rgba(120,115,100,0.4); }
+
+  /* 禁止遊戲內容被選取，防止點擊時反白 */
+  #game-window {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  /* input 和 textarea 仍可選取輸入 */
+  #game-window input,
+  #game-window textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    user-select: text;
+  }
   ::-webkit-scrollbar { width: 3px; }
   ::-webkit-scrollbar-thumb { background: rgba(180,155,90,0.2); }
   button { outline: none; font-family: inherit; }
@@ -300,7 +314,7 @@
   /* ── 角色立繪容器 ── */
   #character-sprite-wrap {
     position: absolute;
-    bottom: 80px;
+    bottom: 176px;   /* 貼齊對話框上緣：bottom-ui(24) + text-box(~120) + speaker-plate(~36) ≈ 176px */
     right: 16px;
     z-index: 3;
     pointer-events: none;
